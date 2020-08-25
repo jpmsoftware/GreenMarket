@@ -1,0 +1,137 @@
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3.5rem;
+    background-color: #fff;
+    display: none;
+    border-radius: 6px;
+    z-index: 2;
+    animation: FadeIn 0.5s 1;
+}
+
+#modal div:first-child .product-content {
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    right: 5%;
+    height: 2rem;
+}
+
+#modal hr {
+    margin-top: 1rem;
+    width: 2.5rem;
+    height: 0.5rem;
+    background-color: lightgray;
+    border: none;
+}
+
+.thumb-big {
+    width: 21rem;
+    height: 21rem;
+    margin: auto 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.product-info {
+    position: relative;
+    margin: auto 0;
+    margin-left: 2rem;
+    width: 21rem;
+    height: 21rem;
+}
+
+.product-info h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+}
+
+.product-info .price {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.buy-panel {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.buy-panel p {
+    margin: auto 0;
+}
+
+#cantidad {
+    margin: auto 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    outline: none;
+    border: 1px solid lightgray;
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+}
+
+.buy-controls {
+    height: 2rem;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.buy-controls img {
+    width: 15px;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    line-height: 3rem;
+    width: 9rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+.agregado {
+    background-color: #3BB143;
+    /*background: url('../img/tick.svg') no-repeat scroll 0 0 transparent;*/
+}
+
+.button:hover {
+    transition: all .4s;
+    background-color: rgba(10, 40, 50, 0.8);
+}
+
+#icon-close {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    cursor: pointer;
+}
+
+#dark-layer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    z-index: 1;
+    overflow: hidden;
+}

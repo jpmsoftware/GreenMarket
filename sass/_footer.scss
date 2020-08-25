@@ -1,0 +1,35 @@
+footer {
+    position: relative;
+    color: #fff;
+    margin-top: 20rem;
+    width: 100%;
+    background-color: #3BB143;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+footer > div {
+    width: 30%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .info {
+    display: flex;
+    flex-direction: column;
+}
+
+footer li {
+    margin: 0.5rem 0;
+}
+
+footer img {
+    margin-right: 1rem;
+}
+
+footer div h5 {
+    font-size: 20px;
+    letter-spacing: 2px;
+}

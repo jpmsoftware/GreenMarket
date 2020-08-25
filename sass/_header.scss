@@ -1,0 +1,179 @@
+header {    
+    padding: 0.5rem 0;
+    position: relative;
+    width: 100%;
+    background-color: #3BB143;
+    z-index: 4;
+}
+
+.logo img {
+    cursor: pointer;
+    margin: auto 0;
+    width: 14rem;
+    height: 100%;
+}
+
+#searchBox {
+    height: 2.25rem;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+#searchBox:focus {
+    transition: all .5s;
+    border: 1px solid #7a7aff;
+}
+
+.menu {
+    width: 100%;
+    position: relative;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.menu-item { flex: 1; }
+
+.menu-item a {
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.menu-item a:hover {
+    transition: all .3s;
+    color: #24eb60;
+}
+
+.menu-item:hover .submenu {
+    transition: all .5s;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+}
+
+.submenu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    padding: 1rem;
+    background-color: #3BB143;
+    color: #fff;
+    border-radius: 0 0 6px 6px;
+}
+
+.submenu-item {
+    padding: 0.75rem 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.submenu-item:hover {
+    transform: translateX(10px);
+    transition: all .4s;
+    color: #24eb60;
+}
+
+.user-data-container {
+    cursor: pointer;
+    margin: auto 0;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.user-data-container:hover .login {
+    display: flex;
+}
+
+#avatar {
+    margin: auto 0.5rem;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+}
+
+#user-name {
+    margin: auto 0;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+#shopping-data { position: relative; }
+
+#shopping-bag {
+    position: relative;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+#items-counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.login {
+    display: none;
+    position: absolute;
+    top: 85%;
+    left: 86%;
+    padding: 1rem;
+    background-color: #3BB143;
+    border-radius: 0 0 5px 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login h4 {
+    margin: 1.5rem 0 1rem 0;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+#userMail, #userPass {
+    display: block;
+    margin: 1rem auto;
+    height: 2rem;
+    outline: none;
+    border: none;
+    padding: 1rem;
+    color: gray;
+}
+
+.login p {
+    font-size: 14px;
+    color: #fff;
+}
+
+#btnIngresar {
+    cursor: pointer;
+    width: 80%;
+    display: block;
+    background-color: #000;
+    margin: 1rem auto;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+}
+
+#btnIngresar:hover {
+    background-color: rgba(0, 0, 0, .8);
+}

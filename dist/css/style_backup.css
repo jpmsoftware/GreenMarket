@@ -59,7 +59,6 @@ header {
 
 .agregado {
     background-color: #3BB143;
-    border: 2px solid red;
     /*background: url('../img/tick.svg') no-repeat scroll 0 0 transparent;*/
 }
 
@@ -362,7 +361,7 @@ h2 {
 .product-name {
     margin-top: 2rem;
     font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1px;
     font-size: 1.25rem;
 }
@@ -373,7 +372,7 @@ h2 {
     font-weight: normal;
     letter-spacing: 1px;
     color: rgb(0, 0, 0, .5);
-    font-size: 1.125rem;
+    font-size: 0.9em;
 }
 
 .product-price {
@@ -381,6 +380,7 @@ h2 {
     font-family: 'Palatino';
     font-size: 1.5rem;
     font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .product-content {
@@ -511,7 +511,6 @@ footer div h5 {
     outline: none;
     border: 1px solid lightgray;
     text-align: center;
-    font-weight: bold;
     font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     color: #000;
@@ -535,11 +534,12 @@ footer div h5 {
     cursor: pointer;
     background-color: #000;
     color: #fff;
-    padding: 1rem 3rem;
+    line-height: 3rem;
+    width: 9rem;
     border: none;
     border-radius: 2px;
     outline: none;
-    font-size: 1rem;
+    font-size: 0.9em;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
 }
