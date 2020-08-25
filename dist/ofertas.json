@@ -1,0 +1,86 @@
+[
+        {
+                "img": "./img/thumb_001.png",
+                "nombre": "Sustituto del huevo",
+                "marca": "Orgran",
+                "cantidad": "250 g",
+                "precio": 215
+        },
+        {
+                "img": "./img/thumb_002.png",
+                "nombre": "Levadura nutricional",
+                "marca": "Prana",
+                "cantidad": "85 g",
+                "precio": 280
+        },
+        {
+                "img": "./img/thumb_003.png",
+                "nombre": "Pan integral",
+                "marca": "La sin rival",
+                "cantidad": "390 g",
+                "precio": 120
+        },
+        {
+                "img": "./img/thumb_004.png",
+                "nombre": "Carne picada",
+                "marca": "Beyond Meat",
+                "cantidad": "250 g",
+                "precio": 400
+        },
+        {
+                "img": "./img/thumb_005.png",
+                "nombre": "Leche de almendras",
+                "marca": "Las hijas del carnicero",
+                "cantidad": "910 mL",
+                "precio": 170
+        },
+        {
+                "img": "./img/thumb_006.png",
+                "nombre": "Vegarella",
+                "marca": "Etosha",
+                "cantidad": "200 g",
+                "precio": 180
+        },
+        {
+                "img": "./img/thumb_007.png",
+                "nombre": "Mayonesa",
+                "marca": "Follow your heart",
+                "cantidad": "425 mL",
+                "precio": 265
+        },
+        {
+                "img": "./img/thumb_008.png",
+                "nombre": "Vegan Pizza",
+                "marca": "Etosha",
+                "cantidad": "400 g",
+                "precio": 330
+        },
+        {
+                "img": "./img/thumb_009.png",
+                "nombre": "Milanesa multicereal de trigo",
+                "marca": "Naturezas",
+                "cantidad": "400 g",
+                "precio": 350
+        },
+        {
+                "img": "./img/thumb_010.png",
+                "nombre": "Hamburguesa de col y quinoa",
+                "marca": "Ardo",
+                "cantidad": "1200 g",
+                "precio": 295
+        },
+        {
+                "img": "./img/thumb_011.png",
+                "nombre": "Tofu",
+                "marca": "Naturezas",
+                "cantidad": "500 g",
+                "precio": 210
+        },
+        {
+                "img": "./img/thumb_012.png",
+                "nombre": "Boniatos fritos",
+                "marca": "Ardo",
+                "cantidad": "450 g",
+                "precio": 125
+        }
+]
