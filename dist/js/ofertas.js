@@ -9,7 +9,7 @@ var start = 0, end = start + 3;
 window.onload = () => {
 
     //CARGAR DATOS DEMO
-    fetch("./ofertas.json")
+    fetch("./data/ofertas.json")
         .then(function (response) {
             return response.json();
         })

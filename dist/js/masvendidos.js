@@ -8,7 +8,7 @@ var start = 0, end = start + 3;
 window.onload = () => {
 
     //CARGAR DATOS DEMO
-    fetch("./masvendidos.json")
+    fetch("./data/masvendidos.json")
         .then(function (response) {
             return response.json();
         })

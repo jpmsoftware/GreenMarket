@@ -1,7 +1,4 @@
-cambiar logo (colores)
-slider muy grandes
 al tocar en la parte blanca de card - se abre producto que no debe
-implementar login form
 modal --> corregir contenido (position)
 responsive
 SASS - nesting
