@@ -1,6 +1,0 @@
-al tocar en la parte blanca de card - se abre producto que no debe
-modal --> corregir contenido (position)
-responsive
-SASS - nesting
-implementar listado por categoria
-footer - 3er columna + jpmsoftware logo

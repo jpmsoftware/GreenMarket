@@ -7,34 +7,6 @@ var ofertasIndex = 0;
 var start = 0, end = start + 3;
 
 window.onload = () => {
-
-    //CARGAR DATOS DEMO
-    fetch("./data/ofertas.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            let cardsFetched = '';
-            for (var i = 0; i < data.length; i++) {
-                cardsFetched += `
-                    <div class="card">
-                        <img src="${data[i].img}" alt="thumb" class="product-thumb">
-                        <p class="product-content">${data[i].cantidad}</p>
-                        <hr>
-                        <h4 class="product-name">${data[i].nombre}</h4>
-                        <h5 class="product-brand">${data[i].marca}</h5>
-                        <p class="product-price">$ ${data[i].precio}</p>
-                    </div>
-                `
-            }
-            let parent = document.querySelector('#content-ofertas');
-            parent.innerHTML = cardsFetched;
-            cardsOfertas = document.querySelectorAll('#content-ofertas .card');
-            //LOAD INITIAL DATA
-            for (var i = 0; i < cardsOfertas.length; i++) {
-                cardsOfertas[i].style.display = 'block';
-            }
-        })
     CountItems();
 }
 

@@ -4,67 +4,19 @@ header {
   padding: 0.5rem 0;
   position: relative;
   width: 100%;
-  background-color: #3BB143;
+  background-color: #3bb143;
   z-index: 4;
 }
 
 .logo {
   cursor: pointer;
-  margin: auto 0;
-  width: 14rem;
+  margin: auto 0 0 1.5em;
+  width: 12rem;
   height: 100%;
 }
 
-#searchBox {
-  height: 2.25rem;
-  outline: none;
-  border: none;
-  border-radius: 2px;
-  padding: 1rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-#searchBox:focus {
-  -webkit-transition: all .5s;
-  transition: all .5s;
-  border: 1px solid #7a7aff;
-}
-
-.menu {
-  width: 100%;
-  position: relative;
-  margin-top: 1rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.menu-item {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.menu-item a {
-  cursor: pointer;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 1px;
-}
-
-.menu-item a:hover {
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  color: #24eb60;
-}
-
-.menu-item:hover .submenu {
-  -webkit-transition: all .5s;
-  transition: all .5s;
+.menu-bars {
+  margin: auto 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,38 +24,80 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: absolute;
-  top: 100%;
-  z-index: 1;
-}
-
-.submenu {
-  display: none;
   cursor: pointer;
-  position: absolute;
-  top: 100%;
-  left: 0%;
+}
+
+.menu-bars div {
+  margin: 0.3em 0;
+  width: 2em;
+  border: 1px solid #fff;
+}
+
+.change .bar1 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+          transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: rotate(45deg) translate(-10px, -8px);
+          transform: rotate(45deg) translate(-10px, -8px);
+}
+
+#searchBox {
+  margin: auto 0;
+  width: 35%;
+  height: 3em;
+  outline: none;
+  border: 1px solid #aaaaaa;
+  border-radius: 2px;
   padding: 1rem;
-  background-color: #3BB143;
-  color: #fff;
-  border-radius: 0 0 6px 6px;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  background-color: #fff;
 }
 
-.submenu-item {
-  padding: 0.75rem 1rem;
+#searchBox:focus {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-box-shadow: 0px 0px 5px 2px #aeaeff;
+          box-shadow: 0px 0px 5px 2px #aeaeff;
+}
+
+::-webkit-input-placeholder {
   font-family: 'Roboto', sans-serif;
+  color: #adadad;
+  letter-spacing: 1px;
 }
 
-.submenu-item:hover {
-  -webkit-transform: translateX(10px);
-          transform: translateX(10px);
-  -webkit-transition: all .4s;
-  transition: all .4s;
-  color: #24eb60;
+:-ms-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+  color: #adadad;
+  letter-spacing: 1px;
+}
+
+::-ms-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+  color: #adadad;
+  letter-spacing: 1px;
+}
+
+::placeholder {
+  font-family: 'Roboto', sans-serif;
+  color: #adadad;
+  letter-spacing: 1px;
 }
 
 .user-data-container {
-  cursor: pointer;
   margin: auto 0;
   border-radius: 5px;
   z-index: 1;
@@ -125,7 +119,7 @@ header {
 #user-name {
   margin: auto 0;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
 }
 
@@ -148,7 +142,7 @@ header {
           transform: translate(-50%, -50%);
   font-size: 1rem;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .login {
@@ -157,9 +151,9 @@ header {
   top: 85%;
   left: 86%;
   padding: 1rem;
-  background-color: #3BB143;
+  background-color: #3bb143;
   border-radius: 0 0 5px 5px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .login h4 {
@@ -169,14 +163,16 @@ header {
   letter-spacing: 2px;
 }
 
-#userMail, #userPass {
+#userMail,
+#userPass {
   display: block;
   margin: 1rem auto;
   height: 2rem;
   outline: none;
   border: none;
   padding: 1rem;
-  color: gray;
+  color: #3a3a3a;
+  border-radius: 2px;
 }
 
 .login p {
@@ -185,19 +181,52 @@ header {
 }
 
 #btnIngresar {
+  margin: 1em 0;
   cursor: pointer;
-  width: 80%;
-  display: block;
+  width: 60%;
   background-color: #000;
-  margin: 1rem auto;
   color: #fff;
   padding: 0.5rem 1rem;
   border: none;
   outline: none;
+  border-radius: 2px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-family: 'Roboto', sans-serif;
 }
 
 #btnIngresar:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 12em;
+  padding: 0.5em 0 0 1em;
+  background: #3bb143;
+  border-radius: 0 0 4px 4px;
+  -webkit-animation: FadeIn .5s 1;
+          animation: FadeIn .5s 1;
+}
+
+.menu li {
+  margin: 1em 0;
+}
+
+.menu li:hover a {
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  color: #000;
+  margin-left: 0.5em;
+}
+
+.menu li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9em;
+  color: #fff;
 }
 
 footer {
@@ -245,12 +274,54 @@ footer div h5 {
   letter-spacing: 2px;
 }
 
+@media only screen and (max-width: 960px) {
+  header {
+    width: 100%;
+  }
+  header .wrapper {
+    width: 90%;
+  }
+  #searchBox {
+    display: none;
+  }
+  #user-name {
+    display: none;
+  }
+  .login {
+    position: absolute;
+    top: 85%;
+    left: 35%;
+  }
+  .slider-container {
+    display: none;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  .arrows {
+    display: none;
+  }
+  #ofertas {
+    border: 1px solid black;
+  }
+  #content-ofertas,
+  #content-mas-vendidos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    border: 1px solid blue;
+  }
+}
+
 #modal {
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  width: 45%;
   padding: 3.5rem;
   background-color: #fff;
   display: none;
@@ -263,7 +334,7 @@ footer div h5 {
 #modal div:first-child .product-content {
   display: block;
   position: absolute;
-  bottom: 0%;
+  bottom: 5%;
   right: 5%;
   height: 2rem;
 }
@@ -368,7 +439,6 @@ footer div h5 {
 
 .agregado {
   background-color: #3BB143;
-  /*background: url('../img/tick.svg') no-repeat scroll 0 0 transparent;*/
 }
 
 .button:hover {
@@ -434,14 +504,6 @@ footer div h5 {
   margin: auto 0;
 }
 
-::-moz-selection {
-  background-color: transparent;
-}
-
-::selection {
-  background-color: transparent;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -467,9 +529,7 @@ body {
 }
 
 .container {
-  margin: auto auto;
   position: relative;
-  width: 40%;
 }
 
 .slider-container {
@@ -557,24 +617,30 @@ h2 {
   position: relative;
   width: 17rem;
   height: 28rem;
-  border: 1px solid #BFBFBF;
   border-radius: 5px;
   background-color: #fff;
   -webkit-animation: FadeIn 1s 1;
           animation: FadeIn 1s 1;
+  border: 1px solid lightgray;
 }
 
-.card hr {
-  color: #BFBFBF;
+.card .container {
+  padding: 1em;
+  width: 100%;
+  height: 40%;
+}
+
+.separator {
+  border: 1px solid lightgrey;
 }
 
 .card:hover {
   -webkit-transition: all .3s;
   transition: all .3s;
   cursor: pointer;
-  border: 1px solid #4a4aff;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(112, 112, 124, 0.75);
-          box-shadow: 0px 0px 20px 0px rgba(112, 112, 124, 0.75);
+  border: 1px solid lightgrey;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(112, 112, 124, 0.75);
+          box-shadow: 0px 0px 15px 0px rgba(112, 112, 124, 0.75);
 }
 
 .card:hover .product-content {
@@ -587,11 +653,10 @@ h2 {
 }
 
 .product-name {
-  margin-top: 2rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   letter-spacing: 1px;
-  font-size: 1.25rem;
+  font-size: 1.1em;
 }
 
 .product-brand {
@@ -604,9 +669,9 @@ h2 {
 }
 
 .product-price {
-  margin-top: 1rem;
+  margin-top: 1em;
   font-family: 'Palatino';
-  font-size: 1.5rem;
+  font-size: 1.6em;
   font-weight: bold;
   letter-spacing: 2px;
 }
@@ -616,12 +681,13 @@ h2 {
   position: absolute;
   right: 8%;
   bottom: 43%;
-  width: 30%;
+  max-width: 40%;
   font-family: 'Inconsolata', monospace;
-  font-size: 1.125rem;
+  font-size: 0.9em;
   color: #fff;
   padding: 0.5rem 1rem;
-  background-color: #4a4aff;
+  background-color: #000;
+  opacity: .8;
   border-radius: 2px;
 }
 

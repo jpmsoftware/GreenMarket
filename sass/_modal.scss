@@ -3,6 +3,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 45%;
     padding: 3.5rem;
     background-color: #fff;
     display: none;
@@ -14,7 +15,7 @@
 #modal div:first-child .product-content {
     display: block;
     position: absolute;
-    bottom: 0%;
+    bottom: 5%;
     right: 5%;
     height: 2rem;
 }
@@ -110,7 +111,6 @@
 
 .agregado {
     background-color: #3BB143;
-    /*background: url('../img/tick.svg') no-repeat scroll 0 0 transparent;*/
 }
 
 .button:hover {

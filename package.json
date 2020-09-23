@@ -1,0 +1,28 @@
+{
+  "name": "vegan-store",
+  "version": "1.0.0",
+  "description": "Vegan E-Commerce Store",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpmsoftware/vegan-store-web.git"
+  },
+  "keywords": [
+    "ecommerce"
+  ],
+  "author": "JP",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpmsoftware/vegan-store-web/issues"
+  },
+  "homepage": "https://github.com/jpmsoftware/vegan-store-web#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4"
+  }
+}

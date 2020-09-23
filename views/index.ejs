@@ -5,30 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon" href="./img/favicon.svg">
-    <title>EVERGREEN | Vegan store</title>
+    <link rel="icon" href="../dist/img/favicon.svg">
+    <title>EVERGREEN | Tienda de productos veganos</title>
 </head>
 
 <body>
     <header>
         <div class="wrapper flex fr">
-            <a href=""><img class="logo" src="./img/logo.svg" class="logo"></a>
-            <div class="container flex fc">
-                <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
-                <nav class="menu flex fr">
-                    <li class="menu-item"><a href="javascript:void(0)">Categorías</a>
-                        <ul class="submenu fc">
-                            <li class="submenu-item"><a href="javascript:void(0)"></a>Desayuno</li>
-                            <li class="submenu-item"><a href="javascript:void(0)"></a>Postres</li>
-                            <li class="submenu-item"><a href="javascript:void(0)"></a>Congelados</li>
-                            <li class="submenu-item"><a href="javascript:void(0)"></a>Cuidado personal</li>
-                            <li class="submenu-item"><a href="javascript:void(0)"></a>Limpieza</li>
-                        </ul>
-                    </li>
-                    <li class="menu-item"><a href="./ofertas.html">Ofertas</a></li>
-                    <li class="menu-item"><a href="./masvendidos.html">Más vendidos</a></li>
-                </nav>
+            <div class="container flex fr">
+                <div class="menu-bars">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <a href="/"><img class="logo" src="./img/logo.svg" class="logo"></a>
             </div>
+            <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
 
             <div class="user-data-container flex fr">
                 <img src="./img/avatar.svg" alt="avatar" id="avatar">
@@ -37,7 +29,6 @@
                     <img src="./img/shopping-bag.svg" alt="shopping" id="shopping-bag">
                     <p id="items-counter">0</p></img>
                 </div>
-
                 <div class="login fc">
                     <form action="">
                         <h4>INICIAR SESIÓN</h4>
@@ -45,10 +36,18 @@
                         <input type="password" name="userPass" id="userPass" placeholder="Clave" required>
                         <input type="submit" id="btnIngresar" value="INGRESAR">
                         <p>¿Aún no tiene cuenta?</p>
-                        <p><strong>Registrarse</strong></p>
+                        <a href="/register">
+                            <p><mark>Registrarse</mark></p>
+                        </a>
                     </form>
                 </div>
             </div>
+            <nav class="menu">
+                <li><a href="/desayuno">Desayuno</a></li>
+                <li><a href="/congelados">Congelados</a></li>
+                <li><a href="/leches_vegetales">Leches vegetales</a></li>
+                <li><a href="/postres">Postres</a></li>
+            </nav>
         </div>
     </header>
 
@@ -69,33 +68,59 @@
             <h2>OFERTAS</h2>
             <hr class="line">
         </div>
-        <img src="./img/arrow_left.svg" alt="left" id="arrow-left">
-        <img src="./img/arrow_right.svg" alt="right" id="arrow-right">
+        <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
+        <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-ofertas">
-            <!-- =================== -->
-            <!-- LOAD DATA FROM JSON -->
-            <!-- =================== -->
+            <script>
+                var ofertas = '<%- ofertas.ofertas %>';
+            </script>
+
+            <% for (var i = 0; i < 4; i++) { %>
+            <div class="card">
+                <img src="../dist/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
+                <p class="product-content"><%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %></p>
+                <hr class="separator">
+                <div class="container fc">
+                    <h4 class="product-name"><%= ofertas.ofertas[i].nombre %></h4>
+                    <h5 class="product-brand"><%= ofertas.ofertas[i].marca %></h5>
+                    <p class="product-price">$ <%= ofertas.ofertas[i].precio %></p>
+                </div>
+            </div>
+            <% } %>
         </div>
     </section>
+
     <section id="masvendidos">
         <div class="wrapper flex fr">
             <hr class="line">
             <h2>MÁS VENDIDOS</h2>
             <hr class="line">
         </div>
-        <img src="./img/arrow_left.svg" alt="left" id="arrow-left">
-        <img src="./img/arrow_right.svg" alt="right" id="arrow-right">
+        <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
+        <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-mas-vendidos">
-            <!-- =================== -->
-            <!-- LOAD DATA FROM JSON -->
-            <!-- =================== -->
+            <script>
+                var masvendidos = '<%- masvendidos.masvendidos %>';
+            </script>
+            <% for (var i = 0; i < 4; i++) { %>
+            <div class="card">
+                <img src="../dist/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb" class="product-thumb">
+                <p class="product-content"><%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
+                <hr class="separator">
+                <div class="container fc">
+                    <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
+                    <h5 class="product-brand"><%= masvendidos.masvendidos[i].marca %></h5>
+                    <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %></p>
+                </div>
+            </div>
+            <% } %>
         </div>
     </section>
 
     <section id="modal">
         <div style="position: relative;">
             <p class="product-content">390 mL</p>
-            <img src="./img/thumb_007.png" alt="thumb" class="thumb-big">
+            <img src="" alt="thumb" class="thumb-big">
         </div>
         <div class="product-info">
             <h1>Mayonesa</h1>
@@ -131,6 +156,12 @@
                 <li><img src="./img/icon-location.svg" alt="">Av. Magallanes 3562</li>
                 <li><img src="./img/icon-telephone.svg" alt="">2568 9520</li>
                 <li><img src="./img/icon-mail.svg" alt="">contacto@tiendavegana.com.uy</li>
+            </div>
+            <div class="info">
+                <h5>INFO</h5>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
             </div>
         </div>
     </footer>

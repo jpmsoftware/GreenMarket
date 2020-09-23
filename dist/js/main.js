@@ -5,88 +5,57 @@ var sliderControls = document.querySelectorAll('.slider-circles div');
 var modal = document.getElementById('modal');
 var darkLayer = document.getElementById('dark-layer');
 var itemsCounter = document.getElementById('items-counter');
+const arrows = document.querySelectorAll('.arrows');
 var sliderIndex = 0;
 var cardsOfertas = '';
+var cards = document.querySelectorAll('.card');
 var cardsMasVendidos = '';
-var ofertasIndex = 0;
-var masVendidosIndex = 0;
-var start = 0, end = start + 3;
+var menuIcon = document.querySelector('.menu-bars');
+var menu = document.querySelector('.menu');
 
-window.onload = () => {
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('change');
 
-    //CARGAR DATOS DEMO
-    fetch("./data/ofertas.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            let cardsFetched = '';
-            for (var i = 0; i < data.length; i++) {
-                cardsFetched += `
-                    <div class="card">
-                        <img src="${data[i].img}" alt="thumb" class="product-thumb">
-                        <p class="product-content">${data[i].cantidad}</p>
-                        <hr>
-                        <h4 class="product-name">${data[i].nombre}</h4>
-                        <h5 class="product-brand">${data[i].marca}</h5>
-                        <p class="product-price">$ ${data[i].precio}</p>
-                    </div>
-                `
-            }
-            let parent = document.querySelector('#content-ofertas');
-            parent.innerHTML = cardsFetched;
-            cardsOfertas = document.querySelectorAll('#content-ofertas .card');
-            //LOAD INITIAL DATA
-            for (var i = 0; i < cardsOfertas.length; i++) {
-                if (i < 4) {
-                    cardsOfertas[i].style.display = 'block';
-                } else {
-                    cardsOfertas[i].style.display = 'none';
-                }
-            }
-        })
-
-    fetch("./data/masvendidos.json")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            let cardsFetched = '';
-            for (var i = 0; i < data.length; i++) {
-                cardsFetched += `
-                    <div class="card">
-                        <img src="${data[i].img}" alt="thumb" class="product-thumb">
-                        <p class="product-content">${data[i].cantidad}</p>
-                        <hr>
-                        <h4 class="product-name">${data[i].nombre}</h4>
-                        <h5 class="product-brand">${data[i].marca}</h5>
-                        <p class="product-price">$ ${data[i].precio}</p>
-                    </div>
-                `
-            }
-            let parent = document.querySelector('#content-mas-vendidos');
-            parent.innerHTML = cardsFetched;
-            cardsMasVendidos = document.querySelectorAll('#content-mas-vendidos .card');
-            //LOAD INITIAL DATA
-            for (var i = 0; i < cardsMasVendidos.length; i++) {
-                if (i < 4) {
-                    cardsMasVendidos[i].style.display = 'block';
-                } else {
-                    cardsMasVendidos[i].style.display = 'none';
-                }
-
-            }
-        })
-    CountItems();
-    AutoSlide(sliderIndex);
-}
-
-window.onclick = function (e) {
-    if (e.target.id == 'dark-layer') {
-        CloseModal();
+    if (menu.style.display == 'none' || menu.style.display == '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
     }
 
-    if (e.target.className == 'circle') {
+}
+
+arrows.forEach((element) => {
+    element.addEventListener('click', (e) => { Arrows(e) });
+});
+
+cards.forEach((element) => {
+    element.addEventListener('click', (e) => {
+
+        var padre = e.target.parentElement;
+        var producto = {};
+
+        if (padre.className != 'card') {
+            // subir un nivel
+            padre = padre.parentElement;
+        }
+
+        // construir objeto producto
+        producto = {
+            nombre: padre.querySelector('.product-name').innerHTML,
+            marca: padre.querySelector('.product-brand').innerHTML,
+            precio: padre.querySelector('.product-price').innerHTML,
+            content: padre.querySelector('.product-content').innerHTML,
+            img: padre.querySelector('.product-thumb').src
+        }
+
+        console.log(producto);
+
+        OpenModal(producto);
+    });
+});
+
+sliderControls.forEach((element) => {
+    element.addEventListener('click', (e) => {
         for (var i = 0; i < sliderControls.length; i++) {
             //get clicked index
             if (sliderControls[i] == e.target) {
@@ -94,35 +63,17 @@ window.onclick = function (e) {
                 AutoSlide();
             }
         }
-    }
+    });
+});
 
-    if (e.target.parentElement.className == 'card' || e.target.className == 'card') {
-        //get clicked card values
-        var product = {
-            nombre: e.target.parentElement.getElementsByClassName('product-name')[0].innerHTML,
-            marca: e.target.parentElement.getElementsByClassName('product-brand')[0].innerHTML,
-            precio: e.target.parentElement.getElementsByClassName('product-price')[0].innerHTML,
-            content: e.target.parentElement.getElementsByClassName('product-content')[0].innerHTML,
-            img: e.target.parentElement.getElementsByClassName('product-thumb')[0].src
-        }
-        OpenModal(product);
-    }
+window.onload = () => {
+    CountItems();
+    AutoSlide(sliderIndex);
+}
 
-    if (e.target.parentElement.id == 'ofertas') {
-        if (e.target.id == 'arrow-left') {
-            Pagination('ofertas', 'down');
-        }
-        if (e.target.id == 'arrow-right') {
-            Pagination('ofertas', 'up');
-        }
-    }
-    if (e.target.parentElement.id == 'masvendidos') {
-        if (e.target.id == 'arrow-left') {
-            Pagination('masvendidos', 'down');
-        }
-        if (e.target.id == 'arrow-right') {
-            Pagination('masvendidos', 'up');
-        }
+window.onclick = function (e) {
+    if (e.target.id == 'dark-layer') {
+        CloseModal();
     }
 }
 
@@ -167,23 +118,45 @@ modal.onclick = (e) => {
 
 function AutoSlide() {
     clearTimeout(timer);
+
     if (sliderIndex > 2) { sliderIndex = 0; }
+
     PaintControls();
-    //RESET ALL
+
+    // Reset all
     for (var i = 0; i < sliders.length; i++) {
         sliders[i].style.display = 'none';
     }
+
     sliders[sliderIndex].style.display = 'block';
+
     sliderIndex++;
+
     timer = setTimeout(AutoSlide, 5000);
 }
 
 function PaintControls() {
-    //RESET ALL
+
+    // Reset all
     for (var i = 0; i < sliderControls.length; i++) {
         sliderControls[i].style.background = 'transparent';
     }
+
     sliderControls[sliderIndex].style.background = '#fff';
+}
+
+function Arrows(e) {
+    // Recorrer array y mostrar acorde
+    var seccion = e.target.parentElement.id;
+    var direccion = e.target.name;
+    console.log(ofertas.end);
+
+    for (let i = ofertas.start; i < ofertas.end; i++) {
+        // Dirección
+        ofertas[i].nombre;
+    }
+
+    seccion.start = seccion.end + 1;
 }
 
 function Pagination(section, direction) {

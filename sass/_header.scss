@@ -1,91 +1,71 @@
-header {    
+header {
     padding: 0.5rem 0;
     position: relative;
     width: 100%;
-    background-color: #3BB143;
+    background-color: #3bb143;
     z-index: 4;
 }
 
 .logo {
     cursor: pointer;
-    margin: auto 0;
-    width: 14rem;
+    margin: auto 0 0 1.5em;
+    width: 12rem;
     height: 100%;
 }
 
+.menu-bars {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-bars div {
+    margin: 0.3em 0;
+    width: 2em;
+    border: 1px solid #fff;
+}
+
+.change .bar1 {
+    transition: all 0.3s;
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.change .bar3 {
+    transition: all 0.3s;
+    transform: rotate(45deg) translate(-10px, -8px);
+}
+
 #searchBox {
-    height: 2.25rem;
+    margin: auto 0;
+    width: 35%;
+    height: 3em;
     outline: none;
-    border: none;
+    border: 1px solid rgb(170, 170, 170);
     border-radius: 2px;
     padding: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1px;
+    background-color: #fff;
 }
 
 #searchBox:focus {
-    transition: all .5s;
-    border: 1px solid #7a7aff;
+    transition: all 0.2s;
+    box-shadow: 0px 0px 5px 2px #aeaeff;
 }
 
-.menu {
-    width: 100%;
-    position: relative;
-    margin-top: 1rem;
-    justify-content: space-between;
-}
-
-.menu-item { flex: 1; }
-
-.menu-item a {
-    cursor: pointer;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-    color: #fff;
+::placeholder {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    color: #adadad;
     letter-spacing: 1px;
 }
 
-.menu-item a:hover {
-    transition: all .3s;
-    color: #24eb60;
-}
-
-.menu-item:hover .submenu {
-    transition: all .5s;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    z-index: 1;
-}
-
-.submenu {
-    display: none;
-    cursor: pointer;
-    position: absolute;
-    top: 100%;
-    left: 0%;
-    padding: 1rem;
-    background-color: #3BB143;
-    color: #fff;
-    border-radius: 0 0 6px 6px;
-}
-
-.submenu-item {
-    padding: 0.75rem 1rem;
-    font-family: 'Roboto', sans-serif;
-}
-
-.submenu-item:hover {
-    transform: translateX(10px);
-    transition: all .4s;
-    color: #24eb60;
-}
-
 .user-data-container {
-    cursor: pointer;
     margin: auto 0;
     border-radius: 5px;
     z-index: 1;
@@ -105,11 +85,13 @@ header {
 #user-name {
     margin: auto 0;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: 1rem;
 }
 
-#shopping-data { position: relative; }
+#shopping-data {
+    position: relative;
+}
 
 #shopping-bag {
     position: relative;
@@ -125,9 +107,8 @@ header {
     transform: translate(-50%, -50%);
     font-size: 1rem;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
-
 
 .login {
     display: none;
@@ -135,9 +116,9 @@ header {
     top: 85%;
     left: 86%;
     padding: 1rem;
-    background-color: #3BB143;
+    background-color: #3bb143;
     border-radius: 0 0 5px 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .login h4 {
@@ -147,14 +128,16 @@ header {
     letter-spacing: 2px;
 }
 
-#userMail, #userPass {
+#userMail,
+#userPass {
     display: block;
     margin: 1rem auto;
     height: 2rem;
     outline: none;
     border: none;
     padding: 1rem;
-    color: gray;
+    color: rgb(58, 58, 58);
+    border-radius: 2px;
 }
 
 .login p {
@@ -163,17 +146,47 @@ header {
 }
 
 #btnIngresar {
+    margin: 1em 0;
     cursor: pointer;
-    width: 80%;
-    display: block;
+    width: 60%;
     background-color: #000;
-    margin: 1rem auto;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
+    border-radius: 2px;
+    align-self: flex-end;
+    font-family: 'Roboto', sans-serif;
 }
 
 #btnIngresar:hover {
-    background-color: rgba(0, 0, 0, .8);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 12em;
+    padding: 0.5em 0 0 1em;
+    background: #3bb143;
+    border-radius: 0 0 4px 4px;
+    animation: FadeIn .5s 1;
+}
+
+.menu li {
+    margin: 1em 0;
+}
+
+.menu li:hover a {
+    transition: all .4s;
+    color: #000;
+    margin-left: 0.5em;
+}
+
+.menu li a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    color: #fff;
 }
