@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // HEROKU
-const db = mysql.createPool({
+const db = mysql.createConnection({
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'ba94dc5d9217d1',
     password: 'fb6a7b97',
