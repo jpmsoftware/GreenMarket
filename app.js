@@ -4,12 +4,21 @@ const ejs = require('ejs');
 const path = require('path');
 const app = express();
 
+// HEROKU
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '2486MySql',
-    database: 'veganstore'
+    host: 'us-cdbr-east-02.cleardb.com',
+    user: 'ba94dc5d9217d1',
+    password: 'fb6a7b97',
+    database: 'heroku_b3afa98c5357429'
 });
+
+// LOCAL ----
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '2486MySql',
+//     database: 'veganstore'
+// });
 
 db.connect((err) => {
     if (err) throw err;
