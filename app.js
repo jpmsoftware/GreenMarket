@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
     db.query('CALL ListarMasVendidos()', (err, results) => {
         if (err) throw err;
         masvendidos = { masvendidos: results[0] };
+        console.log(ofertas);
         res.render('index', { ofertas, masvendidos });
     });
 });
