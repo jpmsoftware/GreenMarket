@@ -1,11 +1,11 @@
 -- ///////////////////////////////////// CREATE DATABASE ///////////////////////////////////////////
-DROP DATABASE IF EXISTS veganstore;
+DROP DATABASE IF EXISTS heroku_b3afa98c5357429;
 
-CREATE DATABASE veganstore;
+CREATE DATABASE heroku_b3afa98c5357429;
 
-USE veganstore;
+USE heroku_b3afa98c5357429;
 
-
+SET @@auto_increment_increment = 1;
 -- ///////////////////////////////////// CREATE TABLES ///////////////////////////////////////////
 CREATE TABLE usuarios (
 	id MEDIUMINT UNSIGNED AUTO_INCREMENT,
@@ -32,6 +32,8 @@ CREATE TABLE categorias (
     
     PRIMARY KEY(id)
 );
+
+ALTER TABLE categorias AUTO_INCREMENT = 1;
 
 CREATE TABLE productos (
 	id VARCHAR(20), -- pasar '0' para generar un id aleatorio

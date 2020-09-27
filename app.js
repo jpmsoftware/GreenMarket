@@ -37,18 +37,19 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
+    
     let ofertas;
     let masvendidos;
 
     db.query('CALL ListarOfertas()', (err, results) => {
         if (err) throw err;
+        console.log(results[0]);
         ofertas = { ofertas: results[0] };
     });
 
     db.query('CALL ListarMasVendidos()', (err, results) => {
         if (err) throw err;
         masvendidos = { masvendidos: results[0] };
-        console.log(ofertas);
         res.render('index', { ofertas, masvendidos });
     });
 });
@@ -56,6 +57,7 @@ app.get('/', (req, res) => {
 app.get('/index', (req, res) => {
     db.query('CALL ListarOfertas()', (err, results) => {
         if (err) throw err;
+        
         let obj = { ofertas: results[0] };
         res.render('index', obj);
     });
