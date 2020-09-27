@@ -52,8 +52,6 @@ app.get('/', (req, res) => {
         masvendidos = { masvendidos: results[0] };
         res.render('index', { ofertas, masvendidos });
     });
-
-    db.end();
 });
 
 app.get('/index', (req, res) => {
