@@ -19,7 +19,7 @@ db.connect((err) => {
 
  db.on('error', (err) => {
      console.log('error: ', err);
-     if (err.code === 'PROTOCOL_db_LOST') {
+     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
          db = mysql.createConnection({
              host: 'us-cdbr-east-02.cleardb.com',
              user: 'b6ae1a871398a5',
