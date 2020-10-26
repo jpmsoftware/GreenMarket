@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3000;
 // HEROKU
 const db = mysql.createConnection({
     host: 'us-cdbr-east-02.cleardb.com',
-    user: 'ba94dc5d9217d1',
-    password: 'fb6a7b97',
-    database: 'heroku_b3afa98c5357429'
+    user: 'b6ae1a871398a5',
+    password: '244d978e',
+    database: 'heroku_6d2c22a8b4b5522'
 });
 
 // LOCAL ----
