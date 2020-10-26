@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const db = mysql.createConnection({
+var db = mysql.createConnection({
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'b6ae1a871398a5',
     password: '244d978e',
@@ -20,12 +20,16 @@ db.connect((err) => {
  db.on('error', (err) => {
      console.log('error: ', err);
      if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-         db = mysql.createConnection({
-             host: 'us-cdbr-east-02.cleardb.com',
-             user: 'b6ae1a871398a5',
-             password: '244d978e',
-             database: 'heroku_6d2c22a8b4b5522'
-         });
+        var db = mysql.createConnection({
+            host: 'us-cdbr-east-02.cleardb.com',
+            user: 'b6ae1a871398a5',
+            password: '244d978e',
+            database: 'heroku_6d2c22a8b4b5522'
+        });
+         db.connect((err) => {
+            if (err) throw err;
+            console.log('mysql connected');
+        });
      } else {
          throw err;
      }
