@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
     host: 'us-cconnectionr-east-02.clearconnection.com',
     user: 'b6ae1a871398a5',
     password: '244d978e',
@@ -17,19 +17,19 @@ connection.connect((err) => {
     console.log('mysql connected');
 });
 
-connection.on('error', (err) => {
-    console.log('error: ', err);
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-        connection = mysql.createConnection({
-            host: 'us-cconnectionr-east-02.clearconnection.com',
-            user: 'b6ae1a871398a5',
-            password: '244d978e',
-            database: 'heroku_6d2c22a8b4b5522'
-        });
-    } else {
-        throw err;
-    }
-});
+// connection.on('error', (err) => {
+//     console.log('error: ', err);
+//     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+//         connection = mysql.createConnection({
+//             host: 'us-cconnectionr-east-02.clearconnection.com',
+//             user: 'b6ae1a871398a5',
+//             password: '244d978e',
+//             database: 'heroku_6d2c22a8b4b5522'
+//         });
+//     } else {
+//         throw err;
+//     }
+// });
 
 
 app.use(express.static(path.join(__dirname, '/dist')));
