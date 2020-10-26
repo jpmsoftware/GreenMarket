@@ -18,8 +18,8 @@ db.connect((err) => {
 });
 
  db.on('error', (err) => {
-     console.log('error: ', err);
-     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+     console.log('_error: ', err);
+    //  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
         var db = mysql.createConnection({
             host: 'us-cdbr-east-02.cleardb.com',
             user: 'b6ae1a871398a5',
@@ -30,9 +30,9 @@ db.connect((err) => {
             if (err) throw err;
             console.log('mysql connected');
         });
-     } else {
-         throw err;
-     }
+    //  } else {
+    //      throw err;
+    //  }
  });
 
 app.use(express.static(path.join(__dirname, '/dist')));
