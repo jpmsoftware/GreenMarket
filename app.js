@@ -5,26 +5,32 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// HEROKU
-const db = mysql.createConnection({
+var db_config = {
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'b6ae1a871398a5',
     password: '244d978e',
     database: 'heroku_6d2c22a8b4b5522'
-});
-
-// LOCAL ----
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '2486MySql',
-//     database: 'veganstore'
-// });
+}
 
 db.connect((err) => {
     if (err) throw err;
     console.log('mysql connected');
 });
+
+db.on('error', (err) => {
+  console.log('error: ', err);
+  if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+    
+  } else {
+      throw err;
+  }
+});
+
+function connectToDB() {
+    const db = mysql.createConnection({ db_config });
+}
+
+connectToDB();
 
 app.use(express.static(path.join(__dirname, '/dist')));
 app.use('/dist', express.static(path.join(__dirname, '/dist')));

@@ -1,9 +1,9 @@
 -- ///////////////////////////////////// CREATE DATABASE ///////////////////////////////////////////
-DROP DATABASE IF EXISTS heroku_b3afa98c5357429;
+DROP DATABASE IF EXISTS heroku_6d2c22a8b4b5522;
 
-CREATE DATABASE heroku_b3afa98c5357429;
+CREATE DATABASE heroku_6d2c22a8b4b5522;
 
-USE heroku_b3afa98c5357429;
+USE heroku_6d2c22a8b4b5522;
 
 SET @@auto_increment_increment = 1;
 -- ///////////////////////////////////// CREATE TABLES ///////////////////////////////////////////
