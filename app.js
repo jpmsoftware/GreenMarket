@@ -21,8 +21,6 @@ const db = mysql.createConnection({
 //     database: 'veganstore'
 // });
 
-// mysql --host=us-cdbr-east-02.cleardb.com --user=ba94dc5d9217d1 --password=fb6a7b97 --reconnect heroku_b3afa98c5357429
-
 db.connect((err) => {
     if (err) throw err;
     console.log('mysql connected');
