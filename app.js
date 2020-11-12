@@ -28,7 +28,7 @@ db.connect((err) => {
         });
          db.connect((err) => {
             if (err) throw err;
-            console.log('mysql connected');
+            console.log('mysql se volvió a conectar...');
         });
     //  } else {
     //      throw err;
@@ -44,18 +44,6 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-
-    db = mysql.createConnection({
-        host: 'us-cdbr-east-02.cleardb.com',
-        user: 'b6ae1a871398a5',
-        password: '244d978e',
-        database: 'heroku_6d2c22a8b4b5522'
-    });
-    
-    db.connect((err) => {
-        if (err) throw err;
-        console.log('mysql connected');
-    });
 
     let ofertas;
     let masvendidos;
