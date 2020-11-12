@@ -18,7 +18,7 @@ db.connect((err) => {
 });
 
  db.on('error', (err) => {
-     console.log('_error: ', err);
+     console.log('el error es : ', err);
     //  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
         var db = mysql.createConnection({
             host: 'us-cdbr-east-02.cleardb.com',
@@ -45,12 +45,23 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => {
 
+    db = mysql.createConnection({
+        host: 'us-cdbr-east-02.cleardb.com',
+        user: 'b6ae1a871398a5',
+        password: '244d978e',
+        database: 'heroku_6d2c22a8b4b5522'
+    });
+    
+    db.connect((err) => {
+        if (err) throw err;
+        console.log('mysql connected');
+    });
+
     let ofertas;
     let masvendidos;
 
     db.query('CALL ListarOfertas()', (err, results) => {
         if (err) throw err;
-        console.log(results[0]);
         ofertas = { ofertas: results[0] };
     });
 
