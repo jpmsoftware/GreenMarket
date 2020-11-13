@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-var db = mysql.createConnection({
+var db = mysql.createPool({
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'b6ae1a871398a5',
     password: '244d978e',
@@ -58,6 +58,8 @@ app.get('/', (req, res) => {
         masvendidos = { masvendidos: results[0] };
         res.render('index', { ofertas, masvendidos });
     });
+
+    db.releaseConnection();
 });
 
 app.get('/index', (req, res) => {
@@ -72,6 +74,8 @@ app.get('/index', (req, res) => {
         if (err) throw err;
         let obj_masvendidos = { masvendidos: results[0] };
     });
+
+    db.releaseConnection();
 });
 
 app.get('/ofertas', (req, res) => {
@@ -81,6 +85,7 @@ app.get('/ofertas', (req, res) => {
         let obj = { ofertas: results[0] };
         res.render('ofertas', obj);
     });
+    db.releaseConnection();
 });
 
 app.get('/masvendidos', (req, res) => {
@@ -90,4 +95,5 @@ app.get('/masvendidos', (req, res) => {
         let obj = { masvendidos: results[0] };
         res.render('masvendidos', obj);
     });
+    db.releaseConnection();
 });
