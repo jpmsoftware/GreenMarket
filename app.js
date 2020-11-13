@@ -5,28 +5,28 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-var db = mysql.createPool({
+var connection = mysql.createPool({
     host: 'us-cdbr-east-02.cleardb.com',
     user: 'b6ae1a871398a5',
     password: '244d978e',
     database: 'heroku_6d2c22a8b4b5522'
 });
 
-db.connect((err) => {
+connection.connect((err) => {
     if (err) throw err;
     console.log('mysql connected');
 });
 
- db.on('error', (err) => {
+ connection.on('error', (err) => {
      console.log('el error es : ', err);
     //  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-        var db = mysql.createConnection({
+        var connection = mysql.createConnection({
             host: 'us-cdbr-east-02.cleardb.com',
             user: 'b6ae1a871398a5',
             password: '244d978e',
             database: 'heroku_6d2c22a8b4b5522'
         });
-         db.connect((err) => {
+         connection.connect((err) => {
             if (err) throw err;
             console.log('mysql se volvió a conectar...');
         });
@@ -48,52 +48,52 @@ app.get('/', (req, res) => {
     let ofertas;
     let masvendidos;
 
-    db.query('CALL ListarOfertas()', (err, results) => {
+    connection.query('CALL ListarOfertas()', (err, results) => {
         if (err) throw err;
         ofertas = { ofertas: results[0] };
     });
 
-    db.query('CALL ListarMasVendidos()', (err, results) => {
+    connection.query('CALL ListarMasVendidos()', (err, results) => {
         if (err) throw err;
         masvendidos = { masvendidos: results[0] };
         res.render('index', { ofertas, masvendidos });
     });
 
-    db.releaseConnection();
+    connection.releaseConnection();
 });
 
 app.get('/index', (req, res) => {
-    db.query('CALL ListarOfertas()', (err, results) => {
+    connection.query('CALL ListarOfertas()', (err, results) => {
         if (err) throw err;
 
         let obj = { ofertas: results[0] };
         res.render('index', obj);
     });
 
-    db.query('CALL ListarMasVendidos()', (err, results) => {
+    connection.query('CALL ListarMasVendidos()', (err, results) => {
         if (err) throw err;
         let obj_masvendidos = { masvendidos: results[0] };
     });
 
-    db.releaseConnection();
+    connection.releaseConnection();
 });
 
 app.get('/ofertas', (req, res) => {
     let query = 'CALL ListarOfertas()';
-    db.query(query, (err, results) => {
+    connection.query(query, (err, results) => {
         if (err) throw err;
         let obj = { ofertas: results[0] };
         res.render('ofertas', obj);
     });
-    db.releaseConnection();
+    connection.releaseConnection();
 });
 
 app.get('/masvendidos', (req, res) => {
     let query = 'CALL ListarMasVendidos()';
-    db.query(query, (err, results) => {
+    connection.query(query, (err, results) => {
         if (err) throw err;
         let obj = { masvendidos: results[0] };
         res.render('masvendidos', obj);
     });
-    db.releaseConnection();
+    connection.releaseConnection();
 });
