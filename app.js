@@ -12,29 +12,6 @@ var connection = mysql.createPool({
     database: 'heroku_6d2c22a8b4b5522'
 });
 
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('mysql connected');
-});
-
- connection.on('error', (err) => {
-     console.log('el error es : ', err);
-    //  if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-        var connection = mysql.createConnection({
-            host: 'us-cdbr-east-02.cleardb.com',
-            user: 'b6ae1a871398a5',
-            password: '244d978e',
-            database: 'heroku_6d2c22a8b4b5522'
-        });
-         connection.connect((err) => {
-            if (err) throw err;
-            console.log('mysql se volvió a conectar...');
-        });
-    //  } else {
-    //      throw err;
-    //  }
- });
-
 app.use(express.static(path.join(__dirname, '/dist')));
 app.use('/dist', express.static(path.join(__dirname, '/dist')));
 app.set('view engine', 'ejs');
@@ -59,7 +36,6 @@ app.get('/', (req, res) => {
         res.render('index', { ofertas, masvendidos });
     });
 
-    connection.releaseConnection();
 });
 
 app.get('/index', (req, res) => {
@@ -75,7 +51,6 @@ app.get('/index', (req, res) => {
         let obj_masvendidos = { masvendidos: results[0] };
     });
 
-    connection.releaseConnection();
 });
 
 app.get('/ofertas', (req, res) => {
@@ -85,7 +60,6 @@ app.get('/ofertas', (req, res) => {
         let obj = { ofertas: results[0] };
         res.render('ofertas', obj);
     });
-    connection.releaseConnection();
 });
 
 app.get('/masvendidos', (req, res) => {
@@ -95,5 +69,4 @@ app.get('/masvendidos', (req, res) => {
         let obj = { masvendidos: results[0] };
         res.render('masvendidos', obj);
     });
-    connection.releaseConnection();
 });
