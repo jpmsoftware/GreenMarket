@@ -1,41 +1,10 @@
 var body = document.querySelector('html');
 var modal = document.getElementById('modal');
 var darkLayer = document.getElementById('dark-layer');
-var itemsCounter = document.getElementById('items-counter');
-var cardsOfertas = '';
-var ofertasIndex = 0;
-var start = 0, end = start + 3;
-
-window.onload = () => {
-    CountItems();
-}
 
 window.onclick = function (e) {
-
     if (e.target.id == 'dark-layer') {
         CloseModal();
-    }
-
-    if (e.target.parentElement.className == 'card' || e.target.className == 'card') {
-        
-        //get clicked card values
-        var product = {
-            nombre: e.target.parentElement.getElementsByClassName('product-name')[0].innerHTML,
-            marca: e.target.parentElement.getElementsByClassName('product-brand')[0].innerHTML,
-            precio: e.target.parentElement.getElementsByClassName('product-price')[0].innerHTML,
-            content: e.target.parentElement.getElementsByClassName('product-content')[0].innerHTML,
-            img: e.target.parentElement.getElementsByClassName('product-thumb')[0].src
-        }
-        OpenModal(product);
-    }
-
-    if (e.target.parentElement.id == 'ofertas') {
-        if (e.target.id == 'arrow-left') {
-            Pagination('ofertas', 'down');
-        }
-        if (e.target.id == 'arrow-right') {
-            Pagination('ofertas', 'up');
-        }
     }
 }
 
@@ -100,20 +69,6 @@ function CloseModal() {
     document.getElementById('cantidad').value = 1;
     document.getElementById('agregar').style.background = '#000';
     document.getElementById('agregar').innerHTML = 'Agregar';
-}
-
-function CountItems() {
-    let total = 0;
-    if (sessionStorage.getItem('productos')) {
-        let productos = JSON.parse(sessionStorage.getItem('productos'));
-        for (var i = 0; i < productos.length; i++) {
-            total += productos[i].cantidad;
-        }
-    }
-    else {
-        total = 0;
-    }
-    itemsCounter.innerHTML = total;
 }
 
 function UnifyItems() {

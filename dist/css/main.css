@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap");
+
 header {
   padding: 0.5rem 0;
   position: relative;
@@ -15,7 +16,7 @@ header {
   height: 100%;
 }
 
-.menu-bars {
+.burger {
   margin: auto 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,7 +28,7 @@ header {
   cursor: pointer;
 }
 
-.menu-bars div {
+.burger div {
   margin: 0.3em 0;
   width: 2em;
   border: 1px solid #fff;
@@ -124,12 +125,12 @@ header {
 }
 
 #shopping-data {
+  cursor: pointer;
   position: relative;
 }
 
 #shopping-bag {
   position: relative;
-  cursor: pointer;
   width: 3.5rem;
   height: 3.5rem;
 }
@@ -236,8 +237,7 @@ footer {
   width: 100%;
   background-color: #3BB143;
   font-family: 'Roboto', sans-serif;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding: 3em;
 }
 
 footer > div {
@@ -274,46 +274,7 @@ footer div h5 {
   letter-spacing: 2px;
 }
 
-@media only screen and (max-width: 960px) {
-  header {
-    width: 100%;
-  }
-  header .wrapper {
-    width: 90%;
-  }
-  #searchBox {
-    display: none;
-  }
-  #user-name {
-    display: none;
-  }
-  .login {
-    position: absolute;
-    top: 85%;
-    left: 35%;
-  }
-  .slider-container {
-    display: none;
-  }
-  h2 {
-    font-size: 1em;
-  }
-  .arrows {
-    display: none;
-  }
-  #ofertas {
-    border: 1px solid black;
-  }
-  #content-ofertas,
-  #content-mas-vendidos {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    width: 100%;
-    border: 1px solid blue;
-  }
-}
+
 
 #modal {
   position: fixed;
@@ -691,7 +652,53 @@ h2 {
   border-radius: 2px;
 }
 
-@-webkit-keyframes FadeIn {
+@media only screen and (max-width: 960px) {
+  header {
+    width: 100%;
+  }
+  header .wrapper {
+    width: 90%;
+  }
+  #searchBox {
+    display: none;
+  }
+  .card {
+    margin: 1em auto; 
+  }
+  #user-name {
+    display: none;
+  }
+  .login {
+    position: absolute;
+    top: 85%;
+    left: 35%;
+  }
+  .slider-container {
+    display: none;
+  }
+  h2 {
+    font-size: 1em;
+  }
+  .arrows {
+    display: none;
+  }
+  #content-ofertas,
+  #content-mas-vendidos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  .product-thumb {
+    margin: 0 auto;
+  }
+  footer * {
+    display: none;
+  }
+}
+
+@keyframes FadeIn {
   0% {
     opacity: 0;
   }
@@ -726,4 +733,3 @@ h2 {
     margin-top: 200px;
   }
 }
-/*# sourceMappingURL=main.css.map */

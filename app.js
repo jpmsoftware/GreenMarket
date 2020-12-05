@@ -2,26 +2,24 @@ const express = require('express');
 const mysql = require('mysql');
 const ejs = require('ejs');
 const path = require('path');
+const dbConfig = require('./app/config/db.config');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 var connection = mysql.createPool({
-    host: 'us-cdbr-east-02.cleardb.com',
-    user: 'b6ae1a871398a5',
-    password: '244d978e',
-    database: 'heroku_6d2c22a8b4b5522'
+    host: dbConfig.HOST,
+    user: dbConfig.USER,
+    password: dbConfig.PASSWORD,
+    database: dbConfig.DB
 });
 
 app.use(express.static(path.join(__dirname, '/dist')));
+
 app.use('/dist', express.static(path.join(__dirname, '/dist')));
+
 app.set('view engine', 'ejs');
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
-
 app.get('/', (req, res) => {
-
     let ofertas;
     let masvendidos;
 
@@ -35,7 +33,6 @@ app.get('/', (req, res) => {
         masvendidos = { masvendidos: results[0] };
         res.render('index', { ofertas, masvendidos });
     });
-
 });
 
 app.get('/index', (req, res) => {
@@ -50,7 +47,6 @@ app.get('/index', (req, res) => {
         if (err) throw err;
         let obj_masvendidos = { masvendidos: results[0] };
     });
-
 });
 
 app.get('/ofertas', (req, res) => {
@@ -69,4 +65,12 @@ app.get('/masvendidos', (req, res) => {
         let obj = { masvendidos: results[0] };
         res.render('masvendidos', obj);
     });
+});
+
+app.get('/carrito', (req, res) => {
+    res.sendFile(path.join(__dirname, '/dist/template/carrito.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });

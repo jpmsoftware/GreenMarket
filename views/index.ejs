@@ -13,7 +13,7 @@
     <header>
         <div class="wrapper flex fr">
             <div class="container flex fr">
-                <div class="menu-bars">
+                <div class="burger">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
@@ -25,10 +25,13 @@
             <div class="user-data-container flex fr">
                 <img src="./img/avatar.svg" alt="avatar" id="avatar">
                 <p id="user-name">Anónimo</p>
-                <div id="shopping-data">
-                    <img src="./img/shopping-bag.svg" alt="shopping" id="shopping-bag">
-                    <p id="items-counter">0</p></img>
-                </div>
+                <a href="/carrito">
+                    <div id="shopping-data">
+                        <img src="./img/shopping-bag.svg" alt="shopping" id="shopping-bag">
+                        <p id="items-counter">0</p></img>
+                    </div>
+                </a>
+
                 <div class="login fc">
                     <form action="">
                         <h4>INICIAR SESIÓN</h4>
@@ -71,10 +74,6 @@
         <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
         <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-ofertas">
-            <script>
-                var ofertas = '<%- ofertas.ofertas %>';
-            </script>
-
             <% for (var i = 0; i < 4; i++) { %>
             <div class="card">
                 <img src="../dist/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
@@ -99,13 +98,12 @@
         <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
         <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-mas-vendidos">
-            <script>
-                var masvendidos = '<%- masvendidos.masvendidos %>';
-            </script>
             <% for (var i = 0; i < 4; i++) { %>
             <div class="card">
-                <img src="../dist/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb" class="product-thumb">
-                <p class="product-content"><%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
+                <img src="../dist/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb"
+                    class="product-thumb">
+                <p class="product-content">
+                    <%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
                 <hr class="separator">
                 <div class="container fc">
                     <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
@@ -160,7 +158,12 @@
         </div>
     </footer>
 
-    <script src="./js/main.js"></script>
+    <script src="./js/SlideShow.js"></script>
+    <script src="./js/MenuCategories.js"></script>
+    <script src="./js/SearchBox.js"></script>
+    <script src="./js/ModalWindow.js"></script>
+    <script src="./js/ProductsSlider.js"></script>
+    <script src="./js/ItemsCounter.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="../dist/img/favicon.svg">
+    <title>EVERGREEN | Carrito</title>
+    <style>
+        #table {
+            margin: 2em auto; 
+            background: #fff; 
+            padding: 1em;
+            text-align: left;
+            box-shadow: 3px 3px 3px rgba(0,0,0, .4);
+            border-radius: 5px;
+        }
+        #table * {
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper flex fr">
+            <div class="container flex fr">
+                <div class="burger">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <a href="/"><img class="logo" src="./img/logo.svg" class="logo"></a>
+            </div>
+            <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
+
+            <div class="user-data-container flex fr">
+                <img src="./img/avatar.svg" alt="avatar" id="avatar">
+                <p id="user-name">Anónimo</p>
+                <a href="/carrito">
+                    <div id="shopping-data">
+                        <img src="./img/shopping-bag.svg" alt="shopping" id="shopping-bag">
+                        <p id="items-counter">0</p></img>
+                    </div>
+                </a>
+
+                <div class="login fc">
+                    <form action="">
+                        <h4>INICIAR SESIÓN</h4>
+                        <input type="email" name="userMail" id="userMail" placeholder="E-Mail" required>
+                        <input type="password" name="userPass" id="userPass" placeholder="Clave" required>
+                        <input type="submit" id="btnIngresar" value="INGRESAR">
+                        <p>¿Aún no tiene cuenta?</p>
+                        <a href="/register">
+                            <p><mark>Registrarse</mark></p>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <nav class="menu">
+                <li><a href="javascript:void(0)">Desayuno</a></li>
+                <li><a href="javascript:void(0)">Congelados</a></li>
+                <li><a href="javascript:void(0)">Leches vegetales</a></li>
+                <li><a href="javascript:void(0)">Postres</a></li>
+            </nav>
+        </div>
+    </header>
+
+    <section id="ofertas" style="width: 80%;">
+        <div class="wrapper flex fr">
+            <hr class="line center-v">
+            <h2>CARRITO</h2>
+            <hr class="line">
+        </div>
+        <table id="table">
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Cantidad</th>
+            </tr>
+        </table>
+    </section>
+
+    <script defer>
+        var content = document.getElementById('content');
+        var productos = JSON.parse(sessionStorage.getItem('productos'));
+        var output = '';
+
+        productos.map((producto) => {
+             output += 
+                 `<tr>
+                    <td>${producto.nombre}</td>
+                    <td>${producto.marca}</td>
+                    <td>${producto.cantidad}</td>
+                 </tr>`
+        });
+
+        table.innerHTML += output;
+    </script>
+
+    <footer>
+        <div>
+            <div class="info">
+                <h5>NOSOTROS</h5>
+                <li>> Sucursales</li>
+                <li>> Historia</li>
+                <li>> Visión </li>
+            </div>
+            <div class="info">
+                <h5>CONTACTO</h5>
+                <li><img src="./img/icon-location.svg" alt="">Av. Magallanes 3562</li>
+                <li><img src="./img/icon-telephone.svg" alt="">2568 9520</li>
+                <li><img src="./img/icon-mail.svg" alt="">contacto@tiendavegana.com.uy</li>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
