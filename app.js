@@ -23,52 +23,57 @@ app.get('/', (req, res) => {
     let ofertas;
     let masvendidos;
 
-    connection.query('CALL ListarOfertas()', (err, results) => {
+    connection.query('CALL ListarOfertas()', (err, data) => {
         if (err) throw err;
-        ofertas = { ofertas: results[0] };
-    });
+        ofertas = { ofertas: data[0] };
 
-    connection.query('CALL ListarMasVendidos()', (err, results) => {
-        if (err) throw err;
-        masvendidos = { masvendidos: results[0] };
-        res.render('index', { ofertas, masvendidos });
-    });
+        connection.query('CALL ListarMasVendidos()', (err, data) => {
+            if (err) throw err;
+            masvendidos = { masvendidos: data[0] };
+
+            res.render('index', { ofertas, masvendidos });
+        });
+    });    
 });
 
 app.get('/index', (req, res) => {
-    connection.query('CALL ListarOfertas()', (err, results) => {
+    connection.query('CALL ListarOfertas()', (err, data) => {
         if (err) throw err;
 
-        let obj = { ofertas: results[0] };
+        let obj = { ofertas: data[0] };
         res.render('index', obj);
     });
 
-    connection.query('CALL ListarMasVendidos()', (err, results) => {
+    connection.query('CALL ListarMasVendidos()', (err, data) => {
         if (err) throw err;
-        let obj_masvendidos = { masvendidos: results[0] };
+        let obj_masvendidos = { masvendidos: data[0] };
     });
 });
 
 app.get('/ofertas', (req, res) => {
     let query = 'CALL ListarOfertas()';
-    connection.query(query, (err, results) => {
+    connection.query(query, (err, data) => {
         if (err) throw err;
-        let obj = { ofertas: results[0] };
+        let obj = { ofertas: data[0] };
         res.render('ofertas', obj);
     });
 });
 
 app.get('/masvendidos', (req, res) => {
     let query = 'CALL ListarMasVendidos()';
-    connection.query(query, (err, results) => {
+    connection.query(query, (err, data) => {
         if (err) throw err;
-        let obj = { masvendidos: results[0] };
+        let obj = { masvendidos: data[0] };
         res.render('masvendidos', obj);
     });
 });
 
 app.get('/carrito', (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/template/carrito.html'));
+});
+
+app.get('/desayuno', (req, res) => {
+
 });
 
 app.listen(PORT, () => {
