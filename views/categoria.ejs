@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon" href="../dist/img/favicon.svg">
-    <title>EVERGREEN | Tienda de productos veganos</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/img/favicon.svg">
+    <title>EVERGREEN | Productos por categoría</title>
 </head>
 
 <body>
@@ -18,16 +18,16 @@
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
-                <a href="/"><img class="logo" src="./img/logo.svg" class="logo"></a>
+                <a href="/"><img class="logo" src="/img/logo.svg" class="logo"></a>
             </div>
             <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
 
             <div class="user-data-container flex fr">
-                <img src="./img/avatar.svg" alt="avatar" id="avatar">
+                <img src="/img/avatar.svg" alt="avatar" id="avatar">
                 <p id="user-name">Anónimo</p>
                 <a href="/carrito">
                     <div id="shopping-data">
-                        <img src="./img/shopping-bag.svg" alt="shopping" id="shopping-bag">
+                        <img src="/img/shopping-bag.svg" alt="shopping" id="shopping-bag">
                         <p id="items-counter">0</p></img>
                     </div>
                 </a>
@@ -54,61 +54,22 @@
         </div>
     </header>
 
-    <div class="slider-container">
-        <img src="./img/banner_1.svg" alt="banner_1" class="slider-item">
-        <img src="./img/banner_2.svg" alt="banner_2" class="slider-item">
-        <img src="./img/banner_3.svg" alt="banner_3" class="slider-item">
-        <div class="slider-circles flex fr">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-
-    <section id="ofertas">
+    <section id="productos">
         <div class="wrapper flex fr">
             <hr class="line center-v">
             <h2>OFERTAS</h2>
             <hr class="line">
         </div>
-        <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-ofertas">
-            <% for (var i = 0; i < 4; i++) { %>
+            <% for (var i = 0; i < productos.length; i++) { %>
             <div class="card">
-                <img src="../dist/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
-                <p class="product-content"><%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %></p>
+                <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
+                <p class="product-content"><%= productos[i].cantidad + " " + productos[i].unidad %></p>
                 <hr class="separator">
                 <div class="container fc">
-                    <h4 class="product-name"><%= ofertas.ofertas[i].nombre %></h4>
-                    <h5 class="product-brand"><%= ofertas.ofertas[i].marca %></h5>
-                    <p class="product-price">$ <%= ofertas.ofertas[i].precio %></p>
-                </div>
-            </div>
-            <% } %>
-        </div>
-    </section>
-
-    <section id="masvendidos">
-        <div class="wrapper flex fr">
-            <hr class="line">
-            <h2>MÁS VENDIDOS</h2>
-            <hr class="line">
-        </div>
-        <img src="./img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="./img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
-        <div class="wrapper flex fr" id="content-mas-vendidos">
-            <% for (var i = 0; i < 4; i++) { %>
-            <div class="card">
-                <img src="../dist/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb"
-                    class="product-thumb">
-                <p class="product-content">
-                    <%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
-                <hr class="separator">
-                <div class="container fc">
-                    <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
-                    <h5 class="product-brand"><%= masvendidos.masvendidos[i].marca %></h5>
-                    <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %></p>
+                    <h4 class="product-name"><%= productos[i].nombre %></h4>
+                    <h5 class="product-brand"><%= productos[i].marca %></h5>
+                    <p class="product-price">$ <%= productos[i].precio %></p>
                 </div>
             </div>
             <% } %>
@@ -129,14 +90,14 @@
                 <p>Cantidad: </p>
                 <input type="text" value="1" id="cantidad" maxlength="2" disabled>
                 <div class="buy-controls center-v">
-                    <img src="./img/plus.svg" alt="plus" id="plus">
-                    <img src="./img/minus.svg" alt="minus" id="minus">
+                    <img src="/img/plus.svg" alt="plus" id="plus">
+                    <img src="/img/minus.svg" alt="minus" id="minus">
                 </div>
                 <button class="button" id="agregar">Agregar</button>
             </div>
 
         </div>
-        <img src="./img/icon-close.svg" alt="icon-close" id="icon-close">
+        <img src="/img/icon-close.svg" alt="icon-close" id="icon-close">
     </section>
 
     <div id="dark-layer"></div>
@@ -151,19 +112,17 @@
             </div>
             <div class="info">
                 <h5>CONTACTO</h5>
-                <li><img src="./img/icon-location.svg" alt="">Av. Magallanes 3562</li>
-                <li><img src="./img/icon-telephone.svg" alt="">2568 9520</li>
-                <li><img src="./img/icon-mail.svg" alt="">contacto@tiendavegana.com.uy</li>
+                <li><img src="/img/icon-location.svg" alt="">Av. Magallanes 3562</li>
+                <li><img src="/img/icon-telephone.svg" alt="">2568 9520</li>
+                <li><img src="/img/icon-mail.svg" alt="">contacto@tiendavegana.com.uy</li>
             </div>
         </div>
     </footer>
 
-    <script src="./js/SlideShow.js"></script>
-    <script src="./js/MenuCategories.js"></script>
-    <script src="./js/SearchBox.js"></script>
-    <script src="./js/ModalWindow.js"></script>
-    <script src="./js/ProductsSlider.js"></script>
-    <script src="./js/ItemsCounter.js"></script>
+    <script src="/js/MenuCategories.js"></script>
+    <script src="/js/SearchBox.js"></script>
+    <script src="/js/ModalWindow.js"></script>
+    <script src="/js/ItemsCounter.js"></script>
 </body>
 
 </html>

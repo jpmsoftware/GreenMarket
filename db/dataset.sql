@@ -338,7 +338,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE ListarProductosPorCategoria(IN _categoria TINYINT UNSIGNED)
+CREATE PROCEDURE ListarProductosPorCategoria(IN _categoria VARCHAR(20))
 BEGIN
 	SELECT 
 		productos.id,
@@ -355,11 +355,10 @@ BEGIN
     ON productos.marca = marcas.id
     INNER JOIN categorias
     ON productos.categoria = categorias.id
-    WHERE productos.categoria = _categoria 
+    WHERE categorias.nombre = _categoria 
     AND productos.activo = 1;
 END //
 DELIMITER ;
-
 
 DELIMITER //
 CREATE PROCEDURE ListarOfertas()

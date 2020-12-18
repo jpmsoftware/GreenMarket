@@ -13,9 +13,11 @@ var connection = mysql.createPool({
     database: dbConfig.DB
 });
 
-app.use(express.static(path.join(__dirname, '/dist')));
+// app.use(express.static(path.join(__dirname, '/dist')));
 
-app.use('/dist', express.static(path.join(__dirname, '/dist')));
+// app.use('/dist', express.static(path.join(__dirname, '/dist')));
+
+app.use(express.static('dist'));
 
 app.set('view engine', 'ejs');
 
@@ -72,8 +74,13 @@ app.get('/carrito', (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/template/carrito.html'));
 });
 
-app.get('/desayuno', (req, res) => {
-
+app.get('/categorias/:cat', (req, res) => {
+    let query = `CALL ListarProductosPorCategoria(${JSON.stringify(req.params.cat)})`;
+    connection.query(query, (err, data) => {
+        if (err) throw err;
+        let obj = { productos: data[0] };
+        res.render('categoria', obj)
+    });
 });
 
 app.listen(PORT, () => {
