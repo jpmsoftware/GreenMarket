@@ -46,21 +46,21 @@
                 </div>
             </div>
             <nav class="menu">
-                <li><a href="javascript:void(0)">Desayuno</a></li>
-                <li><a href="javascript:void(0)">Congelados</a></li>
-                <li><a href="javascript:void(0)">Leches vegetales</a></li>
-                <li><a href="javascript:void(0)">Postres</a></li>
+                <li><a href="Desayuno">Desayuno</a></li>
+                <li><a href="Congelados">Congelados</a></li>
+                <li><a href="Leches vegetales">Leches vegetales</a></li>
+                <li><a href="Postres">Postres</a></li>
             </nav>
         </div>
     </header>
 
     <section id="productos">
-        <div class="wrapper flex fr">
+        <div class="wrapper flex fr" style="margin-top: 3em;">
             <hr class="line center-v">
-            <h2>OFERTAS</h2>
+            <h2><%= productos[0].categoria.toUpperCase() %> </h2>
             <hr class="line">
         </div>
-        <div class="wrapper flex fr" id="content-ofertas">
+        <div class="wrapper flex fr" id="content-ofertas" style="text-align: center;">
             <% for (var i = 0; i < productos.length; i++) { %>
             <div class="card">
                 <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
@@ -119,6 +119,7 @@
         </div>
     </footer>
 
+    <script src="/js/main.js"></script>
     <script src="/js/MenuCategories.js"></script>
     <script src="/js/SearchBox.js"></script>
     <script src="/js/ModalWindow.js"></script>

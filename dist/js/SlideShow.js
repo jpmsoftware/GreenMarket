@@ -47,3 +47,5 @@ function PaintControls() {
 
     sliderControls[sliderIndex].style.background = '#fff';
 }
+
+AutoSlide();

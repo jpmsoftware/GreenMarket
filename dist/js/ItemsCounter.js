@@ -3,7 +3,6 @@ var itemsCounter = document.getElementById('items-counter');
 
 window.onload = () => {
     CountItems();
-    AutoSlide();
 }
 
 function CountItems() {

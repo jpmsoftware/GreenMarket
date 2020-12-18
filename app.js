@@ -13,10 +13,6 @@ var connection = mysql.createPool({
     database: dbConfig.DB
 });
 
-// app.use(express.static(path.join(__dirname, '/dist')));
-
-// app.use('/dist', express.static(path.join(__dirname, '/dist')));
-
 app.use(express.static('dist'));
 
 app.set('view engine', 'ejs');
@@ -32,41 +28,9 @@ app.get('/', (req, res) => {
         connection.query('CALL ListarMasVendidos()', (err, data) => {
             if (err) throw err;
             masvendidos = { masvendidos: data[0] };
-
+            console.log(data[0].length);
             res.render('index', { ofertas, masvendidos });
         });
-    });    
-});
-
-app.get('/index', (req, res) => {
-    connection.query('CALL ListarOfertas()', (err, data) => {
-        if (err) throw err;
-
-        let obj = { ofertas: data[0] };
-        res.render('index', obj);
-    });
-
-    connection.query('CALL ListarMasVendidos()', (err, data) => {
-        if (err) throw err;
-        let obj_masvendidos = { masvendidos: data[0] };
-    });
-});
-
-app.get('/ofertas', (req, res) => {
-    let query = 'CALL ListarOfertas()';
-    connection.query(query, (err, data) => {
-        if (err) throw err;
-        let obj = { ofertas: data[0] };
-        res.render('ofertas', obj);
-    });
-});
-
-app.get('/masvendidos', (req, res) => {
-    let query = 'CALL ListarMasVendidos()';
-    connection.query(query, (err, data) => {
-        if (err) throw err;
-        let obj = { masvendidos: data[0] };
-        res.render('masvendidos', obj);
     });
 });
 

@@ -42,7 +42,7 @@ modal.onclick = (e) => {
             let button = document.querySelector('.product-info .button');
             button.style.backgroundColor = '#3BB143';
             button.innerHTML = 'Agregado';
-            setTimeout(CloseModal, 3000);
+            setTimeout(CloseModal, 2000);
             break;
     }
 }
