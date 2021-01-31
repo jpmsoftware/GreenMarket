@@ -2,7 +2,6 @@ const express = require('express');
 const mysql = require('mysql');
 const ejs = require('ejs');
 const path = require('path');
-// const dbConfig = require('./app/config/db.config');
 const app = express();
 const PORT = process.env.PORT || 3000;
 require('dotenv').config();
@@ -29,7 +28,6 @@ app.get('/', (req, res) => {
         connection.query('CALL ListarMasVendidos()', (err, data) => {
             if (err) throw err;
             masvendidos = { masvendidos: data[0] };
-            console.log(data[0].length);
             res.render('index', { ofertas, masvendidos });
         });
     });
