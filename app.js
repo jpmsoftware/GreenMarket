@@ -5,12 +5,13 @@ const path = require('path');
 const dbConfig = require('./app/config/db.config');
 const app = express();
 const PORT = process.env.PORT || 3000;
+require('dotenv').config();
 
 var connection = mysql.createPool({
-    host: dbConfig.HOST,
-    user: dbConfig.USER,
-    password: dbConfig.PASSWORD,
-    database: dbConfig.DB
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 });
 
 app.use(express.static('dist'));
