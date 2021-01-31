@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const ejs = require('ejs');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 require('dotenv').config();
 
 var connection = mysql.createPool({
@@ -18,6 +18,14 @@ app.use(express.static('dist'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+
+    console.log(
+        process.env.HOST + 
+        process.env.USER +
+        process.env.PASSWORD +
+        process.env.DATABASE
+        );
+
     let ofertas;
     let masvendidos;
 
