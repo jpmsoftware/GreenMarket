@@ -1,6 +1,6 @@
 var arrows = document.querySelectorAll('.arrows');
 var start = 0;
-var end = 3;
+var end = 4;
 
 arrows.forEach((element) => {
     element.addEventListener('click', (e) => {
@@ -13,7 +13,7 @@ function Move(e) {
         case 'left':
             if (start > 0) {
                 end = start - 1;
-                start = end - 3;
+                start = end - 4;
                 Paginate(e.target.parentElement.id);
             }
             break;
@@ -21,7 +21,7 @@ function Move(e) {
         case 'right':
             if (end < 11) {
                 start = end + 1;
-                end = start + 3;
+                end = start + 4;
                 Paginate(e.target.parentElement.id)
             }
             break;
@@ -40,6 +40,6 @@ function Paginate(section) {
     }
 }
 
-// Initial pagination with start = 0, end = 3
+// Initial pagination with start = 0, end = 4
 Paginate('ofertas');
 Paginate('masvendidos');

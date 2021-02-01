@@ -5,52 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="icon" href="/img/favicon.svg">
-    <title>EVERGREEN | Tienda de productos veganos</title>
+    <link rel="icon" href="/img/favicon.png">
+    <title>UruMarket | vegan store</title>
 </head>
 
 <body>
-    <header>
-        <div class="wrapper flex fr">
-            <div class="container flex fr">
-                <div class="burger">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <a href="/"><img class="logo" src="./img/logo.svg" class="logo"></a>
-            </div>
-            <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
-            <div class="user-data-container flex fr">
-                <img src="/img/avatar.svg" alt="avatar" id="avatar">
-                <p id="user-name">Anónimo</p>
-                <a href="/carrito">
-                    <div id="shopping-data">
-                        <img src="/img/shopping-bag.svg" alt="shopping" id="shopping-bag">
-                        <p id="items-counter">0</p></img>
-                    </div>
-                </a>
-                <div class="login fc">
-                    <form action="">
-                        <h4>INICIAR SESIÓN</h4>
-                        <input type="email" name="userMail" id="userMail" placeholder="E-Mail" required>
-                        <input type="password" name="userPass" id="userPass" placeholder="Clave" required>
-                        <input type="submit" id="btnIngresar" value="INGRESAR">
-                        <p>¿Aún no tiene cuenta?</p>
-                        <a href="/register">
-                            <p><mark>Registrarse</mark></p>
-                        </a>
-                    </form>
-                </div>
-            </div>
-            <nav class="menu">
-                <li><a href="categorias/Desayuno">Desayuno</a></li>
-                <li><a href="categorias/Congelados">Congelados</a></li>
-                <li><a href="categorias/Leches vegetales">Leches vegetales</a></li>
-                <li><a href="categorias/Postres">Postres</a></li>
-            </nav>
-        </div>
-    </header>
+    <%- include('./partials/_header.ejs')  %>
 
     <div class="slider-container">
         <img src="/img/banner_1.svg" alt="banner_1" class="slider-item">
@@ -69,21 +29,27 @@
             <h2>OFERTAS</h2>
             <hr class="line">
         </div>
-        <img src="/img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="/img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
+        <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
+        <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-ofertas">
-            <% for (var i = 0; i < ofertas.ofertas.length; i++) { %>
-            <div class="card" style="display: none;">
-                <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
-                <p class="product-content"><%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %></p>
-                <hr class="separator">
-                <div class="container fc">
-                    <h4 class="product-name"><%= ofertas.ofertas[i].nombre %></h4>
-                    <h5 class="product-brand"><%= ofertas.ofertas[i].marca %></h5>
-                    <p class="product-price">$ <%= ofertas.ofertas[i].precio %></p>
+            <% for (var i=0; i < ofertas.ofertas.length; i++) { %>
+                <div class="card" style="display: none;">
+                    <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
+                    <p class="product-content">
+                        <%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %>
+                    </p>
+                    <div class="container fc">
+                        <h4 class="product-name">
+                            <%= ofertas.ofertas[i].nombre %>
+                        </h4>
+                        <h5 class="product-brand">
+                            <%= ofertas.ofertas[i].marca %>
+                        </h5>
+                        <p class="product-price">$ <%= ofertas.ofertas[i].precio %>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <% } %>
+                <% } %>
         </div>
     </section>
 
@@ -93,23 +59,27 @@
             <h2>MÁS VENDIDOS</h2>
             <hr class="line">
         </div>
-        <img src="/img/arrow_left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="/img/arrow_right.svg" alt="right" id="arrow-right" class="arrows" name="right">
+        <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
+        <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper flex fr" id="content-mas-vendidos">
-            <% for (var i = 0; i < masvendidos.masvendidos.length; i++) { %>
-            <div class="card" style="display: none;">
-                <img src="/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb"
-                    class="product-thumb">
-                <p class="product-content">
-                    <%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
-                <hr class="separator">
-                <div class="container fc">
-                    <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
-                    <h5 class="product-brand"><%= masvendidos.masvendidos[i].marca %></h5>
-                    <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %></p>
+            <% for (var i=0; i < masvendidos.masvendidos.length; i++) { %>
+                <div class="card" style="display: none;">
+                    <img src="/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb" class="product-thumb">
+                    <p class="product-content">
+                        <%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %>
+                    </p>
+                    <div class="container fc">
+                        <h4 class="product-name">
+                            <%= masvendidos.masvendidos[i].nombre %>
+                        </h4>
+                        <h5 class="product-brand">
+                            <%= masvendidos.masvendidos[i].marca %>
+                        </h5>
+                        <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <% } %>
+                <% } %>
         </div>
     </section>
 
@@ -139,22 +109,17 @@
 
     <div id="dark-layer"></div>
 
-    <footer>
-        <div>
-            <div class="info">
-                <h5>NOSOTROS</h5>
-                <li>> Sucursales</li>
-                <li>> Historia</li>
-                <li>> Visión </li>
-            </div>
-            <div class="info">
-                <h5>CONTACTO</h5>
-                <li><img src="/img/icon-location.svg" alt="">Av. Magallanes 3562</li>
-                <li><img src="/img/icon-telephone.svg" alt="">2568 9520</li>
-                <li><img src="/img/icon-mail.svg" alt="">contacto@tiendavegana.com.uy</li>
-            </div>
-        </div>
-    </footer>
+    <div class="payments">
+        <img src="/img/logo-cabal.png" alt="cabal">
+        <img src="/img/logo-amex.png" alt="amex">
+        <img src="/img/logo-mercadopago.png" alt="mercadopago">
+        <img src="/img/logo-oca.png" alt="oca">
+        <img src="/img/logo-paypal.png" alt="paypal">
+        <img src="/img/logo-visa.png" alt="">
+        <img src="/img/logo-master.png" alt="">
+    </div>
+
+    <%- include('./partials/_footer.ejs') %>
 
     <script src="/js/main.js"></script>
     <script src="/js/SlideShow.js"></script>

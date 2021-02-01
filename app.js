@@ -19,13 +19,6 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
 
-    console.log(
-        process.env.HOST + 
-        process.env.USER +
-        process.env.PASSWORD +
-        process.env.DATABASE
-        );
-
     let ofertas;
     let masvendidos;
 
