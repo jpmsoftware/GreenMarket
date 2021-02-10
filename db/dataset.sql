@@ -338,7 +338,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE ListarProductosPorCategoria(IN _categoria VARCHAR(20))
+CREATE PROCEDURE ListarProductosPorCategoria(IN _categoria VARCHAR(30))
 BEGIN
 	SELECT 
 		productos.id,
