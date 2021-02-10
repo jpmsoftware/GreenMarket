@@ -14,7 +14,7 @@ function Move(e) {
             if (start > 0) {
                 end = start - 1;
                 start = end - 4;
-                Paginate(e.target.parentElement.id);
+                Paginate(e.target.parentElement.className);
             }
             break;
 
@@ -22,14 +22,14 @@ function Move(e) {
             if (end < 11) {
                 start = end + 1;
                 end = start + 4;
-                Paginate(e.target.parentElement.id)
+                Paginate(e.target.parentElement.className)
             }
             break;
     }
 }
 
 function Paginate(section) {
-    var items = document.querySelectorAll(`#${section} .card`);
+    var items = document.querySelectorAll(`.${section} .card`);
 
     for (var i = 0; i < items.length; i++) {
         if (i >= start && i <= end) {

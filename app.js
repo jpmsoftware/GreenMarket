@@ -17,6 +17,10 @@ app.use(express.static('dist'));
 
 app.set('view engine', 'ejs');
 
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
+});
+
 app.get('/', (req, res) => {
 
     let ofertas;
@@ -29,13 +33,13 @@ app.get('/', (req, res) => {
         connection.query('CALL ListarMasVendidos()', (err, data) => {
             if (err) throw err;
             masvendidos = { masvendidos: data[0] };
-            res.render('index', { ofertas, masvendidos });
+            res.render('./pages/index', { ofertas, masvendidos });
         });
     });
 });
 
 app.get('/carrito', (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist/template/carrito.html'));
+    res.render('pages/carrito');
 });
 
 app.get('/categorias/:cat', (req, res) => {
@@ -43,10 +47,10 @@ app.get('/categorias/:cat', (req, res) => {
     connection.query(query, (err, data) => {
         if (err) throw err;
         let obj = { productos: data[0] };
-        res.render('categoria', obj)
+        res.render('pages/categoria', obj)
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+app.use((req, res) => {
+    res.end('Error 404 - Not Found');
 });

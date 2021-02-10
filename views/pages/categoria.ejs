@@ -10,8 +10,7 @@
 </head>
 
 <body>
-    <%- include('./partials/_header.ejs')  %>
-
+    <%- include('../partials/_header.ejs')  %>
     <section id="productos">
         <div class="wrapper flex fr" style="margin-top: 3em;">
             <hr class="line center-v">
@@ -34,7 +33,7 @@
         </div>
     </section>
 
-    <section id="modal">
+    <section class="modal">
         <div style="position: relative;">
             <p class="product-content">390 mL</p>
             <img src="" alt="thumb" class="thumb-big">
@@ -53,14 +52,13 @@
                 </div>
                 <button class="button" id="agregar">Agregar</button>
             </div>
-
         </div>
         <img src="/img/icon-close.svg" alt="icon-close" id="icon-close">
     </section>
 
-    <div id="dark-layer"></div>
+    <div class="dark-layer"></div>
 
-    <%- include('./partials/_footer.ejs') %>
+    <%- include('../partials/_footer.ejs') %>
 
     <script src="/js/main.js"></script>
     <script src="/js/MenuCategories.js"></script>

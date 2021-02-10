@@ -1,19 +1,31 @@
 <header>
-    <div class="wrapper flex fr">
-        <div class="container flex fr">
+    <div class="wrapper">
+        <div class="container">
             <div class="burger">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-            <a href="/"><img class="logo" src="./img/logo.svg"></a>
+            <div class="logo">
+                <a href="/"><img class="logo-img" src="../img/logo.svg"></a>
+                <div>
+                    <p>EVERGREEN</p>
+                    <p>VEGAN STORE</p>
+                </div>
+            </div>
+
         </div>
+        <nav class="menu">
+            <li><a href="/categorias/Desayuno">Desayuno</a></li>
+            <li><a href="/categorias/Congelados">Congelados</a></li>
+            <li><a href="/categorias/Leches vegetales">Leches vegetales</a></li>
+            <li><a href="/categorias/Postres">Postres</a></li>
+        </nav>
         <div style="margin: auto auto; position: relative; width: 50%; height: 2.5em; text-align: center;">
-            <input type="search" name="" id="searchBox" placeholder="Buscar productos...">
+            <input type="search" id="searchBox" placeholder="Buscar productos...">
             <div class="suggestions"></div>
         </div>
-
-        <div class="user-data-container flex fr">
+        <div class="user-data-container">
             <button class="btn-login">Ingresar</button>
             <a href="/carrito">
                 <div id="shopping-data">
@@ -22,11 +34,5 @@
                 </div>
             </a>
         </div>
-        <nav class="menu">
-            <li><a href="categorias/Desayuno">Desayuno</a></li>
-            <li><a href="categorias/Congelados">Congelados</a></li>
-            <li><a href="categorias/Leches vegetales">Leches vegetales</a></li>
-            <li><a href="categorias/Postres">Postres</a></li>
-        </nav>
     </div>
 </header>

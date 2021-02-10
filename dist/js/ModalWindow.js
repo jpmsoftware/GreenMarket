@@ -1,9 +1,9 @@
 var body = document.querySelector('html');
-var modal = document.getElementById('modal');
-var darkLayer = document.getElementById('dark-layer');
+var modal = document.querySelector('.modal');
+var darkLayer = document.querySelector('.dark-layer');
 
 window.onclick = function (e) {
-    if (e.target.id == 'dark-layer') {
+    if (e.target.className == 'dark-layer') {
         CloseModal();
     }
 }

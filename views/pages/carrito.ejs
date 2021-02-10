@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="../dist/img/favicon.svg">
+    <title>EVERGREEN | Carrito</title>
+    <style>
+        #table {
+            margin: 2em auto;
+            width: 70%;
+            background: #fff;
+            padding: 1em;
+            text-align: left;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+            border-radius: 5px;
+        }
+
+        #table * {
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partials/_header.ejs') %>
+
+    <section class="ofertas" style="width: 80%; min-height: 700px;">
+        <div class="heading">
+            <hr class="line">
+            <h2>CARRITO</h2>
+            <hr class="line">
+        </div>
+        <table id="table">
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Cantidad</th>
+            </tr>
+        </table>
+    </section>
+
+    <script defer>
+        var productos = JSON.parse(sessionStorage.getItem('productos'));
+        var output = '';
+
+        if (productos === null) {
+            table.style.display = 'none';
+            var text = document.createElement('p');
+            text.innerText = 'No tiene productos en su carrito';
+            document.getElementById('ofertas').appendChild(text);
+        } else {
+            productos.map((producto) => {
+                output +=
+                    `<tr>
+                    <td>${producto.nombre}</td>
+                    <td>${producto.marca}</td>
+                    <td>${producto.cantidad}</td>
+                 </tr>`
+            });
+        }
+        table.innerHTML += output;
+    </script>
+
+    <%- include('../partials/_footer.ejs') %>
+
+    <script src="/js/MenuCategories.js"></script>
+    <script src="/js/SearchBox.js"></script>
+</body>
+
+</html>

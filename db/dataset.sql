@@ -28,7 +28,7 @@ CREATE TABLE marcas (
 
 CREATE TABLE categorias (
 	id TINYINT UNSIGNED AUTO_INCREMENT,
-    nombre VARCHAR(20),
+    nombre VARCHAR(30),
     
     PRIMARY KEY(id)
 );
@@ -37,7 +37,7 @@ ALTER TABLE categorias AUTO_INCREMENT = 1;
 
 CREATE TABLE productos (
 	id VARCHAR(20), -- pasar '0' para generar un id aleatorio
-    nombre VARCHAR(30),
+    nombre VARCHAR(40),
     cantidad SMALLINT UNSIGNED,
     unidad VARCHAR(10),
     marca SMALLINT UNSIGNED,
@@ -89,7 +89,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE AltaCategoria(IN _nombre VARCHAR(20))
+CREATE PROCEDURE AltaCategoria(IN _nombre VARCHAR(30))
 BEGIN
 	INSERT INTO categorias VALUES(0, _nombre);
 END //
@@ -115,7 +115,7 @@ DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE AltaProducto(IN _id VARCHAR(20), 
-							  IN _nombre VARCHAR(30), 
+							  IN _nombre VARCHAR(40), 
                               IN _cantidad SMALLINT UNSIGNED, 
                               IN _unidad VARCHAR(10), 
                               IN _marca_id SMALLINT UNSIGNED, 
@@ -410,58 +410,67 @@ END //
 DELIMITER ;
 
 -- ///////////////////////////////////// INSERT SAMPLE DATA ///////////////////////////////////////////
-call AltaUsuario('ADMIN', 'ADMIN', '', 'A');
-call AltaUsuario('martin325', 'tinchothebest', 'martin325@gmail.com', 'C');
-call AltaUsuario('silvana.ramirez', 'silr8801', 'silr88@gmail.com', 'C');
-call AltaUsuario('veganofeliz', 'pocholoco1010', 'veganofeliz@gmail.com', 'C');
-call AltaUsuario('MariaGonzalez', 'passworduy1234', 'gonzalezm@gmail.com', 'C');
+
 call AltaMarca('Beyond Meat');
 call AltaMarca('Etosha');
 call AltaMarca('Follow your heart');
 call AltaMarca('La Abundancia');
 call AltaMarca('La sin rival');
-call AltaMarca('Veganico');
 call AltaMarca('Naturezas');
-call AltaMarca('Las hijas del carnicero');
 call AltaMarca('Ardo');
 call AltaMarca('Delicia');
 call AltaMarca('Orgran');
 call AltaMarca('Prana');
 call AltaMarca('Vegetalex');
 call AltaMarca('Silk');
-call AltaCategoria('Desayuno');
-call AltaCategoria('Leches vegetales');
-call AltaCategoria('Postres');
-call AltaCategoria('Congelados');
-call AltaCategoria('Quesos y fiambres');
+call AltaMarca('Heinz');
+call AltaMarca('Hemmer');
+call AltaMarca('Valsoia');
+call AltaMarca('The Bridge');
+call AltaMarca('Violife');
+call AltaMarca('Madre Tierra');
+call AltaMarca('Cavallaro');
+call AltaMarca('Veganis');
+call AltaMarca('Sabina');
+
+call AltaCategoria('Granos y semillas');
+call AltaCategoria('Bebidas');
 call AltaCategoria('Aderezos');
+call AltaCategoria('Leches vegetales');
+call AltaCategoria('Quesos y fiambres veganos');
+call AltaCategoria('Congelados');
 call AltaCategoria('Cuidado personal');
-call AltaCategoria('Limpieza');
-call AltaCategoria('Otros');
-call AltaProducto('3875', 'Sustituto del huevo', 250, 'g', 11, 9, 215, '3875.png', 20, TRUE);
-call AltaProducto('2510', 'Pan integral', 250, 'g', 5, 1, 125, '2510.png', 20, TRUE);
-call AltaProducto('5630', 'Carne picada', 250, 'g', 1, 4, 395, '5630.png', 20, TRUE);
-call AltaProducto('3579', 'Medallones de espinaca', 4, 'unidades', 13, 4, 150, '3579.jpeg', 20, TRUE);
-call AltaProducto('3210', 'Leche de almendras', 946, 'mL', 14, 2, 185, '3210.png', 20, TRUE);
-call AltaProducto('1708', 'Levadura nutricional', 85, 'g', 12, 9, 280, '1708.png', 20, TRUE);
-call AltaProducto('2020', 'Vegarella', 200, 'g', 2, 5, 180, '2020.png', 20, TRUE);
-call AltaProducto('7521', 'Mayonesa', 425, 'mL', 3, 6, 265, '7521.png', 20, TRUE);
-call AltaProducto('9630', 'Milanesas multicereal de trigo', 400, 'g', 7, 4, 350, '9630.png', 20, TRUE);
-call AltaProducto('2310', 'Hamburguesas de col y quinoa', 1200, 'g', 9, 4, 295, '2310.png', 20, TRUE);
-call AltaProducto('4110', 'Tofu', 500, 'g', 7, 9, 210, '4110.png', 20, TRUE);
-call AltaProducto('4935', 'Boniatos fritos', 450, 'g', 9, 4, 125, '4935.jpg', 20, TRUE);
-call AltaProducto('8874', 'Rawmesan', 180, 'g', 12, 5, 210, '8874.png', 20, TRUE);
 
--- crear SP ListarMasVendidos
+call AltaProducto('1654', 'Semillas de chia', 200, 'g', 4, 1, 75, '1654.jpg', 20, TRUE);
+call AltaProducto('9865', 'Semillas de lino', 450, 'g', 4, 1, 150, '9865.jpg', 20, TRUE);
+call AltaProducto('9652', 'Avena laminada', 1, 'kg', 4, 1, 136, '9652.jpg', 20, TRUE);
+call AltaProducto('6470', 'Avena arrollada', 500, 'g', 18, 1, 70, '6470.jpg', 20, TRUE);
+ 
+call AltaProducto('3002', 'Kombucha sabor mandarina', 330, 'mL', 10, 2, 145, '3002.jpg', 20, TRUE);
+call AltaProducto('3003', 'Kombucha', 330, 'mL', 10, 2, 145, '3003.jpg', 20, TRUE);
+call AltaProducto('3004', 'Kombucha sabor berries', 330, 'mL', 10, 2, 145, '3004.jpg', 20, TRUE);
 
--- copias de seguridad
--- como almacenar claves de manera segura
+call AltaProducto('7521', 'Mayonesa', 425, 'mL', 3, 3, 265, '7521.jpg', 20, TRUE);
+call AltaProducto('9851', 'Mayonesa', 500, 'g', 8, 3, 105, '9851.jpg', 20, TRUE);
+call AltaProducto('5324', 'Ketchup', 397, 'g', 13, 3, 99, '5324.jpg', 20, TRUE);
+call AltaProducto('9317', 'Salsa barbacoa', 330, 'g', 14, 3, 70, '9317.jpg', 20, TRUE);
 
--- en evento : COMPRA se de realizar lo siguiente:
--- Restar -1 a producto.stock
--- Si producto.stock = 0, producto.activo = false
--- Dar de alta una orden
--- Dar de alta los productos de la orden en ordenes_productos
+call AltaProducto('3210', 'Bebida de almendras', 1, 'L', 15, 4, 150, '3210.jpg', 20, TRUE);
+call AltaProducto('6325', 'Leche vegetal de nueces', 1, 'L', 15, 4, 150, '6325.jpg', 20, TRUE);
+call AltaProducto('9746', 'Bebida de arroz sabor coco', 1, 'L', 16, 4, 235, '9746.jpg', 20, TRUE);
+call AltaProducto('7745', 'Bebida de arroz sabor chocolate', 1, 'L', 16, 4, 185, '7745.jpg', 20, TRUE);
 
--- en evento altaproducto
--- si no existe la marca o la categoria se la debe crear
+call AltaProducto('2020', 'Vegarella', 200, 'g', 2, 5, 180, '2020.jpg', 20, TRUE);
+call AltaProducto('8874', 'Rawmesan', 180, 'g', 10, 5, 210, '8874.jpg', 20, TRUE);
+call AltaProducto('4110', 'Tofu', 500, 'g', 5, 5, 210, '4110.jpg', 20, TRUE);
+call AltaProducto('5310', 'Queso en fetas', 200, 'g', 17, 5, 220, '5310.jpg', 20, TRUE);
+
+call AltaProducto('5630', 'Carne picada vegetal', 250, 'g', 1, 6, 395, '5630.jpg', 20, TRUE);
+call AltaProducto('3579', 'Medallones de espinaca', 4, 'unidades', 11, 6, 150, '3579.jpg', 20, TRUE);
+call AltaProducto('9630', 'Milanesas multicereal de trigo', 400, 'g', 6, 6, 350, '9630.jpg', 20, TRUE);
+call AltaProducto('2310', 'Hamburguesas de col y quinoa', 1200, 'g', 9, 6, 295, '2310.jpg', 20, TRUE);
+
+call AltaProducto('7412', 'Jabón de coco', 200, 'g', 19, 7, 59, '7412.jpg', 20, TRUE);
+call AltaProducto('5912', 'Crema exfoliante', 500, 'g', 20, 7, 550, '5912.jpg', 20, TRUE);
+call AltaProducto('3365', 'Crema antiedad', 500, 'g', 20, 7, 550, '3365.jpg', 20, TRUE);
+call AltaProducto('2223', 'Jabón líquido', 300, 'cc', 21, 7, 105, '2223.jpg', 20, TRUE);
