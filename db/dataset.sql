@@ -381,7 +381,7 @@ BEGIN
     WHERE productos.activo = 1
     ORDER BY
 		productos.precio ASC
-	LIMIT 12;
+	LIMIT 15;
 END //
 DELIMITER ;
 
@@ -405,7 +405,7 @@ BEGIN
     INNER JOIN categorias
     ON productos.categoria = categorias.id
     WHERE productos.activo = 1
-	LIMIT 12;
+	LIMIT 15;
 END //
 DELIMITER ;
 
@@ -473,4 +473,4 @@ call AltaProducto('2310', 'Hamburguesas de col y quinoa', 1200, 'g', 9, 6, 295, 
 call AltaProducto('7412', 'Jabon de coco', 200, 'g', 19, 7, 59, '7412.jpg', 20, TRUE);
 call AltaProducto('5912', 'Crema exfoliante', 500, 'g', 20, 7, 550, '5912.jpg', 20, TRUE);
 call AltaProducto('3365', 'Crema antiedad', 500, 'g', 20, 7, 550, '3365.jpg', 20, TRUE);
-call AltaProducto('2223', 'Jabon líquido', 300, 'cc', 21, 7, 105, '2223.jpg', 20, TRUE);
+call AltaProducto('2223', 'Jabon liquido', 300, 'cc', 21, 7, 105, '2223.jpg', 20, TRUE);

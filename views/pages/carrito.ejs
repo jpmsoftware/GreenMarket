@@ -6,33 +6,18 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" href="../dist/img/favicon.svg">
     <title>EVERGREEN | Carrito</title>
-    <style>
-        #table {
-            margin: 2em auto;
-            width: 70%;
-            background: #fff;
-            padding: 1em;
-            text-align: left;
-            box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
-            border-radius: 5px;
-        }
-
-        #table * {
-            padding: 2em;
-        }
-    </style>
 </head>
 
 <body>
     <%- include('../partials/_header.ejs') %>
 
-    <section class="ofertas" style="width: 80%; min-height: 700px;">
+    <section class="ofertas" id="ofertas" style="width: 80%; min-height: 700px; position: relative;">
         <div class="heading">
             <hr class="line">
             <h2>CARRITO</h2>
             <hr class="line">
         </div>
-        <table id="table">
+        <table class="table" id="table">
             <tr>
                 <th>Nombre</th>
                 <th>Marca</th>

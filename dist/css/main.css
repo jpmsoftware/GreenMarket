@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap");
-
 @font-face {
   font-family: 'Simplifica';
   src: url("../fonts/simplifica.ttf");
@@ -99,7 +98,7 @@ header {
   height: 100%;
 }
 
-.logo > div {
+.logo>div {
   margin-left: 0.5em;
   flex-direction: column;
 }
@@ -265,6 +264,7 @@ header {
 
 h2 {
   margin: 0 auto;
+  text-align: center;
   font-family: 'Simplifica';
   font-weight: lighter;
   letter-spacing: 5px;
@@ -378,8 +378,7 @@ h2 {
   padding: 1em 2em;
 }
 
-.loginModal input[type="text"], 
-.loginModal input[type="email"] {
+.loginModal input[type="text"], .loginModal input[type="email"] {
   height: 2em;
 }
 
@@ -474,13 +473,12 @@ h2 {
 }
 
 .buy-controls {
+  margin: auto 0;
   height: 2rem;
   position: relative;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  box-orient: vertical;
-  box-direction: normal;
   flex-direction: column;
   margin-right: 1rem;
 }
@@ -554,12 +552,17 @@ footer {
   width: 100%;
   background-color: rgb(50, 50, 50);
   font-family: 'Roboto', sans-serif;
-  padding: 5em;
+  padding: 4em;
+}
+
+.newsletter {
+  width: 20em;
+  height: 3em;
 }
 
 footer .wrapper {
   margin: 1em auto;
-  width: 60%;
+  width: 50%;
   display: flex;
   line-height: 2em;
   justify-content: space-between;
@@ -568,7 +571,12 @@ footer .wrapper {
 footer .info {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  padding: 0.5em;
+  width: 12em;
+}
+
+.vertical-line {
+  opacity: .4;
 }
 
 .info h5 {
@@ -589,9 +597,28 @@ footer input {
   width: 80%;
 }
 
+.social-media {
+  display: flex;
+}
+
 .social-media * {
   width: 2em;
   cursor: pointer;
+}
+
+.table {
+  margin: 2em auto;
+  width: 70%;
+  background: #fff;
+  padding: 1em;
+  text-align: left;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+  border-radius: 3px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.table * {
+  padding: 2em;
 }
 
 @media only screen and (max-width: 960px) {
@@ -628,13 +655,17 @@ footer input {
   .ofertas, .masvendidos {
     margin: 2.5em auto;
   }
+  .ofertas .wrapper, .masvendidos .wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 90%;
+  }
   .heading {
     width: 85%;
     margin-bottom: 1em;
   }
   h2 {
     margin: 0 0.2em;
-    text-align: center;
     font-size: 1.4em;
   }
   .card {
@@ -654,24 +685,62 @@ footer input {
     grid-template-columns: auto auto;
     column-gap: 10px;
   }
+  .modal {
+    margin-top: 1em;
+    width: 90%;
+    height: 50%;
+    padding: 2em 1em;
+  }
+  .modal hr {
+    width: 2em;
+    height: 0.2em;
+  }
+  .thumb-big {
+    width: 10em;
+    height: 10em;
+  }
+  .buy-panel {
+    bottom: 20%;
+    right: 120%;
+  }
+  .button {
+    margin-left: 0.5em;
+    padding: 0.5em 1em;
+  }
   .arrows {
     display: none;
+  }
+  .product-name {
+    font-size: 0.8em;
   }
   .product-thumb {
     margin: 0.2em auto;
     width: 8.4em;
     height: 7em;
   }
-  .product-name {
-    font-size: 0.8em;
+  .product-info {
+    margin-left: 1em;
+  }
+  .product-info h1 {
+    font-size: 1em;
   }
   .product-brand {
     margin: 0;
     font-size: 0.7em;
   }
   .product-price {
-    margin-top: 0.5em;
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+  .price {
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+  .modal div:first-child .product-content {
+    display: none;
+  }
+  #icon-close {
+    width: 1em;
+    top: 4%;
   }
   .payments {
     margin: 5em auto;
@@ -681,18 +750,33 @@ footer input {
     width: 40px;
     height: 25px;
   }
-  footer  {
-    padding: 0.5em;
+  footer {
+    padding: 0;
   }
   footer .wrapper {
-    width: 85%;
+    width: 95%;
+  }
+  .newsletter {
+    width: 8em;
+    height: 2em;
   }
   footer li {
     margin-top: 0.2em 0;
     font-size: 0.8em;
   }
+  .social-media * {
+    width: 1.5em;
+  }
   .info h5 {
     font-size: 1em;
+  }
+  .table {
+    padding: 0.5em;
+    width: 70%;
+    font-size: 0.8em;
+  }
+  .table * {
+    padding: 1.5em;
   }
 }
 
