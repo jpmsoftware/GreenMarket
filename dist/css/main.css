@@ -46,6 +46,10 @@ header {
   width: 70%;
 }
 
+.productos .wrapper {
+  justify-content: start;
+}
+
 .container {
   position: relative;
   display: flex;
@@ -79,6 +83,10 @@ header {
   transform: rotate(45deg) translate(-8px, -1px);
 }
 
+.link {
+  cursor: pointer;
+}
+
 .logo {
   margin-left: 1em;
   display: flex;
@@ -87,7 +95,6 @@ header {
 }
 
 .logo-img {
-  cursor: pointer;
   width: 3em;
   height: 100%;
 }
@@ -293,7 +300,9 @@ h2 {
 }
 
 .product-thumb {
-  height: 50%;
+  margin-top: 0.5em;
+  max-width: 12em;
+  height: 10em;
 }
 
 .card:hover {
@@ -545,13 +554,14 @@ footer {
   width: 100%;
   background-color: rgb(50, 50, 50);
   font-family: 'Roboto', sans-serif;
-  padding: 3em;
+  padding: 5em;
 }
 
-footer > div {
+footer .wrapper {
   margin: 1em auto;
   width: 60%;
   display: flex;
+  line-height: 2em;
   justify-content: space-between;
 }
 
@@ -620,12 +630,17 @@ footer input {
   }
   .heading {
     width: 85%;
+    margin-bottom: 1em;
   }
   h2 {
+    margin: 0 0.2em;
+    text-align: center;
     font-size: 1.4em;
   }
   .card {
-    margin: 1em auto;
+    margin: 0.5em auto;
+    width: 9.8em;
+    height: 14em;
   }
   #user-name {
     display: none;
@@ -633,12 +648,30 @@ footer input {
   .slider-container {
     display: none;
   }
-  
+  .productos .wrapper {
+    width: 90%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+  }
   .arrows {
     display: none;
   }
   .product-thumb {
-    margin: 0 auto;
+    margin: 0.2em auto;
+    width: 8.4em;
+    height: 7em;
+  }
+  .product-name {
+    font-size: 0.8em;
+  }
+  .product-brand {
+    margin: 0;
+    font-size: 0.7em;
+  }
+  .product-price {
+    margin-top: 0.5em;
+    font-size: 1em;
   }
   .payments {
     margin: 5em auto;
@@ -650,6 +683,9 @@ footer input {
   }
   footer  {
     padding: 0.5em;
+  }
+  footer .wrapper {
+    width: 85%;
   }
   footer li {
     margin-top: 0.2em 0;

@@ -470,7 +470,7 @@ call AltaProducto('3579', 'Medallones de espinaca', 4, 'unidades', 11, 6, 150, '
 call AltaProducto('9630', 'Milanesas multicereal de trigo', 400, 'g', 6, 6, 350, '9630.jpg', 20, TRUE);
 call AltaProducto('2310', 'Hamburguesas de col y quinoa', 1200, 'g', 9, 6, 295, '2310.jpg', 20, TRUE);
 
-call AltaProducto('7412', 'Jabón de coco', 200, 'g', 19, 7, 59, '7412.jpg', 20, TRUE);
+call AltaProducto('7412', 'Jabon de coco', 200, 'g', 19, 7, 59, '7412.jpg', 20, TRUE);
 call AltaProducto('5912', 'Crema exfoliante', 500, 'g', 20, 7, 550, '5912.jpg', 20, TRUE);
 call AltaProducto('3365', 'Crema antiedad', 500, 'g', 20, 7, 550, '3365.jpg', 20, TRUE);
-call AltaProducto('2223', 'Jabón líquido', 300, 'cc', 21, 7, 105, '2223.jpg', 20, TRUE);
+call AltaProducto('2223', 'Jabon líquido', 300, 'cc', 21, 7, 105, '2223.jpg', 20, TRUE);

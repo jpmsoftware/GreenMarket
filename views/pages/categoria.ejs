@@ -11,19 +11,18 @@
 
 <body>
     <%- include('../partials/_header.ejs')  %>
-    <section id="productos">
-        <div class="wrapper flex fr" style="margin-top: 3em;">
-            <hr class="line center-v">
+    <section class="productos">
+        <div class="heading" style="margin-top: 3em;">
+            <hr class="line">
             <h2><%= productos[0].categoria.toUpperCase() %> </h2>
             <hr class="line">
         </div>
-        <div class="wrapper flex fr" id="content-ofertas" style="text-align: center;">
+        <div class="wrapper" id="content-ofertas" style="text-align: center;">
             <% for (var i = 0; i < productos.length; i++) { %>
             <div class="card">
                 <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
                 <p class="product-content"><%= productos[i].cantidad + " " + productos[i].unidad %></p>
-                <hr class="separator">
-                <div class="container fc">
+                <div class="container">
                     <h4 class="product-name"><%= productos[i].nombre %></h4>
                     <h5 class="product-brand"><%= productos[i].marca %></h5>
                     <p class="product-price">$ <%= productos[i].precio %></p>
