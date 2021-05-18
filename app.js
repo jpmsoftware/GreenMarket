@@ -51,6 +51,11 @@ app.get('/categorias/:cat', (req, res) => {
     });
 });
 
+app.get('/search', (req, res) => {
+    var search = req.query.search_query;
+    res.end('Usted buscó: ' + search);
+});
+
 app.use((req, res) => {
-    res.end('Error 404 - Not Found');
+    res.render('./pages/404');
 });

@@ -4,7 +4,7 @@ var sliderControls = document.querySelectorAll('.slider-circles div');
 var sliderIndex = 0;
 
 window.onload = () => {
-    AutoSlide();
+    
 }
 
 sliderControls.forEach((element) => {

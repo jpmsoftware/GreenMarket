@@ -30,7 +30,7 @@ body {
 }
 
 header {
-  padding: 1em 0;
+  padding: 0.5em 0;
   position: relative;
   width: 100%;
   background-color: #3bb143;
@@ -62,14 +62,15 @@ header {
 }
 
 .bar1, .bar2, .bar3 {
-  margin: 0.2em 0;
-  width: 1.5em;
+  margin: 2px 0;
+  width: 1.2em;
   border: 1px solid #fff;
 }
 
 .change .bar1 {
   transition: all 0.3s;
-  transform: rotate(-45deg) translate(-9px, 4px);
+  transform: rotate(-45deg) 
+             translate(-4px, 4px);
 }
 
 .change .bar2 {
@@ -79,7 +80,8 @@ header {
 
 .change .bar3 {
   transition: all 0.3s;
-  transform: rotate(45deg) translate(-8px, -1px);
+  transform: rotate(45deg) 
+             translate(-4px, -4px);
 }
 
 .link {
@@ -94,7 +96,7 @@ header {
 }
 
 .logo-img {
-  width: 3em;
+  width: 2.5em;
   height: 100%;
 }
 
@@ -104,14 +106,14 @@ header {
 }
 
 .logo p:first-child {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.5em;
+  font-family: Georgia, sans-serif;
+  font-size: 1.2em;
   color: rgba(255, 255, 255, 1);
 }
 
 .logo p:last-child {
-  font-family: Georgia, 'Times New Roman', Times, sans-serif;
-  font-size: 1em;
+  font-family: 'Palatino', sans-serif;
+  font-size: 0.7em;
   color: rgba(255, 255, 255, .6);
 }
 
@@ -121,7 +123,6 @@ header {
   height: 100%;
   outline: none;
   border: none;
-  border-radius: 2px;
   padding: 1rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
@@ -181,8 +182,30 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
+.menu-container {
+  margin: auto 0 auto 2em;
+  display: flex;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 1em;
+  position: relative;
+}
+
+.menu-container p {
+  margin-left: 0.5em;
+  align-self: center;
+  height: 20px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.menu-container:hover {
+  background: rgb(38, 114, 43);
+}
+
 .menu {
-  display: none;
+  line-height: 20px;
   position: absolute;
   top: 100%;
   left: 0;
@@ -191,7 +214,7 @@ header {
   background: #3bb143;
   border-radius: 0 0 4px 4px;
   animation: FadeIn .5s 1;
-  animation: FadeIn .5s 1;
+  display: none;
 }
 
 .menu li {
@@ -293,10 +316,11 @@ h2 {
   position: relative;
   width: 14em;
   height: 20em;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: #fff;
   animation: FadeIn 1s 1;
-  box-shadow: 0px 0px 7px 0px rgba(112, 112, 124, 0.5);
+  box-shadow: 0px 0px 4px 0px rgba(112, 112, 124, 0.5);
+  border: 1px solid transparent;
 }
 
 .product-thumb {
@@ -306,9 +330,8 @@ h2 {
 }
 
 .card:hover {
-  transition: all .3s;
   cursor: pointer;
-  box-shadow: 0px 0px 15px 0px rgba(112, 112, 124, 0.8);
+  border: 1px solid #4A4AFF;
 }
 
 .card:hover .product-content {
@@ -331,9 +354,9 @@ h2 {
   font-family: 'Inconsolata', monospace;
   font-size: 0.9em;
   color: #fff;
-  padding: 0.5rem 1rem;
-  background-color: #000;
-  opacity: .8;
+  padding: 0.5rem 0.8rem;
+  background-color: #4A4AFF;
+  opacity: .9;
   border-radius: 2px;
 }
 
@@ -376,10 +399,16 @@ h2 {
   width: 20%;
   height: 40%;
   padding: 1em 2em;
+  font-family: 'Palatino';
 }
 
-.loginModal input[type="text"], .loginModal input[type="email"] {
+.loginModal input[name="user-mail"], .loginModal input[name="user-pass"] {
   height: 2em;
+  padding: .5em;
+}
+
+.loginModal input[type="checkbox"] {
+  margin-right: .5em;
 }
 
 .loginModal input[type="submit"] {
@@ -550,14 +579,17 @@ footer {
   color: #fff;
   margin-top: 5em;
   width: 100%;
-  background-color: rgb(50, 50, 50);
+  background: #3BB143;
   font-family: 'Roboto', sans-serif;
-  padding: 4em;
+  padding: 3em;
 }
 
 .newsletter {
   width: 20em;
   height: 3em;
+  border: none;
+  outline: none;
+  padding: .5em;
 }
 
 footer .wrapper {

@@ -4,7 +4,14 @@ var darkLayer = document.querySelector('.dark-layer');
 
 window.onclick = function (e) {
     if (e.target.className == 'dark-layer') {
-        CloseModal();
+        // When user clicks on a blank area
+        var openModals = document.querySelectorAll('.displayed');
+        openModals.forEach((window) => {
+            window.style.display = 'none';
+            window.classList.remove('displayed');
+            darkLayer.style.display = 'none';
+            body.style.overflow = 'scroll';
+        });
     }
 }
 
@@ -49,6 +56,7 @@ modal.onclick = (e) => {
 
 function OpenModal(product) {
     modal.style.display = 'flex';
+    modal.classList.add('displayed');
     darkLayer.style.display = 'block';
     body.style.overflow = 'hidden';
 

@@ -1,4 +1,4 @@
-var burger = document.querySelector('.burger');
+var burger = document.querySelector('.menu-container');
 var menu = document.querySelector('.menu');
 
 burger.onclick = () => {

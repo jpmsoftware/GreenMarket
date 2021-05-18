@@ -1,12 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="87.639" height="80.111" viewBox="0 0 87.639 80.111">
-  <g id="logo" transform="translate(-39.602 -28.947)">
-    <g id="Group_1" data-name="Group 1" transform="translate(70.951 29.479)">
-      <path id="Path_1" data-name="Path 1" d="M404.261,42.861c13.5-12.231,33.611-13.368,33.611-13.368s-58.97-2.02-45.237,42.41C392.818,56.733,397.334,49.135,404.261,42.861Z" transform="translate(-383.875 -29.479)" fill="none" stroke="#fff" stroke-width="1"/>
-      <path id="Path_2" data-name="Path 2" d="M381.847,30.623s-20.039,2-33,14.8c-6.62,6.537-10.794,14.285-10.369,29.314-.919,11.74-10.37,31.907-10.37,31.907,2.073,5.444,7.089,1.616,7.089,1.616-1.774-5.632,6.792-31.071,7.613-33.485C355.789,73.875,392.848,68.029,381.847,30.623Z" transform="translate(-328.106 -30.501)" fill="none" stroke="#fff" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="121" height="121" viewBox="0 0 121 121">
+  <g id="Group_1" data-name="Group 1" transform="translate(-889 -528)">
+    <g id="logo" transform="translate(861.873 525.521)">
+      <g id="Group_1-2" data-name="Group 1" transform="translate(70.951 29.479)">
+        <path id="Path_1" data-name="Path 1" d="M404.261,42.861c13.5-12.231,33.611-13.368,33.611-13.368s-58.97-2.02-45.237,42.41C392.818,56.733,397.334,49.135,404.261,42.861Z" transform="translate(-383.875 -29.479)" fill="#fff"/>
+        <path id="Path_2" data-name="Path 2" d="M381.847,30.623s-20.039,2-33,14.8c-6.62,6.537-10.794,14.285-10.369,29.314-.919,11.74-10.37,31.907-10.37,31.907,2.073,5.444,7.089,1.616,7.089,1.616-1.774-5.632,6.792-31.071,7.613-33.485C355.789,73.875,392.848,68.029,381.847,30.623Z" transform="translate(-328.106 -30.501)" fill="#fff"/>
+      </g>
+      <g id="Group_2" data-name="Group 2" transform="translate(40.127 50.552)">
+        <path id="Path_3" data-name="Path 3" d="M73.721,235.335c-9.065-8.211-22.564-8.974-22.564-8.974s39.589-1.356,30.369,28.471C81.4,244.649,78.371,239.547,73.721,235.335Z" transform="translate(-49.976 -226.352)" fill="#fff"/>
+        <path id="Path_4" data-name="Path 4" d="M41.479,227.119s13.453,1.345,22.156,9.939c4.444,4.388,7.246,9.59,6.961,19.68.617,7.881,6.961,21.42,6.961,21.42-1.391,3.654-4.759,1.085-4.759,1.085,1.191-3.781-4.559-20.859-5.111-22.48C58.972,256.155,34.093,252.231,41.479,227.119Z" transform="translate(-40.127 -227.037)" fill="#fff"/>
+      </g>
     </g>
-    <g id="Group_2" data-name="Group 2" transform="translate(40.127 50.552)">
-      <path id="Path_3" data-name="Path 3" d="M73.721,235.335c-9.065-8.211-22.564-8.974-22.564-8.974s39.589-1.356,30.369,28.471C81.4,244.649,78.371,239.547,73.721,235.335Z" transform="translate(-49.976 -226.352)" fill="none" stroke="#fff" stroke-width="1"/>
-      <path id="Path_4" data-name="Path 4" d="M41.479,227.119s13.453,1.345,22.156,9.939c4.444,4.388,7.246,9.59,6.961,19.68.617,7.881,6.961,21.42,6.961,21.42-1.391,3.654-4.759,1.085-4.759,1.085,1.191-3.781-4.559-20.859-5.111-22.48C58.972,256.155,34.093,252.231,41.479,227.119Z" transform="translate(-40.127 -227.037)" fill="none" stroke="#fff" stroke-width="1"/>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(889 528)" fill="none" stroke="#fff" stroke-width="3">
+      <circle cx="60.5" cy="60.5" r="60.5" stroke="none"/>
+      <circle cx="60.5" cy="60.5" r="59" fill="none"/>
     </g>
   </g>
 </svg>
