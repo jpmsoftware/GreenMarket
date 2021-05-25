@@ -4,8 +4,7 @@
   "description": "Vegan E-Commerce Store",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "devStart": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +20,15 @@
   },
   "homepage": "https://github.com/jpmsoftware/vegan-store-web#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.2",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
   }
 }

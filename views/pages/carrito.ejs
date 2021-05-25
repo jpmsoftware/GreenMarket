@@ -36,7 +36,7 @@
 
             <%- include('../partials/_loginModal.ejs') %>
                 <div class="dark-layer"></div>
-
+                <script src="/js/ItemsCounter.js"></script>
                 <script src="/js/MenuCategories.js"></script>
                 <script src="/js/SearchBox.js"></script>
                 <script src="/js/ModalWindow.js"></script>
@@ -64,6 +64,8 @@
                             });
                         }
                         table.innerHTML += output;
+
+                        CountItems();
                     }
                     UpdateTable();
                 </script>
@@ -88,10 +90,10 @@
 
                             // Update session
                             sessionStorage.setItem('productos', JSON.stringify(productos));
-                            
+                            CountItems();
+
                         });
                     });
                 </script>
 </body>
-
 </html>

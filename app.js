@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const ejs = require('ejs');
 const path = require('path');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 5000;
 require('dotenv').config();
@@ -14,6 +15,7 @@ var connection = mysql.createPool({
 });
 
 app.use(express.static('dist'));
+app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
@@ -52,8 +54,20 @@ app.get('/categorias/:cat', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-    var search = req.query.search_query;
-    res.end('Usted buscó: ' + search);
+    let search = req.query.search_query;
+    let query = `CALL BuscarProductos("${search}")`;
+    connection.query(query, (err, data) => {
+        if(err) throw err;
+        let obj = { productos: data[0] };
+        res.render('pages/searchResults', obj);
+    });
+});
+
+app.post('/login', (req, res) => {
+    let usermail = req.body.usermail;
+    let userpass = req.body.userpass;
+
+    // Login code  here
 });
 
 app.use((req, res) => {

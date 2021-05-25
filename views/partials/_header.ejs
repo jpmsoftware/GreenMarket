@@ -28,8 +28,14 @@
                 </nav>
             </div>
         </div>
-        <form style="margin: auto 0; position: relative; width: 50%; height: 2.5em; text-align: center;" action="/search" method="GET">
-            <input type="text" id="searchBox" placeholder="Buscar productos..." name="search_query">
+        <form class="formSearch" action="/search" method="GET">
+            <input 
+                type="text" 
+                id="searchBox" 
+                placeholder="Buscar productos..." 
+                name="search_query"
+                autocomplete="off"
+            >
             <div class="suggestions"></div>
         </form>
         <div class="user-data-container">

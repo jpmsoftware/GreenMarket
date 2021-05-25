@@ -144,6 +144,23 @@ DELIMITER ;
 
 
 DELIMITER //
+CREATE PROCEDURE BuscarProductos(IN _producto_nombre VARCHAR(30))
+BEGIN
+	SELECT productos.nombre,
+		   productos.cantidad,
+           productos.unidad,
+           marcas.nombre AS marca,
+           productos.precio,
+           productos.imagen
+           FROM productos 
+           INNER JOIN marcas
+           ON productos.marca = marcas.id
+	WHERE  productos.nombre LIKE CONCAT('%', _producto_nombre, '%');
+END //
+DELIMITER ;
+
+
+DELIMITER //
 CREATE PROCEDURE BajaCategoria(IN _id TINYINT UNSIGNED)
 BEGIN
 	DELETE FROM categorias WHERE id = _id;

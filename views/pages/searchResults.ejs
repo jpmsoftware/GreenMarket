@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="icon" href="/img/logo-green.svg">
-    <title>Evergreen | Productos por categoría</title>
+    <title>Evergreen | Resultados de búsqueda</title>
 </head>
 
 <body>
@@ -14,10 +14,10 @@
     <section class="productos">
         <div class="heading" style="margin-top: 3em;">
             <hr class="line">
-            <h2><%= productos[0].categoria.toUpperCase() %> </h2>
+            <h2>PRODUCTOS</h2>
             <hr class="line">
         </div>
-        <div class="wrapper" id="content-ofertas" style="text-align: center;">
+        <div class="wrapper" style="text-align: center;">
             <% for (var i = 0; i < productos.length; i++) { %>
             <div class="card">
                 <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
@@ -66,6 +66,13 @@
     <script src="/js/SearchBox.js"></script>
     <script src="/js/ModalWindow.js"></script>
     <script src="/js/ItemsCounter.js"></script>
+    <script>
+        var cardCount = document.querySelectorAll('.card').length;
+        if(cardCount < 1) {
+            var element = document.createElement('p').innerHTML = 'Su búsqueda no arrojó resultados';
+            document.querySelector('.productos .wrapper').append(element);
+        }
+    </script>
 </body>
 
 </html>
