@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
     <link rel="icon" href="/img/logo-green.svg">
-    <title>Evergreen | Vegan Store</title>
+    <title>Nature | Productos sin ingredientes de origen animal</title>
 </head>
 
 <body>
     <%- include('../partials/_header.ejs')  %>
 
     <div class="slider-container">
-        <img src="/img/banner_1.svg" alt="banner_1" class="slider-item">
-        <img src="/img/banner_2.svg" alt="banner_2" class="slider-item">
-        <img src="/img/banner_3.svg" alt="banner_3" class="slider-item">
+        <img src="/img/banner_1.svg" class="slider-item" alt="banner_1">
+        <img src="/img/banner_2.svg" class="slider-item" alt="banner_2">
+        <img src="/img/banner_3.svg" class="slider-item" alt="banner_3">
         <div class="slider-circles">
             <div class="circle"></div>
             <div class="circle"></div>
@@ -23,11 +24,7 @@
     </div>
 
     <section class="ofertas">
-        <div class="heading">
-            <hr class="line">
-            <h2>OFERTAS</h2>
-            <hr class="line">
-        </div>
+        <h2>NUESTRAS OFERTAS</h2>
         <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
         <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
         <div class="wrapper">
@@ -46,10 +43,7 @@
     </section>
 
     <section class="masvendidos">
-        <div class="heading">
-            <hr class="line">
-            <h2>MÁS VENDIDOS</h2>
-            <hr class="line">
+        <h2>MÁS VENDIDOS</h2>
         </div>
         <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
         <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
@@ -69,36 +63,13 @@
     </section>
 
     <%- include('../partials/_loginModal.ejs') %>
-
-    <section class="modal">
-        <div style="position: relative;">
-            <p class="product-content">390 mL</p>
-            <img src="" alt="thumb" class="thumb-big">
-        </div>
-        <div class="product-info">
-            <h1></h1>
-            <p class="product-brand"></p>
-            <hr>
-            <p class="price"></p>
-            <div class="buy-panel">
-                <p>Cantidad: </p>
-                <input type="text" value="1" id="cantidad" maxlength="2" disabled>
-                <div class="buy-controls">
-                    <img src="/img/plus.svg" alt="plus" id="plus">
-                    <img src="/img/minus.svg" alt="minus" id="minus">
-                </div>
-                <button class="button" id="agregar">Agregar</button>
-            </div>
-        </div>
-        <img src="/img/icon-close.svg" alt="icon-close" id="icon-close">
-    </section>
+    <%- include('../partials/_productModal.ejs') %>
+    <%- include('../partials/_footer.ejs') %>
 
     <div class="dark-layer"></div>
-
-    <%- include('../partials/_footer.ejs') %>
+    
     <script src="/js/main.js"></script>
     <script src="/js/SlideShow.js"></script>
-    <script src="/js/MenuCategories.js"></script>
     <script src="/js/SearchBox.js"></script>
     <script src="/js/ModalWindow.js"></script>
     <script src="/js/ProductsSlider.js"></script>

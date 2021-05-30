@@ -2,21 +2,13 @@
     <div class="wrapper">
         <div class="container">
             <a href="/" class="link">
-                <div class="logo">
-                    <img class="logo-img" src="../img/logo.svg">
-                    <div>
-                        <p>EVERGREEN</p>
-                        <p>VEGAN STORE</p>
-                    </div>
-                </div>
+                <img src="../img/logo.svg" class="logo">
             </a>
             <div class="menu-container">
-                <div class="burger">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
+                <div>
+                    <p class="title-productos">PRODUCTOS</p>
+                    <img src="../img/i-arrow-down.svg" class="icon-arrow"></i>
                 </div>
-                <p>Productos</p>
                 <nav class="menu">
                     <li><a href="/categorias/Granos y semillas">Granos y semillas</a></li>
                     <li><a href="/categorias/Bebidas">Bebidas</a></li>
@@ -27,23 +19,29 @@
                     <li><a href="/categorias/Cuidado personal">Cuidado personal</a></li>
                 </nav>
             </div>
+            
+            <form class="formSearch" action="/search" method="GET">
+                <input 
+                    type="text" 
+                    class="searchBox" 
+                    placeholder="Buscar productos..." 
+                    name="search_query" 
+                    autocomplete="off"
+                >
+                <img src="../img/icon-search.svg" class="icon-search" alt="icon-search">
+            </form>
         </div>
-        <form class="formSearch" action="/search" method="GET">
-            <input 
-                type="text" 
-                id="searchBox" 
-                placeholder="Buscar productos..." 
-                name="search_query"
-                autocomplete="off"
-            >
-            <div class="suggestions"></div>
-        </form>
         <div class="user-data-container">
-            <button class="btn-login">Ingresar</button>
+            <img src="../img/icon-avatar.svg" class="icon-avatar" alt="icon">
+            <hr class="vertical">
             <a href="/carrito">
-                <div id="shopping-data">
-                    <img src="/img/shopping-bag.svg" alt="shopping" id="shopping-bag">
-                    <p id="items-counter">0</p></img>
+                <div class="shopping-data">
+                    <img 
+                        src="/img/icon-shopping.svg" 
+                        alt="shopping" 
+                        class="shopping-bag"
+                    >
+                    <p class="items-counter">0</p></img>
                 </div>
             </a>
         </div>

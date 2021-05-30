@@ -1,5 +1,6 @@
 <form action="/login" method="POST" class="loginModal">
     <h2>Login</h2>
+    <img src="../img/icon-close.svg" alt="icon" class="icon-close">
     <div style="display: flex; flex-direction: column;">
         <label for="user-mail">Correo electrónico:</label>
         <input 
@@ -22,5 +23,13 @@
         <input type="checkbox">
         <label for="checkbox">Recordarme</label>
     </div>
-    <input type="submit" value="Ingresar">
+    <div style="position: relative; width: 100%;">
+        <input 
+        type="submit" 
+        value="INGRESAR"
+        class="btnIngresar"
+        >
+        <div class="loader"></div>
+    </div>
+    
 </form>

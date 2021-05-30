@@ -13,9 +13,7 @@
     <%- include('../partials/_header.ejs')  %>
     <section class="productos">
         <div class="heading" style="margin-top: 3em;">
-            <hr class="line">
-            <h2><%= productos[0].categoria.toUpperCase() %> </h2>
-            <hr class="line">
+        <h2><%= productos[0].categoria.toUpperCase() %> </h2>
         </div>
         <div class="wrapper" id="content-ofertas" style="text-align: center;">
             <% for (var i = 0; i < productos.length; i++) { %>
@@ -32,37 +30,13 @@
         </div>
     </section>
 
-    <section class="modal">
-        <div style="position: relative;">
-            <p class="product-content">390 mL</p>
-            <img src="" alt="thumb" class="thumb-big">
-        </div>
-        <div class="product-info">
-            <h1></h1>
-            <p class="product-brand"></p>
-            <hr>
-            <p class="price"></p>
-            <div class="buy-panel">
-                <p>Cantidad: </p>
-                <input type="text" value="1" id="cantidad" maxlength="2" disabled>
-                <div class="buy-controls center-v">
-                    <img src="/img/plus.svg" alt="plus" id="plus">
-                    <img src="/img/minus.svg" alt="minus" id="minus">
-                </div>
-                <button class="button" id="agregar">Agregar</button>
-            </div>
-        </div>
-        <img src="/img/icon-close.svg" alt="icon-close" id="icon-close">
-    </section>
-
-    <div class="dark-layer"></div>
-
+    <%- include('../partials/_productModal.ejs') %>
     <%- include('../partials/_footer.ejs') %>
     <%- include('../partials/_loginModal.ejs') %>
 
+    <div class="dark-layer"></div>
 
     <script src="/js/main.js"></script>
-    <script src="/js/MenuCategories.js"></script>
     <script src="/js/SearchBox.js"></script>
     <script src="/js/ModalWindow.js"></script>
     <script src="/js/ItemsCounter.js"></script>

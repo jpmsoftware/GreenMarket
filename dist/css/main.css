@@ -1,13 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap");
-@font-face {
-  font-family: 'Simplifica';
-  src: url("../fonts/simplifica.ttf");
+:root {
+  --dark-blue: #271D3A;
+  --greenish: #5EC738;
 }
 
-@font-face {
-  font-family: 'Palatino';
-  src: url("../fonts/palatino.ttf");
+html {
+  font-family: 'Segoe UI', sans-serif;
 }
 
 * {
@@ -19,7 +16,6 @@
 }
 
 ::placeholder {
-  font-family: 'Roboto', sans-serif;
   color: #adadad;
 }
 
@@ -30,11 +26,11 @@ body {
 }
 
 header {
-  padding: 0.5em 0;
   position: relative;
   width: 100%;
-  background-color: #3bb143;
-  z-index: 4;
+  height: 80px;
+  background-color: var(--dark-blue);
+  z-index: 1;
 }
 
 .wrapper {
@@ -43,6 +39,19 @@ header {
   display: flex;
   justify-content: space-between;
   width: 70%;
+  height: 100%;
+  align-self: center;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
 }
 
 .productos {
@@ -56,217 +65,163 @@ header {
 .container {
   position: relative;
   display: flex;
-}
-
-.burger {
-  margin: auto 0;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.bar1, .bar2, .bar3 {
-  margin: 2px 0;
-  width: 1.2em;
-  border: 1px solid #fff;
-}
-
-.change .bar1 {
-  transition: all 0.3s;
-  transform: rotate(-45deg) 
-             translate(-4px, 4px);
-}
-
-.change .bar2 {
-  transition: all 0.3s;
-  opacity: 0;
-}
-
-.change .bar3 {
-  transition: all 0.3s;
-  transform: rotate(45deg) 
-             translate(-4px, -4px);
-}
-
-.link {
-  cursor: pointer;
-}
-
-.logo {
-  margin-left: 1em;
-  display: flex;
-  padding: 0.5em 1em;
-  border-radius: 5px;
-}
-
-.logo-img {
-  width: 2.5em;
-  height: 100%;
-}
-
-.logo>div {
-  margin-left: 0.5em;
-  flex-direction: column;
-}
-
-.logo p:first-child {
-  font-family: Georgia, sans-serif;
-  font-size: 1.2em;
-  color: rgba(255, 255, 255, 1);
-}
-
-.logo p:last-child {
-  font-family: 'Palatino', sans-serif;
-  font-size: 0.7em;
-  color: rgba(255, 255, 255, .6);
-}
-
-.formSearch {
-  margin: auto 2em auto 0; 
-  position: relative; 
-  width: 40%; 
-  height: 2.5em; 
-  text-align: center;
-}
-
-#searchBox {
-  margin: auto auto;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  border: none;
-  padding: 1rem;
-  font-family: "Roboto", sans-serif;
-  background-color: #f4f4f4;
-  border-radius: 2px;
-}
-
-.suggestions {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background: #fff;
-  animation: FadeIn .3s 1;
-}
-
-.user-data-container {
-  margin: auto 0;
-  border-radius: 5px;
-  display: flex;
-  z-index: 1;
-}
-
-.btn-login {
-  margin: auto 2em auto 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9em;
-  color: #fff;
-  border: 2px solid white;
-  background: transparent;
-  outline: none;
-  padding: 0.5em 1.5em;
-  border-radius: 15px;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-#shopping-data {
-  cursor: pointer;
-  position: relative;
-}
-
-#shopping-bag {
-  position: relative;
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-#items-counter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1rem;
-  color: #fff;
-  font-family: "Roboto", sans-serif;
+  justify-content: space-between;
+  width: 70%;
 }
 
 .menu-container {
-  margin: auto 0 auto 3em;
+  position: relative;
+  margin: auto 0 auto 8em;
   display: flex;
   cursor: pointer;
   border-radius: 20px;
-  height: 40px;
+  height: 100%;
   padding: 0 1em;
-  position: relative;
 }
 
-.menu-container p {
-  margin-left: 0.5em;
+.menu-container div {
+  display: flex;
+}
+
+.title-productos {
   align-self: center;
   height: 20px;
   color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.menu-container:hover {
-  background: rgb(38, 114, 43);
+.menu-container:hover .menu{
+  display: flex;
 }
 
 .menu {
   line-height: 20px;
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 12em;
-  padding: 0.5em 0 0 1em;
-  background: #3bb143;
-  border-radius: 0 0 4px 4px;
-  animation: FadeIn .5s 1;
   display: none;
+  top: 100%;
+  padding: 1em;
+  left: 0%;
+  width: 15em;
+  background: #33274B;
+  border-radius: 0 0 10px 10px;
+  animation: fade-in .5s 1;
+  flex-direction: column;
+  z-index: -1;
+  animation: fade-in .5s 1, move-down .4s 1;
 }
 
 .menu li {
-  margin: 1em 0;
+  padding: .5em;
 }
 
 .menu li:hover a {
-  transition: all .4s;
-  color: rgb(100, 100, 100);
-  margin-left: 0.5em;
+  transition: all .3s;
+  color: var(--greenish);
 }
 
 .menu li a {
-  font-family: 'Roboto', sans-serif;
   font-size: 0.9em;
+  color: #fff;
+  margin: 0 0 1em 0;
+
+}
+
+.icon-arrow {
+  margin-left: 1em;
+  width: 12px;
+}
+
+.formSearch {
+  margin: auto 0; 
+  position: relative; 
+  width: 60%; 
+  height: 2.5em; 
+  text-align: center;
+}
+
+.searchBox {
+  margin: auto auto;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 1em;
+  background: #fff;
+}
+
+.icon-search {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 3%;
+  width: 16px;
+  cursor: pointer;
+}
+
+.user-data-container {
+  margin: auto 0;
+  border: 1px solid rgba(255, 255, 255, .4);
+  padding: .5em;
+  border-radius: 5px;
+  display: flex;
+  z-index: 1;
+}
+
+.icon-avatar {
+  margin: auto .5em;
+  height: 24px;
+  cursor: pointer;
+}
+
+.vertical {
+  margin: auto 0;
+  height: 15px;
+  border: 1px solid rgba(255, 255, 255, .4);
+}
+
+.shopping-data {
+  cursor: pointer;
+  position: relative;
+}
+
+.shopping-bag {
+  margin: auto .5em;
+  height: 24px;
+  cursor: pointer;
+}
+
+.items-counter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .9em;
   color: #fff;
 }
 
 .slider-container {
   position: relative;
-  width: 100%;
-  height: 31.25rem;
+  margin: 4em auto;
+  width: 70%;
+  height: 25em;
 }
 
 .slider-item {
-  animation: FadeIn 1s 1;
-  animation: FadeIn 1s 1;
+  width: 100%;
+  height: 400px;
+  animation: fade-in 1s 1;
 }
 
 .slider-circles {
   position: absolute;
   bottom: 10%;
-  right: 14%;
+  right: 5%;
   display: flex;
   justify-content: space-between;
 }
 
 .circle {
-  margin: 0 1rem;
+  margin: 0 .5em;
   cursor: pointer;
   width: 0.75rem;
   height: 0.75rem;
@@ -285,27 +240,12 @@ header {
   text-align: center;
 }
 
-.heading {
-  margin: 0 auto;
-  width: 70%;
-  display: flex;
-}
-
-.line {
-  margin: auto auto;
-  height: 0rem;
-  width: 40%;
-  border: 1px solid lightgray;
-}
-
 h2 {
-  margin: 0 auto;
+  margin: 2em auto 0 auto;
   text-align: center;
-  font-family: 'Simplifica';
-  font-weight: lighter;
-  letter-spacing: 5px;
-  font-size: 1.8rem;
-  color: #9b9999;
+  font-weight: 500;
+  font-size: 1.5em;
+  color: #000;
 }
 
 #arrow-left {
@@ -329,26 +269,29 @@ h2 {
   position: relative;
   width: 14em;
   height: 20em;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: #fff;
   animation: FadeIn 1s 1;
-  box-shadow: 0px 0px 4px 0px rgba(112, 112, 124, 0.5);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
   border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .product-thumb {
   margin-top: 0.5em;
   max-width: 12em;
   height: 10em;
+  z-index: -2;
 }
 
 .card:hover {
-  cursor: pointer;
-  border: 1px solid #4A4AFF;
+  border: 1px solid var(--greenish);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .product-content {
-  display: block;
+.card:hover .product-thumb {
+  transition: all .2s;
+  transform: scale(1.1);
 }
 
 .card .container {
@@ -364,7 +307,6 @@ h2 {
   right: 8%;
   bottom: 43%;
   max-width: 40%;
-  font-family: 'Inconsolata', monospace;
   font-size: 0.9em;
   color: #fff;
   padding: 0.5rem 0.8rem;
@@ -374,27 +316,21 @@ h2 {
 }
 
 .product-name {
-  font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  letter-spacing: 1px;
   font-size: 1em;
 }
 
 .product-brand {
   margin-top: 0.5rem;
-  font-family: 'Roboto', sans-serif;
   font-weight: normal;
-  letter-spacing: 1px;
   color: rgba(0, 0, 0, 0.5);
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .product-price {
-  margin-top: 1em;
-  font-family: 'Palatino';
+  margin-bottom: .5em;
   font-size: 1.4em;
   font-weight: bold;
-  letter-spacing: 2px;
 }
 
 .loginModal {
@@ -407,29 +343,51 @@ h2 {
   border-radius: 5px;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 2;
-  width: 5em;
   width: 20%;
-  height: 40%;
-  padding: 1em 2em;
-  font-family: 'Palatino';
+  z-index: 2;
+  padding: 2em;
+  animation: fade-in .5s 1;
 }
 
-.loginModal input[name="user-mail"], .loginModal input[name="user-pass"] {
-  height: 2em;
-  padding: .5em;
+.loginModal h2 {
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-weight: 500;
+}
+
+.loginModal > div {
+  margin-bottom: 1em;
+}
+
+.loginModal input[name="usermail"], .loginModal input[name="userpass"] {
+  margin-top: .5em;
+  padding: 1em;
+  height: 3em;
+  border-radius: 2px;
+  border: 1px solid #878736;
+  background: rgba(94, 199, 56, .2);
 }
 
 .loginModal input[type="checkbox"] {
   margin-right: .5em;
 }
 
-.loginModal input[type="submit"] {
-  padding: 1em;
+.btnIngresar {
+  margin-top: 2em;
+  outline: none;
+  border: none;
   background: #3bb143;
+  width: 100%;
+  font-size: .9em;
+  font-weight: 500;
+  padding: 1.5em;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
+}
+
+.btnIngresar:hover {
+  background: var(--greenish);
 }
 
 .modal {
@@ -443,7 +401,7 @@ h2 {
   display: none;
   border-radius: 6px;
   z-index: 2;
-  animation: FadeIn 0.5s 1;
+  animation: fade-in 0.5s 1;
 }
 
 .modal div:first-child .product-content {
@@ -471,16 +429,7 @@ h2 {
 }
 
 .product-info h1 {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.8rem;
-}
-
-.modal hr {
-  margin-top: 1rem;
-  width: 2.5rem;
-  height: 0.5rem;
-  background-color: lightgray;
-  border: none;
 }
 
 .price {
@@ -494,7 +443,6 @@ h2 {
   position: absolute;
   bottom: 0;
   display: flex;
-  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
 
@@ -510,7 +458,6 @@ h2 {
   border: 1px solid lightgray;
   text-align: center;
   font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
   color: #000;
 }
 
@@ -540,8 +487,6 @@ h2 {
   border-radius: 2px;
   outline: none;
   font-size: 0.9em;
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 1px;
 }
 
 .agregado {
@@ -553,10 +498,11 @@ h2 {
   background-color: rgba(10, 40, 50, 0.8);
 }
 
-#icon-close {
+.icon-close {
   position: absolute;
   top: 7%;
   right: 5%;
+  width: 16px;
   cursor: pointer;
 }
 
@@ -593,20 +539,20 @@ footer {
   color: #fff;
   margin-top: 5em;
   width: 100%;
-  font-family: 'Roboto', sans-serif;
 }
 
 .up {
-  background: #3BB143;
+  background: var(--dark-blue);
   padding: 2em;
 }
 
 .down {
-  background: #1d5721;
+  background: #33274B;
   width: 100%;
   padding: 1em;
   text-align: center;
   font-size: .8em;
+  z-index: 1;
 }
 
 .newsletter {
@@ -615,7 +561,6 @@ footer {
   border: none;
   outline: none;
   padding: .5em;
-  border-radius: 3px;
 }
 
 footer .wrapper {
@@ -639,7 +584,18 @@ footer .info {
 
 .info h5 {
   font-size: 1.2em;
+  font-weight: 500;
+  letter-spacing: 1px;
   margin-bottom: 1em;
+}
+
+.leaves {
+  position: absolute;
+  width: 150px;
+  opacity: .1;
+  z-index: 0;
+  bottom: 15%;
+  right: 25%;
 }
 
 footer li {
@@ -678,7 +634,6 @@ footer input {
   text-align: left;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, .3);
   border-radius: 3px;
-  font-family: 'Roboto', sans-serif;
 }
 
 .table tr {
@@ -694,214 +649,64 @@ table td {
   opacity: .8;
 }
 
+.container-remove {
+  display: flex;
+}
+
+.container-remove:hover {
+  background: rgba(0, 0, 0, .2);
+}
+
+.icon-remove {
+  width: 32px;
+  cursor: pointer;
+}
+
 .btn-delete-product {
   font-size: .9em;
 }
 
-@media only screen and (max-width: 960px) {
-  header {
-    padding: 0.5em 0;
-    width: 100%;
-  }
-  header .wrapper {
-    width: 95%;
-  }
-  .logo {
-    margin-left: 0.5em;
-    padding: 0.5em 0.5em;
-  }
-  .logo-div {
-    margin-left: 0;
-  }
-  .logo-img {
-    width: 2em;
-  }
-  .logo p:first-child {
-    margin-top: 0.4em;
-    font-size: 1em;
-  }
-  .logo p:last-child {
-    font-size: 0.7em;
-  }
-  .menu {
-    left: -100px;
-  }
-  .menu-container {
-    margin-left: .5em;
-  }
-  .menu-container p {
-    display: none;
-  }
-  .btn-login {
-    padding: 0.3em 0.8em;
-  }
-  #searchBox {
-    display: none;
-  }
-  .ofertas, .masvendidos {
-    margin: 2.5em auto;
-  }
-  .ofertas .wrapper, .masvendidos .wrapper {
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 90%;
-  }
-  .heading {
-    width: 85%;
-    margin-bottom: 1em;
-  }
-  h2 {
-    margin: 0 0.2em;
-    font-size: 1.4em;
-  }
-  .card {
-    margin: 0.5em auto;
-    width: 9.8em;
-    height: 14em;
-  }
-  #user-name {
-    display: none;
-  }
-  .slider-container {
-    display: none;
-  }
-  .productos .wrapper {
-    width: 90%;
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 10px;
-  }
-  .modal {
-    margin-top: 1em;
-    width: 90%;
-    height: 65%;
-    padding: 2em 1em;
-  }
-  .modal hr {
-    width: 2em;
-    height: 0.2em;
-  }
-  .thumb-big {
-    width: 10em;
-    height: 10em;
-  }
-  .buy-panel {
-    bottom: 20%;
-    right: 120%;
-  }
-  .button {
-    margin-left: 0.5em;
-    padding: 0.5em 1em;
-  }
-  .arrows {
-    display: none;
-  }
-  .product-name {
-    font-size: 0.8em;
-  }
-  .product-thumb {
-    margin: 0.2em auto;
-    width: 8.4em;
-    height: 7em;
-  }
-  .product-info {
-    margin-left: 1em;
-  }
-  .product-info h1 {
-    font-size: 1em;
-  }
-  .product-brand {
-    margin: 0;
-    font-size: 0.7em;
-  }
-  .product-price {
-    font-size: 0.9em;
-  }
-  .price {
-    margin-top: 1em;
-    font-size: 1.5em;
-  }
-  .modal div:first-child .product-content {
-    display: none;
-  }
-  #icon-close {
-    width: 1em;
-    top: 4%;
-  }
-  .payments {
-    margin: 5em auto;
-    width: 90%;
-  }
-  .payments * {
-    width: 40px;
-    height: 25px;
-  }
-  footer {
-    padding: 0;
-  }
-  footer .wrapper {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  footer .up {
-    padding: .5em;
-  }
-  .newsletter {
-    width: 8em;
-    height: 2em;
-  }
-  footer li {
-    font-size: 0.8em;
-  }
-  .social-media * {
-    width: 1.5em;
-  }
-  .info h5 {
-    font-size: 1em;
-  }
-  .table {
-    padding: 0.5em;
-    width: 70%;
-    font-size: 0.8em;
-  }
-  .table * {
-    padding: 1.5em;
-  }
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
 }
-
-@keyframes FadeIn {
+.loader {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(0, -50%);
+  font-size: 2px;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 .7s infinite linear;
+  animation: load8 .7s infinite linear;
+}
+@-webkit-keyframes load8 {
   0% {
-    opacity: 0;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 1;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
-
-@keyframes FadeIn {
+@keyframes load8 {
   0% {
-    opacity: 0;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 1;
-  }
-}
-
-@keyframes MoveDown {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 200px;
-  }
-}
-
-@keyframes MoveDown {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 200px;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

@@ -1,0 +1,168 @@
+@media only screen and (max-width: 960px) {
+    header {
+      padding: 0.5em 0;
+      width: 100%;
+    }
+    header .wrapper {
+      width: 95%;
+    }
+    .logo {
+      margin-left: 0.5em;
+      padding: 0.5em 0.5em;
+    }
+    .logo-div {
+      margin-left: 0;
+    }
+    .logo p:first-child {
+      margin-top: 0.4em;
+      font-size: 1em;
+    }
+    .logo p:last-child {
+      font-size: 0.7em;
+    }
+    .menu {
+      left: -100px;
+    }
+    .menu-container {
+      margin-left: .5em;
+    }
+    .menu-container p {
+      display: none;
+    }
+    .btn-login {
+      padding: 0.3em 0.8em;
+    }
+    #searchBox {
+      display: none;
+    }
+    .ofertas, .masvendidos {
+      margin: 2.5em auto;
+    }
+    .ofertas .wrapper, .masvendidos .wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 90%;
+    }
+    .heading {
+      width: 85%;
+      margin-bottom: 1em;
+    }
+    h2 {
+      margin: 0 0.2em;
+      font-size: 1.4em;
+    }
+    .card {
+      margin: 0.5em auto;
+      width: 9.8em;
+      height: 14em;
+    }
+    #user-name {
+      display: none;
+    }
+    .slider-container {
+      display: none;
+    }
+    .productos .wrapper {
+      width: 90%;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 10px;
+    }
+    .modal {
+      margin-top: 1em;
+      width: 90%;
+      height: 65%;
+      padding: 2em 1em;
+    }
+    .modal hr {
+      width: 2em;
+      height: 0.2em;
+    }
+    .thumb-big {
+      width: 10em;
+      height: 10em;
+    }
+    .buy-panel {
+      bottom: 20%;
+      right: 120%;
+    }
+    .button {
+      margin-left: 0.5em;
+      padding: 0.5em 1em;
+    }
+    .arrows {
+      display: none;
+    }
+    .product-name {
+      font-size: 0.8em;
+    }
+    .product-thumb {
+      margin: 0.2em auto;
+      width: 8.4em;
+      height: 7em;
+    }
+    .product-info {
+      margin-left: 1em;
+    }
+    .product-info h1 {
+      font-size: 1em;
+    }
+    .product-brand {
+      margin: 0;
+      font-size: 0.7em;
+    }
+    .product-price {
+      font-size: 0.9em;
+    }
+    .price {
+      margin-top: 1em;
+      font-size: 1.5em;
+    }
+    .modal div:first-child .product-content {
+      display: none;
+    }
+    .icon-close {
+      width: 1em;
+      top: 4%;
+    }
+    .payments {
+      margin: 5em auto;
+      width: 90%;
+    }
+    .payments * {
+      width: 40px;
+      height: 25px;
+    }
+    footer {
+      padding: 0;
+    }
+    footer .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    footer .up {
+      padding: .5em;
+    }
+    .newsletter {
+      width: 8em;
+      height: 2em;
+    }
+    footer li {
+      font-size: 0.8em;
+    }
+    .social-media * {
+      width: 1.5em;
+    }
+    .info h5 {
+      font-size: 1em;
+    }
+    .table {
+      padding: 0.5em;
+      width: 70%;
+      font-size: 0.8em;
+    }
+    .table * {
+      padding: 1.5em;
+    }
+  }

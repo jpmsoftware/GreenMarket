@@ -1,6 +1,7 @@
-var btnLogin = document.querySelector('.btn-login');
+var iconLogin = document.querySelector('.icon-avatar');
+var btnIngresar = document.querySelector('.btnLogin');
 
-btnLogin.addEventListener('click', () => {
+iconLogin.addEventListener('click', () => {
 
     var loginModal = document.querySelector('.loginModal');
     var colorLayer = document.querySelector('.dark-layer');

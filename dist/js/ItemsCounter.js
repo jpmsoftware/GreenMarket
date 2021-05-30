@@ -1,5 +1,5 @@
 
-var itemsCounter = document.getElementById('items-counter');
+var itemsCounter = document.querySelector('.items-counter');
 
 window.onload = () => {
     CountItems();
