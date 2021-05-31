@@ -54,11 +54,14 @@ app.get('/categorias/:cat', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-    let search = req.query.search_query;
+    let search = req.query.search;
     let query = `CALL BuscarProductos("${search}")`;
     connection.query(query, (err, data) => {
         if(err) throw err;
-        let obj = { productos: data[0] };
+        let obj = { 
+            search: search,
+            productos: data[0] 
+        };
         res.render('pages/searchResults', obj);
     });
 });
@@ -67,7 +70,7 @@ app.post('/login', (req, res) => {
     let usermail = req.body.usermail;
     let userpass = req.body.userpass;
 
-    // Login code  here
+    res.render('pages/404.ejs');
 });
 
 app.use((req, res) => {

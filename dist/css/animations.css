@@ -9,18 +9,9 @@
 
 @keyframes move-down {
   0% {
-    margin-top: -10px;
+    margin-top: -20px;
   }
   100% {
     margin-top: 0;
-  }
-}
-
-@keyframes MoveDown {
-  0% {
-    margin-top: 0;
-  }
-  100% {
-    margin-top: 200px;
   }
 }

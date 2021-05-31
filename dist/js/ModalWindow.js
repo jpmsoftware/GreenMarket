@@ -10,7 +10,7 @@ window.onclick = function (e) {
             window.style.display = 'none';
             window.classList.remove('displayed');
             darkLayer.style.display = 'none';
-            body.style.overflow = 'scroll';
+            body.style.overflowY = 'scroll';
         });
     }
 }
@@ -58,7 +58,7 @@ function OpenModal(product) {
     modal.style.display = 'flex';
     modal.classList.add('displayed');
     darkLayer.style.display = 'block';
-    body.style.overflow = 'hidden';
+    body.style.overflowY = 'hidden';
 
     //GET SELECTED PRODUCT DETAILS
     modal.querySelector('.product-info h1').innerHTML = product.nombre;

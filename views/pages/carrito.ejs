@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
     <link rel="icon" href="/img/logo-green.svg">
     <title>Evergreen | Carrito</title>
 </head>
@@ -15,12 +17,14 @@
         <section class="ofertas" id="ofertas" style="width: 80%; min-height: 700px; position: relative;">
             <h2>CARRITO</h2>
             <table class="table" id="table">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Marca</th>
-                    <th>Cantidad</th>
-                    <th>Sub-total</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Marca</th>
+                        <th>Cantidad</th>
+                        <th>Sub-total</th>
+                    </tr>
+                </thead>
             </table>
             <p class="msg product-name" style="display: none; margin-top: 4em;">
                 No tiene productos en su carrito
@@ -70,7 +74,6 @@
                     UpdateTable();
                 </script>
                 <script>
-
                     var buttonsDeleteCollection = document.querySelectorAll('.btn-delete-product');
                     buttonsDeleteCollection.forEach((button) => {
                         button.addEventListener('click', (e) => {
@@ -96,4 +99,5 @@
                     });
                 </script>
 </body>
+
 </html>

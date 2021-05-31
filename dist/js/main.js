@@ -1,5 +1,4 @@
 var cards = document.querySelectorAll('.card');
-
 var iconSearch = document.querySelector('.icon-search').addEventListener('click', () => {
     document.querySelector('.formSearch').submit();
 });
