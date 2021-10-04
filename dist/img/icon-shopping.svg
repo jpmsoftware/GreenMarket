@@ -1,5 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="38.405" viewBox="0 0 32 38.405">
-  <g id="shopping-bag" transform="translate(0 0.003)">
-    <path id="shopping-bag-2" data-name="shopping-bag" d="M92.315,19.273H86.887a8.027,8.027,0,0,0-15.984,0H65.4L62.9,50.4h32ZM78.9,13.638a6.192,6.192,0,0,1,6.273,5.632H72.628A6.192,6.192,0,0,1,78.9,13.638ZM67.027,20.909H70.9V26.3H72.62V20.909h12.56V26.3H86.9V20.909h3.958L93.1,48.766H64.789Z" transform="translate(-62.9 -12)" fill="#fff"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="16.801" height="20.161" viewBox="0 0 16.801 20.161">
+  <path id="icon-shopping" d="M78.344,15.818H75.494a4.215,4.215,0,0,0-8.392,0H64.21L62.9,32.161H79.7ZM71.3,12.859a3.251,3.251,0,0,1,3.293,2.957H68.008A3.251,3.251,0,0,1,71.3,12.859Zm-6.234,3.818H67.1v2.83H68v-2.83h6.6v2.83h.9v-2.83h2.08L78.759,31.3H63.892Z" transform="translate(-62.9 -12)"/>
 </svg>

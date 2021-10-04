@@ -42,7 +42,7 @@
     <script>
         var cardCount = document.querySelectorAll('.card').length;
         if(cardCount < 1) {
-            var element = document.createElement('p').innerHTML = `Su búsqueda "<%= search %>" no arrojó resultados`;
+            var element = document.createElement('p').innerHTML = `Su búsqueda <%= search %> no arrojó resultados`;
             document.querySelector('.productos .wrapper').append(element);
         }
     </script>

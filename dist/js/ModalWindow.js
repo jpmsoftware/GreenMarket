@@ -1,4 +1,4 @@
-var body = document.querySelector('html');
+var bodyElement = document.querySelector('html');
 var modal = document.querySelector('.modal');
 var darkLayer = document.querySelector('.dark-layer');
 
@@ -10,7 +10,7 @@ window.onclick = function (e) {
             window.style.display = 'none';
             window.classList.remove('displayed');
             darkLayer.style.display = 'none';
-            body.style.overflowY = 'scroll';
+            bodyElement.style.overflowY = 'scroll';
         });
     }
 }
@@ -47,9 +47,6 @@ modal.onclick = (e) => {
             CountItems();
             UnifyItems();
             let button = document.querySelector('.product-info .button');
-            button.style.backgroundColor = '#3BB143';
-            button.innerHTML = 'Agregado';
-            setTimeout(CloseModal, 2000);
             break;
     }
 }
@@ -58,7 +55,7 @@ function OpenModal(product) {
     modal.style.display = 'flex';
     modal.classList.add('displayed');
     darkLayer.style.display = 'block';
-    body.style.overflowY = 'hidden';
+    bodyElement.style.overflowY = 'hidden';
 
     //GET SELECTED PRODUCT DETAILS
     modal.querySelector('.product-info h1').innerHTML = product.nombre;
@@ -71,7 +68,7 @@ function OpenModal(product) {
 function CloseModal() {
     modal.style.display = 'none';
     darkLayer.style.display = 'none';
-    body.style.overflowY = 'scroll';
+    bodyElement.style.overflowY = 'scroll';
 
     //RESET VIEW
     document.getElementById('cantidad').value = 1;

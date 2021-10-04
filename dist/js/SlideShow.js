@@ -1,6 +1,6 @@
 var timer = 0;
 var sliders = document.querySelectorAll('.slider-item');
-var sliderControls = document.querySelectorAll('.slider-circles div');
+var sliderControls = document.querySelectorAll('.controls div');
 var sliderIndex = 0;
 
 window.onload = () => {
@@ -22,7 +22,7 @@ sliderControls.forEach((element) => {
 function AutoSlide() {
     clearTimeout(timer);
 
-    if (sliderIndex > 2) { sliderIndex = 0; }
+    if (sliderIndex > 3) { sliderIndex = 0; }
 
     PaintControls();
 

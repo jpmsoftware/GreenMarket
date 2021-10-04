@@ -7,64 +7,75 @@
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="icon" href="/img/logo-green.svg">
-    <title>Nature | Productos sin ingredientes de origen animal</title>
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
 </head>
 
 <body>
     <%- include('../partials/_header.ejs')  %>
-
-    <div class="slider-container">
-        <img src="/img/banner_1.svg" class="slider-item" alt="banner_1">
-        <img src="/img/banner_2.svg" class="slider-item" alt="banner_2">
-        <img src="/img/banner_3.svg" class="slider-item" alt="banner_3">
-        <div class="slider-circles">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+    
+    <div class="main-wrapper">
+        
+        <div class="slider-container">
+            <img src="/img/banner1.jpg" class="slider-item" alt="banner_1">
+            <img src="/img/banner2.jpg" class="slider-item" alt="banner_2">
+            <img src="/img/banner3.jpg" class="slider-item" alt="banner_3">
+            <img src="/img/banner4.jpg" class="slider-item" alt="banner_4">
+            <div class="controls">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
         </div>
+
+        <div class="msg">
+            <img src="/img/icon-check.svg" alt="icon">
+            Producto agregado
+        </div>
+
+        <%- include('../partials/_categories.ejs') %>
+
+        <section class="ofertas">
+            <h2>Nuestras ofertas</h2>
+            <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
+            <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
+            <div class="products-container">
+                <% for (var i = 0; i < ofertas.ofertas.length; i++) { %>
+                    <div class="card" style="display: none;">
+                        <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
+                        <p class="product-content"><%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %></p>
+                        <div class="container">
+                            <h4 class="product-name"><%= ofertas.ofertas[i].nombre %></h4>
+                            <h5 class="product-brand"><%= ofertas.ofertas[i].marca %></h5>
+                            <p class="product-price">$ <%= ofertas.ofertas[i].precio %></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    
+        <section class="masvendidos">
+            <h2>Más populares</h2>
+            <div class="products-container">
+                <% for (var i = 0; i < masvendidos.masvendidos.length; i++) { %>
+                    <div class="card">
+                        <img src="/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb" class="product-thumb">
+                        <p class="product-content"><%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
+                        <div class="container">
+                            <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
+                            <h5 class="product-brand"><%= masvendidos.masvendidos[i].marca %></h5>
+                            <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    
+        <%- include('../partials/_loginModal.ejs') %>
+        <%- include('../partials/_productModal.ejs') %>
+        
     </div>
 
-    <section class="ofertas">
-        <h2>NUESTRAS OFERTAS</h2>
-        <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
-        <div class="wrapper">
-            <% for (var i = 0; i < ofertas.ofertas.length; i++) { %>
-                <div class="card" style="display: none;">
-                    <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
-                    <p class="product-content"><%= ofertas.ofertas[i].cantidad + " " + ofertas.ofertas[i].unidad %></p>
-                    <div class="container">
-                        <h4 class="product-name"><%= ofertas.ofertas[i].nombre %></h4>
-                        <h5 class="product-brand"><%= ofertas.ofertas[i].marca %></h5>
-                        <p class="product-price">$ <%= ofertas.ofertas[i].precio %></p>
-                    </div>
-                </div>
-            <% } %>
-        </div>
-    </section>
-
-    <section class="masvendidos">
-        <h2>MÁS VENDIDOS</h2>
-        </div>
-        <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
-        <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
-        <div class="wrapper">
-            <% for (var i = 0; i < masvendidos.masvendidos.length; i++) { %>
-                <div class="card" style="display: none;">
-                    <img src="/data/thumbs/<%= masvendidos.masvendidos[i].imagen %>" alt="thumb" class="product-thumb">
-                    <p class="product-content"><%= masvendidos.masvendidos[i].cantidad + " " + masvendidos.masvendidos[i].unidad %></p>
-                    <div class="container">
-                        <h4 class="product-name"><%= masvendidos.masvendidos[i].nombre %></h4>
-                        <h5 class="product-brand"><%= masvendidos.masvendidos[i].marca %></h5>
-                        <p class="product-price">$ <%= masvendidos.masvendidos[i].precio %></p>
-                    </div>
-                </div>
-            <% } %>
-        </div>
-    </section>
-
-    <%- include('../partials/_loginModal.ejs') %>
-    <%- include('../partials/_productModal.ejs') %>
     <%- include('../partials/_footer.ejs') %>
 
     <div class="dark-layer"></div>

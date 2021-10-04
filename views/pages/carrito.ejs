@@ -14,7 +14,7 @@
 <body>
     <%- include('../partials/_header.ejs') %>
 
-        <section class="ofertas" id="ofertas" style="width: 80%; min-height: 700px; position: relative;">
+        <section style="min-height: 1000px;">
             <h2>CARRITO</h2>
             <table class="table" id="table">
                 <thead>
@@ -41,11 +41,35 @@
                 <script src="/js/SearchBox.js"></script>
                 <script src="/js/ModalWindow.js"></script>
                 <script>
+                    var buttonsDeleteCollection = document.querySelectorAll('.btn-delete-product');
                     var productos = JSON.parse(sessionStorage.getItem('productos'));
                     var output = '';
 
-                    function UpdateTable() {
-                        if (productos === null || productos.length == 0) {
+                    buttonsDeleteCollection.forEach((button) => {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            // Get element index
+                            var selectedIndex = parseInt(e.target.parentElement.parentElement.querySelector('td:first-child').innerHTML);
+
+                            // Remove row from table
+                            table.deleteRow(selectedIndex + 1);
+
+                            // Remove row from collection
+                            for (var i = 0; i < productos.length; i++) {
+                                if (i === selectedIndex) {
+                                    productos.splice(selectedIndex, 1);
+                                }
+                            }
+
+                            // Update session
+                            sessionStorage.setItem('productos', JSON.stringify(productos));
+                            CountItems();
+                            updateTable();
+                        });
+                    });
+
+                    function updateTable() {
+                        if (productos === null || productos.length === 0) {
                             table.style.display = 'none';
                             document.querySelector('.msg').style.display = 'block';
                             document.getElementById('ofertas').appendChild(text);
@@ -71,33 +95,7 @@
 
                         CountItems();
                     }
-                    UpdateTable();
-                </script>
-                <script>
-                    var buttonsDeleteCollection = document.querySelectorAll('.btn-delete-product');
-                    buttonsDeleteCollection.forEach((button) => {
-                        button.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            // Get element index
-                            var selectedIndex = parseInt(e.target.parentElement.parentElement.querySelector('td:first-child').innerHTML);
-
-                            // Remove row from table
-                            table.deleteRow(selectedIndex + 1);
-
-                            // Remove row from collection
-                            for (var i = 0; i < productos.length; i++) {
-                                if (i === selectedIndex) {
-                                    productos.splice(selectedIndex, 1);
-                                }
-                            }
-
-                            // Update session
-                            sessionStorage.setItem('productos', JSON.stringify(productos));
-                            CountItems();
-
-                        });
-                    });
+                    updateTable();
                 </script>
 </body>
-
 </html>

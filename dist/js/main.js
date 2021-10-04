@@ -6,21 +6,21 @@ var iconSearch = document.querySelector('.icon-search').addEventListener('click'
 cards.forEach((element) => {
     element.addEventListener('click', (e) => {
 
-        var padre = e.target.parentElement;
+        var parentElement = e.target.parentElement;
         var producto = {};
 
-        if (padre.className != 'card') {
+        if (parentElement.className != 'card') {
             // subir un nivel
-            padre = padre.parentElement;
+            parentElement = parentElement.parentElement;
         }
 
         // construir objeto producto
         producto = {
-            nombre: padre.querySelector('.product-name').innerHTML,
-            marca: padre.querySelector('.product-brand').innerHTML,
-            precio: padre.querySelector('.product-price').innerHTML,
-            content: padre.querySelector('.product-content').innerHTML,
-            img: padre.querySelector('.product-thumb').src
+            nombre: parentElement.querySelector('.product-name').innerHTML,
+            marca: parentElement.querySelector('.product-brand').innerHTML,
+            precio: parentElement.querySelector('.product-price').innerHTML,
+            content: parentElement.querySelector('.product-content').innerHTML,
+            img: parentElement.querySelector('.product-thumb').src
         }
 
         OpenModal(producto);

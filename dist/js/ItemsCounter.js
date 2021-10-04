@@ -1,20 +1,20 @@
 
-var itemsCounter = document.querySelector('.items-counter');
+var itemsCounterElement = document.querySelector('.items-counter');
 
 window.onload = () => {
     CountItems();
 }
 
 function CountItems() {
-    let total = 0;
-    if (sessionStorage.getItem('productos')) {
-        let productos = JSON.parse(sessionStorage.getItem('productos'));
+    const productos = sessionStorage.getItem('productos');
+    var total = 0;
+    
+    if (productos) {
         for (var i = 0; i < productos.length; i++) {
-            total += productos[i].cantidad;
+            
+            total += parseInt(productos[i].cantidad);
         }
     }
-    else {
-        total = 0;
-    }
-    itemsCounter.innerHTML = total;
+
+    itemsCounterElement.innerHTML = total;
 }

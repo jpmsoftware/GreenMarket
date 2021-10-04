@@ -1,60 +1,32 @@
 <header>
     <div class="wrapper">
-        <div class="container">
-            <a href="/" class="link">
-                <img src="../img/logo.svg" class="logo">
-            </a>
-            <div class="menu-container">
-                <div>
-                    <div class="burger">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <p class="title-productos">PRODUCTOS</p>
-                    <img src="../img/i-arrow-down.svg" class="icon-arrow"></i>
-                </div>
-                <nav class="menu">
-                    <li><a href="/categorias/Granos y semillas">Granos y semillas</a></li>
-                    <li><a href="/categorias/Bebidas">Bebidas</a></li>
-                    <li><a href="/categorias/Aderezos">Aderezos</a></li>
-                    <li><a href="/categorias/Leches vegetales">Leches vegetales</a></li>
-                    <li><a href="/categorias/Quesos y fiambres veganos">Quesos y fiambres veganos</a></li>
-                    <li><a href="/categorias/Congelados">Congelados</a></li>
-                    <li><a href="/categorias/Cuidado personal">Cuidado personal</a></li>
-                </nav>
+        <div class="logo-container">
+            <div class="burger">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-            <form class="formSearch" action="/search" method="GET">
-                <input 
-                    type="text" 
-                    class="searchBox" 
-                    placeholder="Buscar productos..." 
-                    name="search" 
-                    autocomplete="off"
-                >
-                <img 
-                    src="../img/icon-search.svg" 
-                    class="icon-search" 
-                    alt="icon">
-            </form>
-        </div>
-        <div class="user-data-container">
-            <img 
-                src="../img/icon-avatar.svg" 
-                class="icon-avatar" 
-                alt="icon"
-            >
-            <hr class="vertical">
-            <a href="/carrito">
-                <div class="shopping-data">
-                    <img 
-                        src="/img/icon-shopping.svg" 
-                        alt="shopping" 
-                        class="shopping-bag"
-                    >
-                    <p class="items-counter">0</p></img>
+            <a href="">
+                <div class="logo">
+                    <img src="/img/logo-green.svg" alt="logo">
+                    <span>Green Market</span>
                 </div>
             </a>
+        </div>
+        <div class="searchbox-container">
+            <input type="search" class="searchBox" placeholder="Buscar productos">
+            <img src="/img/icon-search.svg" alt="search" class="icon-search">
+        </div>
+        <div class="user-panel">
+            <div class="login">
+                <img src="/img/icon-avatar.svg" alt="login">
+                <p>Login</p>
+            </div>
+            <div class="cart">
+                <img src="/img/icon-shopping.svg" alt="carrito">
+                <p>Carrito</p>
+                <span class="items-counter">2</span>
+            </div>
         </div>
     </div>
     <script src="/js/Login.js"></script>

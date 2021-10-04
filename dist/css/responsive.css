@@ -21,6 +21,10 @@
       font-size: 1em;
     }
 
+    .loginModal {
+      width: 75%;
+    }
+
     .logo p:last-child {
       font-size: 0.7em;
     }
@@ -31,15 +35,15 @@
 
     .menu-container {
       margin-left: 0;
-      margin-right: 4em;
+      margin-right: 6em;
     }
 
     .btn-login {
       padding: 0.3em 0.8em;
     }
 
-    .btn-delete-product {
-      display: none;
+    .container-remove {
+      margin-top: .8em;
     }
 
     .formSearch {
@@ -86,6 +90,10 @@
 
     .icon-arrow {
       display: none;
+    }
+
+    .icon-remove {
+      width: 10px;
     }
 
     .icon-avatar {
@@ -229,7 +237,7 @@
     }
 
     .table {
-      margin: 0 auto;
+      margin: auto auto;
       padding: 0.5em;
       font-size: 0.8em;
     }
