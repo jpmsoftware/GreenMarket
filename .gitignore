@@ -1,6 +1,7 @@
+.gitignore
 todos.txt
+layout.xd
 node_modules/
 db/
 .env
-layout.xd
 functions.txt
