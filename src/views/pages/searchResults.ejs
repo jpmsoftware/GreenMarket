@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/img/logo-green.svg">
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
+</head>
+
+<body>
+    <%- include('../partials/_header.ejs')  %>
+    <section class="productos">
+        <h2>Búsqueda</h2>
+        <div class="wrapper" style="text-align: center;">
+            <% for (var i = 0; i < productos.length; i++) { %>
+            <div class="card">
+                <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
+                <p class="product-content"><%= productos[i].cantidad + " " + productos[i].unidad %></p>
+                <div class="container">
+                    <h4 class="product-name"><%= productos[i].nombre %></h4>
+                    <h5 class="product-brand"><%= productos[i].marca %></h5>
+                    <p class="product-price">$ <%= productos[i].precio %></p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </section>
+
+    <%- include('../partials/_productModal.ejs') %>
+    <%- include('../partials/_footer.ejs') %>
+    <%- include('../partials/_loginModal.ejs') %>
+
+    <div class="mask"></div>
+
+    <script src="/js/main.js"></script>
+    <script>
+        var cardCount = document.querySelectorAll('.card').length;
+        if(cardCount < 1) {
+            var element = document.createElement('p').innerHTML = `Su búsqueda <%= search %> no arrojó resultados`;
+            document.querySelector('.productos .wrapper').append(element);
+        }
+    </script>
+</body>
+</html>

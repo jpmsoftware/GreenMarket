@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/img/logo-green.svg">
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
+</head>
+
+<body>
+    <%- include('../partials/_header.ejs') %>
+        <div class="main-wrapper">
+            <section style="min-height: 1000px;">
+                <h2>Carrito</h2>
+                <table class="table" id="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Producto</th>
+                            <th>Precio/u.</th>
+                            <th>Cantidad</th>
+                            <th>Sub-total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+                <a class="button-carrito">Finalizar compra</a>
+                <p class="msg-carrito">
+                    No tiene productos en su carrito
+                    <br><br><a href="./">< Volver</a>
+                </p>
+            </section>
+        </div>
+
+        <%- include('../partials/_footer.ejs') %>
+
+            <%- include('../partials/_loginModal.ejs') %>
+                <div class="mask"></div>
+                <script src="/js/main.js"></script>
+                <script defer>    
+                    var buttonsDeleteCollection = document.querySelectorAll('#delete-product');
+                    var productos = JSON.parse(sessionStorage.getItem('productos'));
+                    var output = '';
+
+                    updateTable();
+
+                    buttonsDeleteCollection.forEach((button) => {
+                        button.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            // Get element index
+                            var selectedIndex = parseInt(e.target.parentElement.parentElement.querySelector('td:first-child').innerHTML);
+
+                            // Remove row from table
+                            table.deleteRow(selectedIndex + 1);
+
+                            // Remove row from collection
+                            for (var i = 0; i < productos.length; i++) {
+                                if (i === selectedIndex) {
+                                    productos.splice(selectedIndex, 1);
+                                }
+                            }
+
+                            // Update session
+                            sessionStorage.setItem('productos', JSON.stringify(productos));
+                            CountItems();
+                            
+                        });
+                    });
+
+                    function updateTable() {
+                        if (productos === null || productos.length === 0) {
+                            
+                            table.style.display = 'none';
+                            document.querySelector('.msg').style.display = 'block';
+                            document.getElementById('ofertas').appendChild(text);
+                        } else {
+                            var index = 0;
+                            productos.map((producto) => {
+                                console.log(producto);
+                                output +=
+                                    `<tr>
+                                        <td><img src="/data/thumbs/${producto.img}" class="carrito-thumb" alt="img"></td>
+                                        <td>${producto.nombre}</td>
+                                        <td>$${producto.precio}</td> 
+                                        <td>${producto.cantidad}</td>
+                                        <td>$${producto.cantidad * producto.precio}</td>
+                                        <td>
+                                            <a href="" 
+                                            class="btn-delete-product" 
+                                            id="delete-product">Eliminar</a>
+                                        </td>
+                                    </tr>`
+                                index++;
+                            });
+                        }
+                        table.innerHTML += output;
+
+                        CountItems();
+                    }
+                    updateTable();
+                </script>
+                
+</body>
+</html>

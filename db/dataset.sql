@@ -9,10 +9,10 @@ SET @@auto_increment_increment = 1;
 -- ///////////////////////////////////// CREATE TABLES ///////////////////////////////////////////
 CREATE TABLE usuarios (
 	id MEDIUMINT UNSIGNED AUTO_INCREMENT,
-	nombreUsuario VARCHAR(20),
-    clave VARCHAR(60),
+    nombres VARCHAR(30),
+    apellidos VARCHAR(30),
     mail VARCHAR(50),
-    rol CHAR(1),
+    clave VARCHAR(60),
     
     PRIMARY KEY(id)
 );
@@ -65,12 +65,12 @@ CREATE TABLE ordenes_productos (
 
 -- ///////////////////////////////////// CREATE STORED PROCEDURES ///////////////////////////////////////////
 DELIMITER //
-CREATE PROCEDURE AltaUsuario(IN _nombreUsuario VARCHAR(20), 
-							 IN _clave VARCHAR(60), 
-                             IN _mail VARCHAR(50), 
-                             IN _rol CHAR)
+CREATE PROCEDURE AltaUsuario(IN _nombres VARCHAR(30), 
+							 IN _apellidos VARCHAR(30),
+							 IN _mail VARCHAR(50),
+							 IN _clave VARCHAR(60))
 BEGIN
-	INSERT INTO usuarios VALUES(0, _nombreUsuario, _clave, _mail, _rol);
+	INSERT INTO usuarios VALUES(0, _nombres, _apellidos, _mail, _clave);
 END //
 DELIMITER ;
 
@@ -161,11 +161,11 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE ModificarUsuario(IN _id MEDIUMINT UNSIGNED, 
 								  IN _nombreUsuario VARCHAR(20), 
-                                  IN _clave VARCHAR(20), 
-                                  IN _mail VARCHAR(50), 
-                                  IN _rol CHAR)
+                                  IN _mail VARCHAR(50),
+                                  IN _clave VARCHAR(20)) 
+                                  
 BEGIN
-	UPDATE usuarios SET nombreUsuario = _nombreUsuario, clave = _clave, mail = _mail, rol = _rol
+	UPDATE usuarios SET nombreUsuario = _nombreUsuario, mail = _mail, clave = _clave
     WHERE id = _id;
 END //
 DELIMITER ;
@@ -214,9 +214,9 @@ CREATE PROCEDURE ListarUsuarios()
 BEGIN
 	SELECT
 		usuarios.id,
-        usuarios.nombreUsuario,
-        usuarios.mail,
-        usuarios.rol
+        usuarios.nombres,
+        usuarios.apellidos,
+        usuarios.mail
     FROM usuarios;
 END //
 DELIMITER ;
@@ -299,13 +299,11 @@ BEGIN
         productos.nombre,
 		categorias.nombre AS categoria,
         productos.precio,
-        productos.imagen,
-        productos.stock
+        productos.imagen
 	FROM productos 
     INNER JOIN categorias
     ON productos.categoria = categorias.id
-    WHERE categorias.nombre = _categoria 
-    AND productos.activo = 1;
+    WHERE categorias.nombre = _categoria;
 END //
 DELIMITER ;
 
@@ -329,7 +327,7 @@ DELIMITER ;
 
 
 DELIMITER //
-CREATE PROCEDURE ListarMasVendidos()
+CREATE PROCEDURE ListarMasPopulares()
 BEGIN
 	SELECT
 		productos.id,
