@@ -2,5 +2,5 @@ todos.txt
 node_modules/
 .env
 layout.xd
-/db
+/db/
 functions.txt
