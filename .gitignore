@@ -1,6 +1,6 @@
 todos.txt
 node_modules/
+db/
 .env
 layout.xd
-/db/
 functions.txt
