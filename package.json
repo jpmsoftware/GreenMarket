@@ -1,35 +1,33 @@
 {
-  "name": "vegan-store",
+  "name": "green-market",
   "version": "1.0.0",
-  "description": "Vegan E-Commerce Store",
+  "description": "fully equiped vegan e-commerce",
   "main": "app.js",
   "scripts": {
-    "devStart": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpmsoftware/vegan-store-web.git"
+    "url": "git+https://github.com/jpmsoftware/GreenMarket.git"
   },
-  "keywords": [
-    "ecommerce"
-  ],
-  "author": "JP",
+  "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jpmsoftware/vegan-store-web/issues"
+    "url": "https://github.com/jpmsoftware/GreenMarket/issues"
   },
-  "homepage": "https://github.com/jpmsoftware/vegan-store-web#readme",
+  "homepage": "https://github.com/jpmsoftware/GreenMarket#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
     "express-session": "^1.17.2",
     "mysql": "^2.18.1",
-    "passport": "^0.4.1",
+    "nodemon": "^2.0.14",
+    "passport": "^0.5.0",
     "passport-local": "^1.0.0"
   }
 }

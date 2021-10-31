@@ -1,0 +1,57 @@
+<header>
+    <div class="wrapper">
+        <div class="logo-container">
+            <a href="/">
+                <div class="logo">
+                    <img src="/img/logo-green.svg" alt="logo">
+                    <span>Green Market</span>
+                </div>
+            </a>
+            <div class="menu"  id="menu-btn">
+                <div style="display: flex">
+                    <div class="burger" id="menu-icon">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <span>Categorías</span>
+                </div>
+            </div>
+        </div>
+        <form action="/search" method="GET" class="searchbox-container" autocomplete="off">
+            <input type="search" name="search" class="searchBox" id="search-box" placeholder="Buscar productos...">
+            <input type="submit">
+            <div class="btnSearch">
+                <img src="/img/icon-search.svg" alt="search" class="icon-search">
+            </div>
+            <div class="search-suggestions" id="search-suggestions">
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </form>
+        <div class="user-panel">
+                <a href="#" class="login-button" id="login-button">
+                    <img src="/img/icon-avatar.svg" alt="login">
+                    <p>Ingresar</p>
+                </a>
+            <a href="/carrito" class="cart">
+                <img src="/img/icon-shopping.svg" alt="carrito">
+                <p>Carrito</p>
+                <span class="items-counter">2</span>
+            </a>
+        </div>
+        <div class="categories-menu" id="categories-menu">
+            <li><a href="/categorias/Granos y semillas">Granos y semillas</a></li>
+            <li><a href="/categorias/Bebidas">Bebidas</a></li>
+            <li><a href="/categorias/aderezos">Aderezos</a></li>
+            <li><a href="/categorias/leches vegetales">Leches vegetales</a></li>
+            <li><a href="/categorias/quesos y fiambres veganos">Quesos y fiambres veganos</a></li>
+            <li><a href="/categorias/congelados">Congelados</a></li>
+            <li><a href="/categorias/cuidado personal">Cuidado personal</a></li>
+        </div>
+        
+    </div>
+
+    <script src="/js/login.js"></script>
+</header>

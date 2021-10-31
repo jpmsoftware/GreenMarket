@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/img/logo-green.svg">
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <%- include('../partials/slideshow') %>
+
+    <div class="main-wrapper">
+        <%- include ('../partials/msg') %>
+
+        <%- include('../partials/categories') %>
+
+        <%- include('../partials/ofertas') %>
+
+        <%- include('../partials/banner1') %>
+
+        <%- include('../partials/populares') %>
+
+        <%- include('../partials/banner2') %>
+
+        <%- include('../partials/features') %>
+
+        <%- include('../partials/product') %>
+
+        <%- include('../partials/login') %>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+    <div class="mask" id="mask"></div>
+    
+    <%- include('../partials/loading') %>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/products.js"></script>
+</body>
+</html>

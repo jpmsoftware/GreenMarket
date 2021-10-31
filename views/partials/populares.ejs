@@ -1,0 +1,21 @@
+<section class="populares">
+    <h2>Más populares</h2>
+    <div class="products-container">
+        <% for (var i=0; i < populares.populares.length; i++) { %>
+            <div class="card">
+                <img src="/data/thumbs/<%= populares.populares[i].imagen %>" alt="thumb"
+                    class="product-thumb">
+                <div class="container">
+                    <h4 class="product-name">
+                        <%= populares.populares[i].nombre %>
+                    </h4>
+                    <h5 class="product-brand">
+                        <%= populares.populares[i].marca %>
+                    </h5>
+                    <p class="product-price">$ <%= populares.populares[i].precio %>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+    </div>
+</section>

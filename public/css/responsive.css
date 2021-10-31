@@ -1,0 +1,249 @@
+/* PHONE */
+@media only screen and (max-width: 960px) {
+    header {
+      width: 100%;
+      height: 4em;
+    }
+
+    header .wrapper {
+      width: 95%;
+    }
+
+    .logo {
+      width: 5em;
+    }
+
+    .logo-div {
+      margin-left: 0;
+    }
+
+    .logo p:first-child {
+      margin-top: 0.4em;
+      font-size: 1em;
+    }
+
+    .loginModal {
+      width: 75%;
+    }
+
+    .logo p:last-child {
+      font-size: 0.7em;
+    }
+
+    .menu {
+      left: -100px;
+    }
+
+    .menu-container {
+      margin-left: 0;
+      margin-right: 6em;
+    }
+
+    .btn-login {
+      padding: 0.3em 0.8em;
+    }
+
+    .container-remove {
+      margin-top: .8em;
+    }
+
+    .formSearch {
+      display: none;
+    }
+
+    .ofertas, .populares {
+      margin: 2.5em auto;
+    }
+
+    .ofertas .wrapper, 
+    .populares .wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      width: 90%;
+    }
+
+    .heading {
+      width: 85%;
+      margin-bottom: 1em;
+    }
+
+    h2 {
+      margin: 1em auto;
+      font-size: 1.4em;
+    }
+
+    .card {
+      margin: 0.5em auto;
+      width: 9.8em;
+      height: 14em;
+    }
+
+    #user-name {
+      display: none;
+    }
+
+    .slider-container {
+      display: none;
+    }
+
+    .title-productos {
+      display: none;
+    }
+
+    .icon-arrow {
+      display: none;
+    }
+
+    .icon-remove {
+      width: 10px;
+    }
+
+    .icon-avatar {
+      margin: auto .5em;
+    }
+
+    .shopping-bag {
+      margin: auto .5em;
+    }
+
+    .burger {
+      margin: auto 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #fff;
+      padding: 4px;
+      height: 24px;
+      border-radius: 2px;
+    }
+
+    .burger div {
+      width: 20px;
+      border: 1px solid #fff;
+    }
+
+    .productos .wrapper {
+      width: 90%;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 10px;
+    }
+
+    .modal {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 90%;
+      height: 20em;
+      padding: 2em 1em;
+      border-radius: 2px;
+    }
+
+    .thumb-big {
+      width: 10em;
+      height: 10em;
+    }
+
+    .buy-panel {
+      position: absolute;
+      bottom: 20%;
+      right: 150%;
+    }
+
+    .button {
+      padding: 0 2em;
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+    }
+
+    .arrows {
+      display: none;
+    }
+
+    .product-name {
+      font-size: 0.8em;
+    }
+
+    .product-thumb {
+      margin: 0.2em auto;
+      width: 8.4em;
+      height: 7em;
+    }
+
+    .product-info {
+      margin-left: 1em;
+    }
+
+    .product-info h1 {
+      font-size: 1em;
+    }
+
+    .product-brand {
+      margin: 0;
+      font-size: 0.7em;
+    }
+
+    .product-price {
+      font-size: 0.9em;
+    }
+
+    .price {
+      margin-top: 1em;
+      font-size: 1.5em;
+    }
+
+    .modal div:first-child .product-content {
+      display: none;
+    }
+
+    .icon-close-modal {
+      width: 1em;
+      top: 4%;
+    }
+
+    footer {
+      padding: 0;
+    }
+
+    footer .wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    footer .up {
+      padding: .5em;
+    }
+
+    footer hr {
+      display: none;
+    }
+
+    .newsletter {
+      width: 8em;
+      height: 2em;
+    }
+
+    footer li {
+      font-size: 0.8em;
+    }
+
+    .social-media * {
+      width: 1.5em;
+    }
+
+    .info h5 {
+      font-size: 1em;
+    }
+
+    .table {
+      margin: auto auto;
+      padding: 0.5em;
+      font-size: 0.8em;
+    }
+  }
+
+  /* TABLET */
+  @media only screen and (max-width: 1300px) { }

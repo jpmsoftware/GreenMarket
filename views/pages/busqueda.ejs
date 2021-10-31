@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/img/logo-green.svg">
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+        <div class="main-wrapper">
+            <section class="productos">
+                <h2>Búsqueda</h2>
+                <p class="message" id="message"></p>
+                <div class="products-container" style="display: flex;">
+                    <% for (var i=0; i < productos.length; i++) { %>
+                        <div class="card visible">
+                            <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
+                            <div class="container">
+                                <h4 class="product-name">
+                                    <%= productos[i].nombre %>
+                                </h4>
+                                <h5 class="product-brand">
+                                    <%= productos[i].marca %>
+                                </h5>
+                                <p class="product-price">$ <%= productos[i].precio %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+                
+            </section>
+        </div>
+
+
+        <%- include('../partials/product') %>
+
+        <%- include('../partials/login') %>
+        
+        <%- include('../partials/footer') %>
+
+        <div class="mask" id="mask"></div>
+
+        <script src="/js/main.js"></script>
+        <script>
+            let message = document.getElementById('message');
+            let cardCount = document.querySelectorAll('.card').length;
+
+            cardCount < 1 
+            ? message.innerHTML = `Su búsqueda <b><%= search %></b> no arrojó resultados`
+            : message.innerHTML = `Se encontraron <b>${cardCount} productos</b>`;
+
+            message.classList.toggle('visible');
+        </script>
+</body>
+</html>
