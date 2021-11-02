@@ -19,7 +19,7 @@ function Move(e) {
             break;
 
         case 'right':
-            if (end < 11) {
+            if (end < 17) {
                 start = end + 1;
                 end = start + 5;
                 paginate();
@@ -33,9 +33,11 @@ function paginate() {
     
     for (var i = 0; i < items.length; i++) {
         if (i >= start && i <= end) {
-            items[i].style.display = 'block';
+
+            items[i].classList.add('visible');
+            
         } else {
-            items[i].style.display = 'none';
+            items[i].classList.remove('visible');
         }
     }
 }

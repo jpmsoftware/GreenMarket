@@ -3,8 +3,9 @@
     <div style="position: relative;">
         <img src="/img/arrow-left.svg" alt="left" id="arrow-left" class="arrows" name="left">
         <img src="/img/arrow-right.svg" alt="right" id="arrow-right" class="arrows" name="right">
+
         <div class="products-container">
-            <% for (var i=0; i < ofertas.ofertas.length; i++) { %>
+            <% for (var i = 0; i < ofertas.ofertas.length; i++) { %>
                 <div class="card">
                     <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb"
                         class="product-thumb">
@@ -15,5 +16,6 @@
                 </div>
                 <% } %>
         </div>
+
     </div>
 </section>

@@ -16,10 +16,12 @@
     <%- include('../partials/header') %>
 
         <div class="main-wrapper">
+            <!-- ARRAY OF PRODUCTS RETURNED BY APP.JS -->
             <section class="productos">
                 <h2>Búsqueda</h2>
                 <p class="message" id="message"></p>
-                <div class="products-container" style="display: flex;">
+                <div class="card-collection" style="text-align: center;">
+
                     <% for (var i=0; i < productos.length; i++) { %>
                         <div class="card visible">
                             <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
@@ -46,6 +48,8 @@
         <%- include('../partials/login') %>
         
         <%- include('../partials/footer') %>
+
+        <%- include('../partials/loading') %>
 
         <div class="mask" id="mask"></div>
 

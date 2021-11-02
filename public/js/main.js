@@ -1,15 +1,13 @@
 var loading = document.getElementById('loading');
+var header = document.getElementById('header');
 var body = document.querySelector('body');
 var mask = document.getElementById('mask');
 var dialog = document.querySelector('.modal');
 var btnAddProduct = document.getElementById('agregar');
-var menu = document.getElementById('menu');
-var closeIcon = document.getElementById('close-icon');
-var cards = document.querySelectorAll('.card');
-var iconSearch = document.querySelector('.icon-search').addEventListener('click', () => {
-    document.querySelector('.formSearch').submit(); });
-var quantityElement = document.getElementById('cantidad');
 var closeIcon = document.getElementById('icon-close-modal');
+var cards = document.querySelectorAll('.card');
+var btnSearch = document.getElementById('btn-search');
+var quantityElement = document.getElementById('cantidad');
 var plusIcon = document.getElementById('plus');
 var minusIcon = document.getElementById('minus');
 var menuBtn = document.getElementById('menu-btn');
@@ -23,24 +21,35 @@ var btnDeleteElement = document.getElementById('delete-product');
 var loginButton = document.getElementById('login-button');
 var loginWindow = document.getElementById('login-window');
 
-
-mask.addEventListener('click', () => {
-    // close all elements on top
-});
-
-window.onload = async function() {
+window.onload = async function () {
     suggestions = await loadSuggestions();
     countItems();
 
-    loading.classList.remove('visible'); 
+    loading.classList.remove('visible');
+}
+
+window.onscroll = () => {
+    if (window.scrollY >= 400) {
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+}
+
+window.onclick = (e) => {
+    // hide menu when clicked outside
+    if (!menuBtn.contains(e.target)) {
+        if (!menuElement.contains(e.target)) {
+            menuElement.classList.remove('visible');
+        }
+    }
 }
 
 searchInput.addEventListener('keyup', (e) => {
-    if(searchInput.value.length > 0) {
-        searchSuggestionsElement.classList.add('visible');
-
+    if (searchInput.value.length > 0) {
         let elements = searchSuggestions(searchInput.value);
-        let suggestionsItem = null;
+
+        searchSuggestionsElement.classList.add('visible');
 
         searchSuggestionsElement.innerHTML = elements;
 
@@ -49,9 +58,9 @@ searchInput.addEventListener('keyup', (e) => {
     }
 });
 
-menuBtn.addEventListener('click', () => {
-    menuElement.classList.toggle('visible');
-});
+menuBtn.addEventListener('click', () => menuElement.classList.toggle('visible'));
+
+btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
 
 loginButton.addEventListener('click', () => {
     mask.classList.toggle('visible');
@@ -59,7 +68,11 @@ loginButton.addEventListener('click', () => {
     body.classList.toggle('block-scroll');
 });
 
-function openDialog(product) {
+mask.addEventListener('click', () => {
+    hideTopElements();
+});
+
+function openProduct(product) {
     dialog.classList.toggle('flex');
     mask.classList.toggle('visible');
     body.classList.toggle('block-scroll');
@@ -68,27 +81,16 @@ function openDialog(product) {
     dialog.querySelector('.product-info h1').innerHTML = product.nombre;
     dialog.querySelector('.thumb-big').src = product.img;
     dialog.querySelector('.product-info .price').innerHTML = product.precio;
-}
 
-function closeDialog() {
-    dialog.classList.toggle('flex');
-    mask.classList.toggle('visible');
-    body.classList.toggle('block-scroll');
-
-    var topElements = document.getElementsByClassName('top');
-    Array.from(topElements).forEach(element => {
-        element.classList.remove('visible');
-    });
-    mask.classList.remove('visible');
-
-    //RESET VIEW
     document.getElementById('cantidad').value = 1;
     document.getElementById('agregar').innerHTML = 'Agregar';
 }
 
 function reduceItemsCount() {
+    //unify same products
+
     let productos = JSON.parse(sessionStorage.getItem('productos'));
-    
+
     for (var i = 0; i < productos.length; i++) {
         for (var x = i + 1; x < productos.length; x++) {
             //Si hay dos elementos idénticos, unificar sus cantidades, y borrar el segundo elemento
@@ -103,51 +105,38 @@ function reduceItemsCount() {
 }
 
 cards.forEach((element) => {
-    element.addEventListener('click', (e) => {
+    element.addEventListener('click', () => {
 
-        var parentElement = e.target.parentElement;
-        var producto = {};
-
-        if (parentElement.className != 'card') {
-            // subir un nivel
-            parentElement = parentElement.parentElement;
-        }
-
-        // construir objeto producto
         producto = {
-            nombre: parentElement.querySelector('.product-name').innerHTML,
-            precio: parentElement.querySelector('.product-price').innerHTML,
-            img: parentElement.querySelector('.product-thumb').src
+            nombre: element.querySelector('.product-name').innerHTML,
+            precio: element.querySelector('.product-price').innerHTML,
+            img: element.querySelector('.product-thumb').src
         }
 
-        openDialog(producto);
+        openProduct(producto);
     });
 });
 
-plusIcon.addEventListener('click', () => {
-    quantityElement.value = parseInt(quantityElement.value) + 1;
-});
+plusIcon.addEventListener('click', () => quantityElement.value = parseInt(quantityElement.value) + 1);
 
 minusIcon.addEventListener('click', () => {
-    if(parseInt(quantityElement.value) > 1) {
+    if (parseInt(quantityElement.value) > 1) {
         quantityElement.value = parseInt(quantityElement.value) - 1;
     }
 });
 
-closeIcon.addEventListener('click', () => {
-    closeDialog();
-});
+closeIcon.addEventListener('click', () => hideTopElements());
 
 btnAddProduct.addEventListener('click', () => {
-    var productos = [];
-    var producto = {
+    let productos = [];
+    let producto = {
         nombre: document.querySelector('.product-info h1').innerHTML,
         cantidad: parseInt(document.querySelector('#cantidad').value),
         precio: parseInt(document.querySelector('.price').innerHTML.substr(2)),
         img: document.querySelector('.modal img:first-child').src
     }
 
-    producto.img = producto.img.substr(producto.img.lastIndexOf('/')+1, 10);
+    producto.img = producto.img.substr(producto.img.lastIndexOf('/') + 1, 10);
 
     if (sessionStorage.getItem('productos')) {
         productos = JSON.parse(sessionStorage.getItem('productos'));
@@ -156,8 +145,8 @@ btnAddProduct.addEventListener('click', () => {
     productos.push(producto);
     sessionStorage.setItem('productos', JSON.stringify(productos));
 
-    closeDialog();
-    reduceItemsCount();    
+    hideTopElements();
+    reduceItemsCount();
 
     // Show 'product added message'
     msg.classList.toggle('visible');
@@ -170,7 +159,7 @@ function countItems() {
     var productos = JSON.parse(sessionStorage.getItem('productos'));
     var total = 0;
 
-    if(productos) {
+    if (productos) {
         for (var i = 0; i < productos.length; i++) {
             total += parseInt(productos[i].cantidad);
         }
@@ -180,6 +169,7 @@ function countItems() {
 }
 
 async function loadSuggestions() {
+    // load suggestions.json file
     const response = await fetch('/data/suggestions.json');
     const data = await response.json();
     return data;
@@ -188,13 +178,27 @@ async function loadSuggestions() {
 function searchSuggestions(input) {
 
     let data = [];
-    
+
     suggestions.forEach((element) => {
 
-        if(element.name.toLowerCase().includes(input.toLowerCase())) {
-            data.push(`<p><a href="/search?search=${element.name}">${ element.name }</a></p>`);
+        if(data.length < 6) {
+            if (element.name.toLowerCase().includes(input.toLowerCase())) {
+                data.push(`<p><a href="/search?search=${element.name}">${ element.name }</a></p>`);
+            }
         }
     });
 
     return data;
+}
+
+function hideTopElements() {
+    let topElements = document.getElementsByClassName('top');
+    
+    Array.from(topElements).forEach(element => {
+        element.classList.remove('visible');
+        element.classList.remove('flex');
+    });
+
+    body.classList.remove('block-scroll');
+    mask.classList.remove('visible');
 }

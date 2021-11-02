@@ -2,7 +2,6 @@
   --light-blue: #38A6C7;
   --green: #5EC738;
   --orange: #C89319;
-  --bg: #fff;
   --light-gray: #f2f2f2;
   --mid-gray: #767676;
 }
@@ -26,7 +25,7 @@ a {
 
 body {
   position: relative;
-  background: var(--bg);
+  background: #fff;
 }
 
 header {
@@ -40,6 +39,18 @@ header {
 
 header * {
   color: #000;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: header-sticky .4s 1;
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
 
 .wrapper {
@@ -83,11 +94,14 @@ header .wrapper {
   margin: auto 0 auto 1em;
   display: flex;
   padding: 10px 20px;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
 .menu:hover {
-  background: #F3EEEA;
+  transition: all .3s;
+  border-radius: 5px;
+  border: 2px solid var(--green);
 }
 
 .menu span {
@@ -120,7 +134,7 @@ header .wrapper {
   width: 55px;
   height: 45px;
   background: var(--green);
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
 
@@ -133,7 +147,7 @@ header .wrapper {
   padding: 1em;
   background: #fff;
   color: #000;
-  border-radius: 2px;
+  border-radius: 5px;
   font-size: 1em;
   border: 1px solid lightgray;
 }
@@ -190,23 +204,25 @@ input[type="search"]::-webkit-search-results-decoration {
 .user-panel {
   display: flex;
   cursor: pointer;
-  font-size: .9em;
+  font-size: 14px;
 }
 
 .user-panel a {
+  position: relative;
+  margin: 0 5px;
   text-align: center;
-  width: 65px;
-  padding: .5em;
-  border-radius: 2px;
+  padding: 2px;
+  border-radius: 5px;
 }
 
 .user-panel a:hover {
-  background: #F3EEEA;
+  transition: all .3s;
 }
 
-.login img, .cart img {
-  width: 22px;
-  height: 22px;
+.login-button img, 
+.cart img {
+  width: 26px;
+  height: 26px;
 }
 
 .login-window {
@@ -284,8 +300,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .items-counter {
   position: absolute;
-  top: 20px;
-  right: 5px;
+  top: 0;
+  left: 40px;
+  transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
   background: #000;
@@ -314,17 +331,17 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   width: 100%;
   padding: .7em 4em .7em 2em;
-  border-left: 4px solid transparent;
-}
-
-.categories-menu a {
-  width: 100%;
+  border-left: 5px solid transparent;
 }
 
 .categories-menu li:hover {
   transition: all .3s;
-  border-left: 4px solid var(--light-blue);
+  border-left: 5px solid var(--light-blue);
   background: var(--green);
+}
+
+.categories-menu a {
+  width: 100%;
 }
 
 .categories-menu li:hover a {
@@ -387,7 +404,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: fixed;
   top: 2%;
   right: 5%;
-  padding: 1.5em;
+  padding: 1em;
   background: var(--green);
   text-align: center;
   border-radius: 5px;
@@ -506,7 +523,7 @@ h2 {
 
 .card:hover {
   transition: all .3s;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0, .2);
+  box-shadow: 0px 0px 8px 5px rgba(0,0,0, .15);
 }
 
 .populares .card {
@@ -689,8 +706,8 @@ h2 {
 
 .icon-close-modal {
   position: absolute;
-  top: 7%;
-  right: 5%;
+  top: 5%;
+  right: 3%;
   width: 16px;
   cursor: pointer;
 }

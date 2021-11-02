@@ -1,4 +1,4 @@
-<header>
+<header id="header">
     <div class="wrapper">
         <div class="logo-container">
             <a href="/">
@@ -18,11 +18,11 @@
                 </div>
             </div>
         </div>
-        <form action="/search" method="GET" class="searchbox-container" autocomplete="off">
+        <form action="/search" method="GET" class="searchbox-container" id="form-search" autocomplete="off">
             <input type="search" name="search" class="searchBox" id="search-box" placeholder="Buscar productos...">
-            <input type="submit">
-            <div class="btnSearch">
-                <img src="/img/icon-search.svg" alt="search" class="icon-search">
+            <div class="btnSearch" id="btn-search">
+                <img src="/img/icon-search.svg" alt="search" class="icon-search" id="icon-search">
+                <input type="submit" style="display: none;"></input>
             </div>
             <div class="search-suggestions" id="search-suggestions">
                 <p></p>
