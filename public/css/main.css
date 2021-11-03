@@ -256,12 +256,21 @@ input[type="search"]::-webkit-search-results-decoration {
   flex-direction: column;
 }
 
-.login-window label {
+.login-window label,
+.register-form label {
   margin-top: 10px;
 }
 
+.register-form label {
+  color: var(--mid-gray);
+}
+
 .login-window input[type="email"],
-.login-window input[type="password"] {
+.login-window input[type="password"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="text"] {
   margin-top: 10px;
   padding: 10px;
   height: 45px;
@@ -271,7 +280,8 @@ input[type="search"]::-webkit-search-results-decoration {
   outline: none;
 }
 
-.login-window input[type="checkbox"] {
+.login-window input[type="checkbox"], 
+.register-form input[type="checkbox"] {
   margin-right: 5px;
   width: 22px;
   height: 22px;
@@ -293,9 +303,9 @@ input[type="search"]::-webkit-search-results-decoration {
   background: var(--orange);
 }
 
-.login-window a {
+.login-window a,
+.register-form a {
   color: var(--light-blue);
-  margin-bottom: 5px;
 }
 
 .items-counter {
@@ -476,7 +486,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 h2 {
-  margin: 1em auto 0 auto;
+  margin: 1em 0 0 0;
   text-align: left;
   font-weight: 300;
   font-size: 28px;
@@ -698,6 +708,11 @@ h2 {
   border-radius: 2px;
   outline: none;
   font-size: 1.1em;
+}
+
+.register-form .button {
+  margin-top: 2em;
+  align-self: flex-end;
 }
 
 .button:hover {
@@ -941,8 +956,8 @@ footer img {
 }
 
 .table th {
-  background: #fff;
-  color: #000;
+  background: rgb(37, 37, 37);
+  color: #fff;
   border-bottom: 1px solid lightgray;
   font-weight: 400;
   font-size: 1.1em;
@@ -977,9 +992,12 @@ tbody tr:hover {
 .btn-delete-product {
   font-size: .9em;
   background: rgb(165, 14, 14);
-  border-radius: 2px;
-  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
   color: #fff;
+  cursor: pointer;
 }
 
 .total {
@@ -1059,3 +1077,12 @@ tbody tr:hover {
 }
 
 .block-scroll { overflow-y: hidden; }
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid var(--light-gray);
+  border-radius: 10px;
+  padding: 2em;
+}

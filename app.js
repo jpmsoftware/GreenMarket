@@ -1,9 +1,10 @@
 const express = require('express');
 const mysql = require('mysql');
 const ejs = require('ejs');
-const path = require('path');
-const bcrypt = require('bcrypt');
-const bodyParser = require('body-parser');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passportLocal = require('passport-local');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -18,9 +19,7 @@ var connection = mysql.createPool({
 });
 
 app.use(express.static('public'));
-app.use(express.urlencoded({
-    extended: false
-}));
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
@@ -86,8 +85,6 @@ app.post('/login', async (req, res) => {
         let userPass = req.body.password;
         let query = `CALL LogIn("${userName}", "${userPass}")`;
 
-        console.log(userName + userPass)
-
         connection.query(query, (err, data) => {
             if (err) throw err;
 
@@ -103,7 +100,35 @@ app.post('/login', async (req, res) => {
 });
 
 app.get('/register', async (req, res) => {
-     
+     res.render('./pages/register');
+});
+
+app.post('/register/confirm', async (req, res) => {
+    let user = null;
+    
+    try {
+        user = {
+            userFirstName: req.body.nombres,
+            userLastName: req.body.apellidos,
+            userEmail: req.body.email,
+            userPassword: req.body.password
+        }
+
+        let query = `CALL AltaUsuario("${user.userFirstName}", "${user.userLastName}", "${user.userEmail}", "${user.userPassword}")`;
+
+        connection.query(query, (err, data) => {
+            if(err) throw err;
+
+            else if(data.affectedRows > 0) {
+                res.render('./pages/success');
+            }
+        });
+
+    } catch(err) {
+        res.end(err);
+    } 
+
+    
 });
 
 app.use((req, res) => {

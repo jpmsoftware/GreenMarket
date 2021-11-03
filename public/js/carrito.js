@@ -3,7 +3,6 @@ var buttonBuy = document.getElementById('button-carrito');
 var productos = null;
 var totalElement = document.getElementById('total');
 
-
 function updateTable() {
     productos = JSON.parse(sessionStorage.getItem('productos'));
     var output = '';
@@ -29,12 +28,12 @@ function updateTable() {
                     <td>${producto.cantidad}</td>
                     <td>$${producto.cantidad * producto.precio}</td>
                     <td>
-                        <a 
+                        <button 
                             name="${index}"
                             class="btn-delete-product"
                             id="delete-product"
                             href="">Eliminar
-                        </a>
+                        </button>
                     </td>
                 </tr>`
             index++;
@@ -57,8 +56,6 @@ Array.from(deleteButtons).forEach((button) => {
 
     button.addEventListener('click', (e) => {
         
-        e.preventDefault();
-
         // Get selected index
         let index = parseInt(e.target.name);
                 
@@ -71,6 +68,7 @@ Array.from(deleteButtons).forEach((button) => {
         // Update session
         sessionStorage.setItem('productos', JSON.stringify(productos));
 
-        updateTable();
+        // update price
+        // put 'no tiene productos en su carrito' on a separate func
     });
 });

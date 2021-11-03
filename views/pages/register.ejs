@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/img/logo-green.svg">
+    <title>Green Market — Productos sin ingredientes de origen animal</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="main-wrapper">
+        <h2>Registrarse</h2>
+        <form class="register-form" action="/register/confirm" method="POST">
+            <label for="">Nombres:</label>
+            <input type="text" name="nombres" required autocomplete="off">
+            <label for="">Apellidos:</label>
+            <input type="text" name="apellidos" required autocomplete="off">
+            <label for="">E-Mail:</label>
+            <input type="email" name="email" required autocomplete="off">
+            <label for="">Contraseña:</label>
+            <input type="password" name="password" required autocomplete="off">
+            <div style="display: flex; align-items: center; margin-top: 2em;">
+                <input type="checkbox" required>
+                Acepto los &nbsp <a href="">  Términos y condiciones </a>&nbsp y la &nbsp <a href=""> política de privacidad</a>
+            </div>
+            <input type="submit" class="button" value="Confirmar">
+        </form>
+    </div>
+
+    <%- include('../partials/login') %>
+
+    <%- include('../partials/footer') %>
+
+    <%- include('../partials/loading') %>
+
+    <script defer src="/js/main.js"></script>
+    
+</body>
+</html>
