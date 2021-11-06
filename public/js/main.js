@@ -50,7 +50,19 @@ searchInput.addEventListener('keyup', (e) => {
 
         searchSuggestionsElement.classList.add('visible');
 
-        searchSuggestionsElement.innerHTML = elements;
+        searchSuggestionsElement.innerHTML = '';
+
+        elements.forEach((element) => {
+            let paragraph = document.createElement('p');
+            let anchor = document.createElement('a');
+
+            anchor.innerHTML = element;
+            anchor.href = `/search?search=${element}`;
+            
+            paragraph.appendChild(anchor);
+
+            searchSuggestionsElement.appendChild(paragraph);
+        });
 
     } else {
         searchSuggestionsElement.classList.remove('visible');
@@ -182,11 +194,10 @@ function searchSuggestions(input) {
 
         if(data.length < 6) {
             if (element.name.toLowerCase().includes(input.toLowerCase())) {
-                data.push(`<p><a href="/search?search=${element.name}">${ element.name }</a></p>`);
+                data.push(element.name);
             }
         }
     });
-
     return data;
 }
 

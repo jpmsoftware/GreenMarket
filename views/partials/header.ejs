@@ -4,7 +4,10 @@
             <a href="/">
                 <div class="logo">
                     <img src="/img/logo-green.svg" alt="logo">
-                    <span>GREEN MARKET</span>
+                    <div style="display: flex; flex-direction: column;">
+                        <span>GREEN</span>
+                        <span>MARKET</span>
+                    </div>
                 </div>
             </a>
             <div class="menu-button"  id="menu-btn">
@@ -15,20 +18,17 @@
                         <div></div>
                     </div>
                     <span>Categorías</span>
+                    <img src="/img/layer1.svg" class="icon-arrow-down"></img>
                 </div>
             </div>
         </div>
         <form action="/search" method="GET" class="searchbox-container" id="form-search" autocomplete="off">
             <input type="search" name="search" class="searchBox" id="search-box" placeholder="Buscar productos...">
             <div class="button-search" id="btn-search">
-                <img src="/img/icon-search.svg" alt="search" class="icon-search" id="icon-search">
+                <img src="/img/icon-search-black.svg" alt="search" class="icon-search" id="icon-search">
                 <input type="submit" style="display: none;"></input>
             </div>
-            <div class="search-suggestions" id="search-suggestions">
-                <p></p>
-                <p></p>
-                <p></p>
-            </div>
+            <div class="search-suggestions" id="search-suggestions"></div>
         </form>
         <div class="user-panel">
                 <a href="#" class="login-button" id="login-button">

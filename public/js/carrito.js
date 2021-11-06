@@ -35,7 +35,7 @@ function updateTable() {
                             href="">Eliminar
                         </button>
                     </td>
-                </tr>`
+                    </tr>`
             index++;
             total += producto.cantidad * producto.precio;
         });
