@@ -16,7 +16,8 @@
 }
 
 ::placeholder {
-  color: rgba(0, 0, 0, .3);
+  color: rgba(0, 0, 0, .4);
+  font-style: italic;
 }
  
 a { color: #000; }
@@ -24,8 +25,7 @@ a { color: #000; }
 body {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: #f4f4f4;
+  background: #fff;
 }
 
 header {
@@ -72,30 +72,29 @@ header {
 }
 
 .logo span {
-  font-weight: 900;
+  font-weight: bolder;
   margin: auto 0 auto .5em;
-  font-size: 1.4rem;
-  line-height: 1em;
+  font-size: 1.3rem;
+  line-height: .5em;
   max-width: 3.5em;
   color: var(--orange);
 }
 
 .logo span:last-child {
-  color: rgb(185, 75, 14);
+  color: rgb(230, 137, 88);
 }
 
 .menu-button {
   margin: auto 0 auto 3em;
   display: flex;
   padding: 0.4em 0.8em;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
 }
 
 .menu-button:hover {
   transition: all .3s;
-  border-radius: 5px;
-  border: 2px solid var(--green);
+  border: 1px solid var(--green);
 }
 
 .menu-button span {
@@ -137,7 +136,6 @@ header {
   padding: 1em;
   background: #fff;
   color: #000;
-  border-radius: .2em;
   font-size: 1rem;
   border: 1px solid lightgray;
 }
@@ -270,7 +268,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .categories-menu li:hover {
-  transition: all .3s;
+  transition: all .2s;
   background: var(--green);
 }
 
@@ -293,7 +291,6 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 25%;
   transform: translate(-50%, -50%);
   flex-direction: column;
-  border-radius: .4em;
   z-index: 2;
   animation: fade-in .4s 1, move-down .4s 1;
 }
@@ -305,7 +302,6 @@ input[type="search"]::-webkit-search-results-decoration {
   text-align: center;
   padding: .5em;
   color: #fff;
-  border-radius: .3em .3em 0 0;
   background: var(--orange);
 }
 
@@ -314,7 +310,6 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   flex-direction: column;
   background: #fff;
-  border-radius: 0 0 .3em .3em;
 }
 
 .login-window label,
@@ -387,7 +382,7 @@ input[type="search"]::-webkit-search-results-decoration {
   position: relative;
   margin: 0 auto;
   width: 65%;
-  min-height: 100%;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
 }
@@ -398,6 +393,9 @@ input[type="search"]::-webkit-search-results-decoration {
   transform: translateX(-50%);
   bottom: 5%;
   display: flex;
+  padding: 5px;
+  background: rgba(0, 0, 0, .2);
+  border-radius: 15px;
   justify-content: space-between;
 }
 
@@ -429,7 +427,6 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 1em;
   background: var(--green);
   text-align: center;
-  border-radius: .5em;
   color: #fff;
   animation: msg 5s 1;
   z-index: 1;
@@ -455,7 +452,6 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: .5em;
   padding: .5em;
   text-align: center;
   color: #fff;
@@ -562,17 +558,16 @@ h2 {
   display: none;
   position: relative;
   width: 12em;
-  max-height: 15.5em;
-  border-radius: .3em;
   background-color: #fff;
-  box-shadow: 0px 0px 2px 0px rgba(0,0,0, .2);
+  border: 1px solid rgba(0, 0, 0, .15);
+  min-height: 16em;
   animation: FadeIn 1s 1;
   cursor: pointer;
 }
 
 .card:hover { 
-  transition: all .3s;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, .2); 
+  transition: all .2s;
+  border: 1px solid var(--green); 
 }
 
 .populares .card {
@@ -596,22 +591,23 @@ h2 {
 
 .card .container {
   border-top: 1px solid var(--light-gray);
-  padding: 1em;
+  padding: .8em;
   width: 100%;
-  height: 50%;
   flex-direction: column;
   text-align: left;
 }
 
 .product-name {
-  color: var(--mid-gray);
+  color: rgba(0, 0, 0, .7);
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 1em;
+  min-height: 2.5em;
 }
 
 .product-price {
-  margin-bottom: .5em;
+  margin-top: .7em;
   font-size: 18px;
+  font-weight: 600;
 }
 
 .modal {
@@ -622,7 +618,6 @@ h2 {
   padding: 2vw;
   background-color: #fff;
   display: none;
-  border-radius: .5em;
   z-index: 2;
   animation: fade-in .4s 1, move-down .4s 1;
 }
@@ -986,7 +981,7 @@ footer img {
   background: rgb(27, 24, 26);
   color: #fff;
   border-bottom: 1px solid lightgray;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1em;
   padding: 1.25em 0;
 }

@@ -7,8 +7,10 @@
         <div class="products-container">
             <% for (var i = 0; i < ofertas.ofertas.length; i++) { %>
                 <div class="card">
-                    <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb"
-                        class="product-thumb">
+                    <div class="thumb-container">
+                        <img src="/data/thumbs/<%= ofertas.ofertas[i].imagen %>" alt="thumb" class="product-thumb">
+                    </div>
+                    
                     <div class="container">
                         <h4 class="product-name"> <%= ofertas.ofertas[i].nombre %> </h4>
                         <p class="product-price"> $ <%= ofertas.ofertas[i].precio %> </p>
