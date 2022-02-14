@@ -28,12 +28,12 @@ function updateTable() {
                     <td>${producto.cantidad}</td>
                     <td>$${producto.cantidad * producto.precio}</td>
                     <td>
-                        <button 
+                        <a 
                             name="${index}"
                             class="btn-delete-product"
                             id="delete-product"
-                            href="">Eliminar
-                        </button>
+                            href="javascript:void(0)"><img src="/img/icon-trash-bin.svg" alt="eliminar"/>
+                        </a>
                     </td>
                     </tr>`
             index++;
@@ -57,7 +57,7 @@ Array.from(deleteButtons).forEach((button) => {
     button.addEventListener('click', (e) => {
         
         // Get selected index
-        let index = parseInt(e.target.name);
+        let index = parseInt(e.target.parentElement.name);
                 
         // Remove row from table
         table.children[1].rows[index].remove();

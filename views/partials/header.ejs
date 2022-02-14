@@ -1,55 +1,71 @@
 <header id="header">
-    <div class="wrapper">
-        <div class="logo-container">
-            <a href="/">
-                <div class="logo">
-                    <img src="/img/logo-green.svg" alt="logo">
-                    <div style="display: flex; flex-direction: column;">
-                        <span>GREEN</span>
-                        <span>MARKET</span>
-                    </div>
-                </div>
-            </a>
-            <div class="menu-button"  id="menu-btn">
-                <div style="display: flex">
-                    <div class="burger" id="menu-icon">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <span>Categorías</span>
-                    <img src="/img/layer1.svg" class="icon-arrow-down"></img>
-                </div>
-            </div>
+    <div class="top-header">
+        <div>
+            <img src="/img/icon-location-pin 1.svg" alt="location">
+            <span>Montevideo</span>
         </div>
-        <form action="/search" method="GET" class="searchbox-container" id="form-search" autocomplete="off">
-            <input type="search" name="search" class="searchBox" id="search-box" placeholder="Buscar productos...">
-            <div class="button-search" id="btn-search">
-                <img src="/img/icon-search-black.svg" alt="search" class="icon-search" id="icon-search">
-                <input type="submit" style="display: none;"></input>
+    </div>
+    <div class="bottom" id="header-bottom">
+        <div class="wrapper">
+            <div class="logo-container">
+                <a href="/">
+                    <div class="logo">
+                        <img src="/img/logo-green-2.svg" alt="logo">
+                        <div class="logo-text-container">
+                            <span>Green</span>
+                            <span>Market</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="menu-button" id="menu-btn">
+                    <div style="display: flex">
+                        <div class="burger" id="menu-icon">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <span>Productos</span>
+                        <img src="/img/layer1.svg" class="icon-arrow-down" alt="arrow-down">
+                    </div>
+                </div>
             </div>
-            <div class="search-suggestions" id="search-suggestions"></div>
-        </form>
-        <div class="user-panel">
+            <form action="/search" method="GET" class="searchbox-container" id="form-search" autocomplete="off">
+                <input type="search" name="search" class="searchBox" id="search-box" placeholder="Buscar productos...">
+                <div class="button-search" id="btn-search">
+                    <img src="/img/icon-search-black.svg" alt="search" class="icon-search" id="icon-search">
+                    <input type="submit" style="display: none;"></input>
+                </div>
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </form>
+            <div class="user-panel">
                 <a href="#" class="login-button" id="login-button">
                     <img src="/img/icon-avatar.svg" alt="login">
-                    <p>Ingresar</p>
+                    <span>ingresar</span>
                 </a>
-            <a href="/carrito" class="cart">
-                <img src="/img/icon-shopping.svg" alt="carrito">
-                <p>Carrito</p>
-                <span class="items-counter">2</span>
-            </a>
+                <a href="/carrito" class="cart">
+                    <img src="/img/icon-shopping.svg" alt="carrito">
+                    <span class="items-counter">2</span>
+                    <span>carrito</span>
+                </a>
+            </div>
+            <div class="categories-menu" id="categories-menu">
+                <ul class="menu">
+                    <li><a href="/categorias/Granos%20y%20semillas">Cereales y semillas</a></li>
+                    <li><a href="/categorias/Bebidas">Bebidas</a></li>
+                    <li><a href="/categorias/aderezos">Aderezos</a></li>
+                    <li><a href="/categorias/leches%20vegetales">Leches vegetales</a></li>
+                    <li><a href="/categorias/quesos%20y%20fiambres veganos">Quesos y fiambres veganos</a></li>
+                    <li><a href="/categorias/congelados">Congelados</a></li>
+                    <li><a href="/categorias/cuidado%20personal">Cuidado personal</a></li>
+                    <li><a href="/categorias/Nueva%20categoría">Nueva categoría</a></li>
+                </ul>
+                <div class="products-panel">
+                    <a href="#">Nuevos productos</a>
+                    <a href="#">En oferta</a>
+                </div>
+            </div>
         </div>
-        <div class="categories-menu" id="categories-menu">
-            <li><a href="/categorias/Granos y semillas">Granos y semillas</a></li>
-            <li><a href="/categorias/Bebidas">Bebidas</a></li>
-            <li><a href="/categorias/aderezos">Aderezos</a></li>
-            <li><a href="/categorias/leches vegetales">Leches vegetales</a></li>
-            <li><a href="/categorias/quesos y fiambres veganos">Quesos y fiambres veganos</a></li>
-            <li><a href="/categorias/congelados">Congelados</a></li>
-            <li><a href="/categorias/cuidado personal">Cuidado personal</a></li>
-        </div>
+
     </div>
     <script src="/js/login.js"></script>
 </header>

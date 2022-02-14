@@ -6,28 +6,124 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="icon" href="/img/logo-green.svg">
+    <link rel="icon" href="/img/logo-green-2.svg">
     <title>Green Market — Productos sin ingredientes de origen animal</title>
 </head>
 <body>
     <%- include('../partials/header') %>
 
-    <%- include('../partials/slideshow') %>
+    <div class="slider-container">
+        <img src="/img/christmas-special-apparel-sale-banner-design-template-4692b6bd59d8e425f89d1d252ca43db6_screen.jpg" class="slider-item" alt="banner">
+        <img src="" class="slider-item" alt="banner">
+        <img src="" class="slider-item" alt="banner">
+        <img src="" class="slider-item" alt="banner">
+        <img src="" class="slider-item" alt="banner">
+        <div class="controls">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <script src="/js/slideshow.js"></script>
+    </div>
 
     <div class="main-wrapper">
         <%- include ('../partials/msg') %>
 
-        <%- include('../partials/categories') %>
+        <h2>Categorías</h2>
+        <div class="categories">
+            <a href="/categorias/granos y semillas">
+                <div>
+                    <img src="/img/icon_granos.svg" alt="">
+                    <span>Cereales y semillas</span>
+                </div>
+            </a>
+            <a href="/categorias/bebidas">
+                <div>
+                    <img src="/img/icon_bebidas.svg" alt="">
+                    <span>Bebidas</span>
+                </div>
+            </a>
+            <a href="/categorias/aderezos">
+                <div>
+                    <img src="/img/icon_aderezos.svg" alt="">
+                    <span>Aderezos</span>
+                </div>
+            </a>
+            <a href="/categorias/leches vegetales">
+                <div>
+                    <img src="/img/icon_milk.svg" alt="">
+                    <span>Leches vegetales</span>
+                </div>
+            </a>
+            <a href="/categorias/quesos y fiambres veganos">
+                <div>
+                    <img src="/img/icon_cheese.svg" alt="">
+                    <span>Quesos veganos</span>
+                </div>
+            </a>
+            <a href="/categorias/congelados">
+                <div>
+                    <img src="/img/icon_congelados.svg" alt="">
+                    <span>Congelados</span>
+                </div>
+            </a>
+            <a href="/categorias/cuidado personal">
+                <div>
+                    <img src="/img/icon_cuidado.svg" alt="">
+                    <span>Cuidado personal</span>
+                </div>
+            </a>
+            <a href="/categorias/cuidado personal">
+                <div>
+                    <img src="/img/icon_cuidado.svg" alt="">
+                    <span>Otra categoría</span>
+                </div>
+            </a>
+        </div>
 
         <%- include('../partials/ofertas') %>
 
-        <%- include('../partials/banner1') %>
+        <div class="banner-container">
+            <img src="/img/banner5.jpg" alt="banner">
+            <img src="/img/banner6.jpg" alt="banner">
+            <img src="/img/banner7.jpg" alt="banner">
+        </div>
 
         <%- include('../partials/populares') %>
 
-        <%- include('../partials/banner2') %>
+        <div class="banner-container cards">
+            <img src="/img/banner8.jpg" alt="banner">
+            <div>
+                <img src="/img/banner9.jpg" alt="banner">
+                <img src="/img/banner10.jpg" alt="banner">
+            </div>
+        </div>
 
-        <%- include('../partials/features') %>
+        <div class="banner-container">
+            <div class="banner">
+                <img src="" alt="banner-image">
+                <div>
+                    <h5>Prueba nuestra app</h5>
+                    <span>La forma más fácil de comprar</span>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="" alt="banner-image">
+                <div>
+                    <h5>Prueba nuestra app</h5>
+                    <span>La forma más fácil de comprar</span>
+                </div>
+            </div>
+            <div class="banner">
+                <img src="" alt="banner-image">
+                <div>
+                    <h5>Prueba nuestra app</h5>
+                    <span>La forma más fácil de comprar</span>
+                </div>
+            </div>
+        </div>
 
         <%- include('../partials/product') %>
 

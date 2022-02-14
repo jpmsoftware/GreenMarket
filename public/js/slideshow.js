@@ -18,7 +18,7 @@ sliderControls.forEach((element) => {
 function AutoSlide() {
     clearTimeout(timer);
 
-    if (sliderIndex > 3) { sliderIndex = 0; }
+    if (sliderIndex > 4) { sliderIndex = 0; }
 
     changeSelection();
 
