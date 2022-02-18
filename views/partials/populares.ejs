@@ -1,11 +1,13 @@
 <section class="populares">
-    <h2>Más populares</h2>
+    <h2>MÁS POPULARES</h2>
     
     <div class="products-container">
         <% for (var i=0; i < populares.populares.length; i++) { %>
             <div class="card">
-                <img src="/data/thumbs/<%= populares.populares[i].imagen %>" alt="thumb"
+                <div class="thumb-container">
+                    <img src="/data/thumbs/<%= populares.populares[i].imagen %>" alt="thumb"
                     class="product-thumb">
+                </div>
                 <div class="container">
                     <h4 class="product-name">
                         <%= populares.populares[i].nombre %>

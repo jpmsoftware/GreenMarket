@@ -12,32 +12,35 @@
 <body>
     <%- include('../partials/header') %>
 
-    <div class="main-wrapper">
-        <section class="carrito">
-            <h2>Carrito de compras</h2>
-            
-            <p class="msg-carrito" id="msg-carrito">
-                No tiene productos en su carrito
-                <br><br><a href="./">< Volver</a>
-            </p>
+    <section class="carrito">
+        <h2>MI CARRITO</h2>
+        
+        <p class="msg-carrito" id="msg-carrito">
+            No tiene productos en su carrito
+            <br><br><a href="./">< Volver</a>
+        </p>
 
+        <div class="products-table">
             <table class="table" id="table">
                 <thead>
-                    <th></th>
-                    <th>Producto</th>
-                    <th>Precio/u.</th>
+                    <th colspan="2">Producto</th>
+                    <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Sub-total</th>
                     <th></th>
                 </thead>
                 <tbody></tbody>
             </table>
+        </div>
+
+        <div class="payment-method">
+            <h3>Medio de pago</h3>
+        </div>
             
-            <span class="total" id="total"></span>
-            <a class="button-carrito" id="button-carrito">Finalizar compra</a>
+        <span class="total" id="total"></span>
+        <a class="button-carrito" id="button-carrito">Finalizar compra</a>
             
-        </section>
-    </div>
+    </section>
 
     <%- include('../partials/footer') %>
 

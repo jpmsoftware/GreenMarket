@@ -15,51 +15,49 @@
 
     <%- include('../partials/header') %>
 
-        <div class="main-wrapper">
-            <!-- ARRAY OF PRODUCTS RETURNED BY APP.JS -->
-            <section class="busqueda">
-                <h2>Resultados de búsqueda</h2>
+    <!-- ARRAY OF PRODUCTS RETURNED BY APP.JS -->
+    <section class="busqueda">
+        <h2>Resultados de búsqueda</h2>
 
-                <p class="message" id="message"></p>
-                <div class="card-collection" style="text-align: center;">
-                    <% for (var i=0; i < productos.length; i++) { %>
-                        <div class="card visible">
-                            <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
-                            <div class="container">
-                                <h4 class="product-name">
-                                    <%= productos[i].nombre %>
-                                </h4>
-                                <p class="product-price">$ <%= productos[i].precio %>
-                                </p>
-                            </div>
-                        </div>
-                        <% } %>
+        <p class="message" id="message"></p>
+        <div class="card-collection" style="text-align: center;">
+            <% for (var i=0; i < productos.length; i++) { %>
+                <div class="card visible">
+                    <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
+                    <div class="container">
+                    <h4 class="product-name">
+                        <%= productos[i].nombre %>
+                    </h4>
+                    <p class="product-price">$ <%= productos[i].precio %>
+                    </p>
+                    </div>
                 </div>
-            </section>
+            <% } %>
         </div>
+    </section>
 
-        <%- include('../partials/product') %>
+    <%- include('../partials/product') %>
 
-        <%- include('../partials/login') %>
-        
-        <%- include('../partials/footer') %>
+    <%- include('../partials/login') %>
 
-        <%- include('../partials/loading') %>
+    <%- include('../partials/footer') %>
 
-        <%- include ('../partials/msg') %>
+    <%- include('../partials/loading') %>
 
-        <div class="mask" id="mask"></div>
+    <%- include ('../partials/msg') %>
 
-        <script src="/js/main.js"></script>
-        <script>
-            let message = document.getElementById('message');
-            let cardCount = document.querySelectorAll('.card').length;
+    <div class="mask" id="mask"></div>
 
-            cardCount < 1 
+    <script src="/js/main.js"></script>
+    <script>
+        let message = document.getElementById('message');
+        let cardCount = document.querySelectorAll('.card').length;
+
+        cardCount < 1
             ? message.innerHTML = `Su búsqueda <b><%= search %></b> no arrojó resultados`
             : message.innerHTML = `Se encontraron <b>${cardCount} productos</b>`;
 
-            message.classList.toggle('visible');
-        </script>
+        message.classList.toggle('visible');
+    </script>
 </body>
 </html>

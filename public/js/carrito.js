@@ -32,7 +32,7 @@ function updateTable() {
                             name="${index}"
                             class="btn-delete-product"
                             id="delete-product"
-                            href="javascript:void(0)"><img src="/img/icon-trash-bin.svg" alt="eliminar"/>
+                            href="javascript:void(0)"><img src="/img/icon-close.svg" alt="eliminar"/>
                         </a>
                     </td>
                     </tr>`

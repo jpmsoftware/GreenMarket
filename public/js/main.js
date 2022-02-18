@@ -10,7 +10,6 @@ const btnSearch = document.getElementById('btn-search');
 const quantityElement = document.getElementById('cantidad');
 const plusIcon = document.getElementById('plus');
 const minusIcon = document.getElementById('minus');
-const menuBtn = document.getElementById('menu-btn');
 const menuElement = document.getElementById('categories-menu');
 const msg = document.getElementById('msg');
 const searchInput = document.getElementById('search-box');
@@ -30,17 +29,10 @@ window.onload = async function () {
 window.onscroll = () => {
     if (window.scrollY >= 400) {
         header.classList.add('sticky');
+        header.classList.add('border-bottom');
     } else {
         header.classList.remove('sticky');
-    }
-}
-
-window.onclick = (e) => {
-    // hide menu when clicked outside
-    if (!menuBtn.contains(e.target)) {
-        if (!menuElement.contains(e.target)) {
-            menuElement.classList.remove('visible');
-        }
+        header.classList.remove('border-bottom');
     }
 }
 
@@ -68,8 +60,6 @@ searchInput.addEventListener('keyup', (e) => {
         searchSuggestionsElement.classList.remove('visible');
     }
 });
-
-menuBtn.addEventListener('click', () => menuElement.classList.toggle('visible'));
 
 btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
 
