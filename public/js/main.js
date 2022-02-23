@@ -151,6 +151,9 @@ btnAddProduct.addEventListener('click', () => {
 
     // Show 'product added message'
     msg.classList.toggle('visible');
+    document.getElementById('product-name').innerHTML = producto.nombre;
+    document.getElementById('product-thumb').src = '/data/thumbs/'+ producto.img;
+
     window.setTimeout(() => {
         msg.classList.toggle('visible');
     }, 5000);

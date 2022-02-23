@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/animations.css">
     <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="icon" href="/img/logo-green.svg">
-    <title>Green Market — Productos sin ingredientes de origen animal</title>
+    <link rel="icon" href="/img/favicon.svg">
+    <title>Green Market Uruguay - Carrito</title>
 </head>
 <body>
     <%- include('../partials/header') %>
@@ -20,21 +20,35 @@
             <br><br><a href="./">< Volver</a>
         </p>
 
-        <div class="products-table">
-            <table class="table" id="table">
-                <thead>
-                    <th colspan="2">Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Sub-total</th>
-                    <th></th>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-
-        <div class="payment-method">
-            <h3>Medio de pago</h3>
+        <div style="display: flex;">
+            <div class="products-table">
+                <h3>Productos</h3>
+                <table class="table" id="table">
+                    <thead>
+                        <th colspan="2">Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Sub-total</th>
+                        <th></th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="payment-method">
+                <h3>Medio de pago</h3>
+                <div style="display: flex; margin-top: .5em;">
+                    <input type="radio" name="payment" value="credit_debit">
+                    <p>Tarjeta de crédito o débito</p>
+                </div>
+                <div style="display: flex; margin-top: .5em;">
+                    <input type="radio" name="payment" value="paypal">
+                    <p>Paypal</p>
+                </div>
+                <div style="display: flex; margin-top: .5em;">
+                    <input type="radio" name="payment" value="cash">
+                    <p>Efectivo en la entrega</p>
+                </div>
+            </div>
         </div>
             
         <span class="total" id="total"></span>

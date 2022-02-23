@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
 
 :root {
   --green: #03bb85;
@@ -18,12 +19,13 @@
 }
 
 html {
+  position: relative;
   height: 100%;
 }
 
 body {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   font-family: 'Raleway', sans-serif;
   font-size: .9rem;
 }
@@ -82,7 +84,6 @@ header {
 }
 
 .form-search {
-  position: relative;
   position: relative;
   display: flex;
   width: 30%;
@@ -267,12 +268,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .login-window h2 {
   margin: 0;
-  font-weight: 400;
+  font-weight: bold;
   width: 100%;
   text-align: center;
   padding: .5em;
   color: #fff;
-  background: var(--orange);
+  background: var(--green);
 }
 
 .login-window .content {
@@ -322,7 +323,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn-login:hover {
-  background: var(--orange);
+  background: #c7611d;
 }
 
 .login-window a,
@@ -377,31 +378,36 @@ input[type="search"]::-webkit-search-results-decoration {
 .msg-carrito {
   display: none;
   margin: 2em auto;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 1.3em;
+  color: rgba(0, 0, 0, .6);
+  font-size: 1rem;
 }
 
 .msg {
   display: none;
   position: fixed;
-  top: 5%;
+  top: 10%;
   right: 5%;
-  padding: 1.5em;
-  background: var(--green);
-  color: #fff;
+  padding: 2em;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .4);
   border-radius: 5px;
   animation: msg 3s 1;
   z-index: 1;
 }
 
+.msg span {
+  width: 10em;
+  color: #000;
+}
+
 .msg > div {
-  margin-top: 1em;
+  margin-top: 2em;
   display: flex;
 }
 
 .msg img {
   margin-right: .5em;
-  width: 1em;
+  height: 5em;
 }
 
 .msg a {
@@ -469,6 +475,10 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 70%;
 }
 
+.categoria, .busqueda {
+  min-height: 100vh;
+}
+
 .heading-container {
   margin: 3em 0;
 }
@@ -480,9 +490,11 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .banner-container {
+  position: relative;
   margin: 1em auto;
   width: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -490,6 +502,13 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.banner-container img {
+  margin-bottom: 2em;
+  width: 425px;
+  height: 550px;
+  cursor: pointer;
 }
 
 .banner {
@@ -523,6 +542,7 @@ h2 {
 }
 
 h3 {
+  color: #000;
   text-align: left;
 }
 
@@ -575,6 +595,15 @@ h3 {
   cursor: pointer;
 }
 
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical img {
+  width: 100%;
+  height: 325px;
+}
+
 .card:hover { 
   transition: all .4s;
   border: 1px solid #000;
@@ -614,7 +643,7 @@ h3 {
 .product-price {
   margin-top: .7em;
   color: rgb(49, 49, 49);
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -675,13 +704,14 @@ h3 {
   position: absolute;
   bottom: 0;
   display: flex;
+  justify-content: space-between;
   font-size: 1rem;
 }
 
 .buy-panel p {
   font-size: 1.1em;
   color: var(--mid-gray);
-  margin: auto 1em auto 0;
+  margin: auto 0;
 }
 
 .buy-controls {
@@ -700,15 +730,20 @@ h3 {
 .buy-controls div {
   position: relative;
   padding: .5em;
-  background: var(--light-gray);
-  cursor: pointer;
   flex: 1;
+  cursor: pointer;
+}
+
+.buy-controls div:first-child, 
+.buy-controls div:last-child {
+  background: #f4f4f4;
 }
 
 .buy-controls div:first-child:hover, 
 .buy-controls div:last-child:hover {
   background: lightgray;
 }
+
 
 .buy-controls div::selection {
   background: none;
@@ -735,15 +770,16 @@ h3 {
 }
 
 .button {
-  margin-left: .5em;
-  min-width: 9rem;
-  line-height: 2.9rem;
+  margin-left: 1em;
+  min-width: 10em;
+  line-height: 4em;
   border: none;
   border-radius: 3px;
   outline: none;
   background: var(--green);
   color: #fff;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -754,7 +790,7 @@ h3 {
 
 .button:hover {
   transition: all .2s;
-  background: brown;
+  background: #c7611d;
 }
 
 .icon-close-modal {
@@ -993,17 +1029,23 @@ footer li:hover {
 .products-table {
   position: relative;
   width: 60%;
+  padding: 2em;
+  border: 1px solid lightgray;
 }
 
 .table {
-  display: block;
+  position: relative;
   margin-top: 2em;
   width: 100%;
   background: #fff;
   border-collapse: separate;
   border-radius: 3px;
-  border: 1px solid lightgray;
-  padding: 2em 4em;
+  display: flex;
+  flex-direction: column;
+}
+
+.table tbody {
+  width: 100%;
 }
 
 .border-bottom {
@@ -1011,7 +1053,7 @@ footer li:hover {
 }
 
 .table th {
-  color: #000;
+  color: rgba(0, 0, 0, .7);
   font-weight: 600;
   font-size: 1em;
   padding: 1.75em 0;
@@ -1030,11 +1072,17 @@ footer li:hover {
 
 .table tr {
   position: relative;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid var(--light-gray);
 }
 
-.table tr:hover {
-  border: 1px solid #f4f4f4;
+.table tr * {
+  flex: 2;
+}
+
+.table tbody tr:hover {
+  background: #f4f4f4;
 }
 
 .separator {
@@ -1064,10 +1112,10 @@ footer li:hover {
 
 .total {
   display: none;
-  text-align: right;
-  font-weight: medium;
+  text-align: left;
+  font-weight: bold;
   font-size: 1.5em;
-  margin-bottom: 2em;
+  margin: 1em 0;
 }
 
 .button-carrito {
@@ -1113,7 +1161,7 @@ footer li:hover {
 
 .error-container {
   position: absolute;
-  top: 70%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, 0%);
   text-align: center;
@@ -1146,5 +1194,40 @@ footer li:hover {
 }
 
 .payment-method {
-  float: right;
+  margin-left: 2em;
+  padding: 2em;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.payment-method p {
+  margin-left: 1em;
+}
+
+/* font for numbers */ 
+.items-counter, .product-price, .price, .items-cantidad, 
+.products-table td:nth-child(3), 
+.products-table td:nth-child(4),
+.products-table td:nth-child(5),
+.total {
+  font-family: 'Source Code Pro', monospace;
+}
+
+.button-carrito {
+  margin-bottom: 5em;
+  float: left;
+}
+
+.carrito h3 {
+  margin-bottom: 2em;
+  color: #000;
+}
+
+.carrito {
+  min-height: 1000px;
+}
+
+.table tbody {
+  height: 50vh;
+  overflow-y: scroll;
 }
