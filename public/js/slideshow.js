@@ -16,32 +16,30 @@ sliderControls.forEach((element) => {
 });
 
 function AutoSlide() {
+
     clearTimeout(timer);
 
-    if (sliderIndex > 2) { sliderIndex = 0; }
+    // Reset out of range index
+    if (sliderIndex > 2) sliderIndex = 0;
 
-    changeSelection();
+    paintSelection();
 
-    // Reset all
     for (var i = 0; i < sliders.length; i++) {
-        sliders[i].style.display = 'none';
+        if (sliders[i].classList.contains('visible')) { sliders[i].classList.remove('visible') }
+        if (i === sliderIndex) sliders[sliderIndex].classList.add('visible');
     }
-
-    sliders[sliderIndex].style.display = 'block';
-
+    
     sliderIndex++;
 
     timer = setTimeout(AutoSlide, 5000);
 }
 
-function changeSelection() {
+function paintSelection() {
 
-    // Reset all
-    for (var i = 0; i < sliderControls.length; i++) {
-        sliderControls[i].style.background = 'transparent';
+    for(var i = 0; i < sliderControls.length; i++) {
+        if (sliderControls[i].classList.contains('active')) { sliderControls[i].classList.remove('active') }
+        if (i === sliderIndex) sliderControls[sliderIndex].classList.add('active');
     }
-
-    sliderControls[sliderIndex].style.background = '#fff';
 }
 
 AutoSlide();

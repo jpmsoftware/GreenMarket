@@ -6,7 +6,7 @@
 }
 
 ::placeholder {
-  font-size: .9em;
+  font-size: .9rem;
 }
 
 * {
@@ -38,6 +38,14 @@ header {
   background: #fff;
   padding: 1.25em 0;
   z-index: 1;
+}
+
+.burger {
+  display: none;
+}
+
+.icon-close {
+  display: none;
 }
 
 .header-top, .header-bottom {
@@ -194,6 +202,10 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 20px;
 }
 
+.user-panel a:first-child {
+  display: none;
+}
+
 .user-panel img {
   width: 1.6em;
   height: 1.6em;
@@ -334,14 +346,16 @@ input[type="search"]::-webkit-search-results-decoration {
 .slider-container {
   margin: 0 auto;
   position: relative;
-  width: 100%;
+  display: flex;
   cursor: pointer;
 }
 
 .slider-item {
+  display: none;
   width: 100%;
-  height: 500px;
+  height: 53.3vh;
   background: rgb(255, 223, 223);
+  animation: fade-in 1s 1;
 }
 
 .main-wrapper {
@@ -369,10 +383,6 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 1em;
   border: 2px solid #fff;
   border-radius: 50%;
-}
-
-.controls div:first-child {
-  background-color: #fff;
 }
 
 .msg-carrito {
@@ -526,12 +536,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .banner h5 {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .banner span {
   color: #fff;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 h2 {
@@ -635,15 +645,15 @@ h3 {
 }
 
 .product-name {
-  min-height: 2.5em;
+  height: 5em;
   font-weight: 500;
   font-size: .9rem;
 }
 
 .product-price {
-  margin-top: .7em;
+  margin-top: .25em;
   color: rgb(49, 49, 49);
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
@@ -694,7 +704,7 @@ h3 {
 .price {
   margin-left: 0;
   margin-top: 3em;
-  font-size: 2.2em;
+  font-size: 2.2rem;
   color: #000;
   font-weight: bold;
 }
@@ -709,7 +719,7 @@ h3 {
 }
 
 .buy-panel p {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   color: var(--mid-gray);
   margin: auto 0;
 }
@@ -760,7 +770,7 @@ h3 {
   left: 0;
   outline: none;
   border: none;
-  font-size: 1em;
+  font-size: 1rem;
   text-align: center;
   color: #000;
   background: #fff;
@@ -829,7 +839,7 @@ footer .col {
 }
 
 footer .col h5 {
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: .5em;
 }
@@ -1055,14 +1065,14 @@ footer li:hover {
 .table th {
   color: rgba(0, 0, 0, .7);
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1rem;
   padding: 1.75em 0;
 }
 
 .table td {
   padding: 1em 0;
   color: rgb(99, 99, 99);
-  font-size: 1em;
+  font-size: 1rem;
   cursor: default;
 }
 
@@ -1114,7 +1124,7 @@ footer li:hover {
   display: none;
   text-align: left;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin: 1em 0;
 }
 
@@ -1181,6 +1191,7 @@ footer li:hover {
 }
 
 .visible { display: block; }
+.active { background: #fff; }
 
 .flex { display: flex; }
 

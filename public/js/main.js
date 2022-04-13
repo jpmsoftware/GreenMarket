@@ -3,11 +3,16 @@ const header = document.getElementById('header');
 const body = document.querySelector('body');
 const mask = document.getElementById('mask');
 const dialog = document.querySelector('.modal');
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('header-bottom');
 const btnAddProduct = document.getElementById('agregar');
+const iconClose = document.getElementById('icon-close');
 const closeIcon = document.getElementById('icon-close-modal');
 const cards = document.querySelectorAll('.card');
 const btnSearch = document.getElementById('btn-search');
 const quantityElement = document.getElementById('cantidad');
+const iconSearch = document.getElementById('icon-search');
+const searchForm = document.getElementById('form-search');
 const plusIcon = document.getElementById('plus');
 const minusIcon = document.getElementById('minus');
 const menuElement = document.getElementById('categories-menu');
@@ -18,6 +23,8 @@ const itemsCounterElement = document.querySelector('.items-counter');
 const loginButton = document.getElementById('login-button');
 const loginWindow = document.getElementById('login-window');
 var suggestions = null;
+
+
 
 window.onload = async function () {
     suggestions = await loadSuggestions();
@@ -61,7 +68,20 @@ searchInput.addEventListener('keyup', (e) => {
     }
 });
 
+burger.addEventListener('click', () => {
+    mobileMenu.classList.add('visible');
+});
+
+iconClose.addEventListener('click', () => {
+    mobileMenu.classList.remove('visible');
+});
+
 btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
+
+iconSearch.addEventListener('click', () => {
+    alert();
+    // searchForm.classList.toggle('visible');
+});
 
 loginButton.addEventListener('click', () => {
     mask.classList.toggle('visible');
