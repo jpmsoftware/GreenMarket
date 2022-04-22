@@ -701,6 +701,16 @@ h3 {
   color: #000;
 }
 
+.product-description {
+  display: none;
+}
+.modal .product-description {
+  margin-top: 2em;
+  opacity: .8;
+  display: block;
+  line-height: 1.5em;
+}
+
 .price {
   margin-left: 0;
   margin-top: 3em;
@@ -1190,13 +1200,18 @@ footer li:hover {
   text-align: center;
 }
 
-.visible { display: block; }
-.active { background: #fff; }
-
-.flex { display: flex; }
-
-.block-scroll { overflow-y: hidden; }
-
+.visible { 
+  display: block; 
+}
+.active { 
+  background: #fff; 
+}
+.flex { 
+  display: flex; 
+}
+.block-scroll { 
+  overflow-y: hidden; 
+}
 .register-form {
   display: flex;
   flex-direction: column;

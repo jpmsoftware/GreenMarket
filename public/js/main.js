@@ -27,201 +27,204 @@ var suggestions = null;
 
 
 window.onload = async function () {
-    suggestions = await loadSuggestions();
-    countItems();
+  suggestions = await loadSuggestions();
+  countItems();
 
-    loading.classList.remove('visible');
+  loading.classList.remove('visible');
 }
 
 window.onscroll = () => {
-    if (window.scrollY >= 400) {
-        header.classList.add('sticky');
-        header.classList.add('border-bottom');
-    } else {
-        header.classList.remove('sticky');
-        header.classList.remove('border-bottom');
-    }
+  if (window.scrollY >= 400) {
+    header.classList.add('sticky');
+    header.classList.add('border-bottom');
+  } else {
+    header.classList.remove('sticky');
+    header.classList.remove('border-bottom');
+  }
 }
 
 searchInput.addEventListener('keyup', (e) => {
-    if (searchInput.value.length > 0) {
-        let elements = searchSuggestions(searchInput.value);
+  if (searchInput.value.length > 0) {
+    let elements = searchSuggestions(searchInput.value);
 
-        searchSuggestionsElement.classList.add('visible');
+    searchSuggestionsElement.classList.add('visible');
 
-        searchSuggestionsElement.innerHTML = '';
+    searchSuggestionsElement.innerHTML = '';
 
-        elements.forEach((element) => {
-            let paragraph = document.createElement('p');
-            let anchor = document.createElement('a');
+    elements.forEach((element) => {
+      let paragraph = document.createElement('p');
+      let anchor = document.createElement('a');
 
-            anchor.innerHTML = element;
-            anchor.href = `/search?search=${element}`;
-            
-            paragraph.appendChild(anchor);
+      anchor.innerHTML = element;
+      anchor.href = `/search?search=${element}`;
 
-            searchSuggestionsElement.appendChild(paragraph);
-        });
+      paragraph.appendChild(anchor);
 
-    } else {
-        searchSuggestionsElement.classList.remove('visible');
-    }
+      searchSuggestionsElement.appendChild(paragraph);
+    });
+
+  } else {
+    searchSuggestionsElement.classList.remove('visible');
+  }
 });
 
 burger.addEventListener('click', () => {
-    mobileMenu.classList.add('visible');
+  mobileMenu.classList.toggle('visible');
+  body.classList.toggle('block-scroll');
 });
 
 iconClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('visible');
+  mobileMenu.classList.remove('visible');
 });
 
 btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
 
 iconSearch.addEventListener('click', () => {
-    alert();
-    // searchForm.classList.toggle('visible');
+  alert();
+  // searchForm.classList.toggle('visible');
 });
 
 loginButton.addEventListener('click', () => {
-    mask.classList.toggle('visible');
-    loginWindow.classList.toggle('flex');
-    body.classList.toggle('block-scroll');
+  mask.classList.toggle('visible');
+  loginWindow.classList.toggle('flex');
+  body.classList.toggle('block-scroll');
 });
 
 mask.addEventListener('click', () => {
-    hideTopElements();
+  hideTopElements();
 });
 
 function openProduct(product) {
-    dialog.classList.toggle('flex');
-    mask.classList.toggle('visible');
-    body.classList.toggle('block-scroll');
+  dialog.classList.toggle('flex');
+  mask.classList.toggle('visible');
+  body.classList.toggle('block-scroll');
 
-    // Get selected product details
-    dialog.querySelector('.product-info h1').innerHTML = product.nombre;
-    dialog.querySelector('.thumb-big').src = product.img;
-    dialog.querySelector('.product-info .price').innerHTML = product.precio;
+  // Get selected product details
+  dialog.querySelector('.product-info h1').innerHTML = product.nombre;
+  dialog.querySelector('.product-description').innerHTML = product.descripcion;
+  dialog.querySelector('.thumb-big').src = product.img;
+  dialog.querySelector('.product-info .price').innerHTML = product.precio;
 
-    document.getElementById('cantidad').value = 1;
-    document.getElementById('agregar').innerHTML = 'Agregar';
+  document.getElementById('cantidad').value = 1;
+  document.getElementById('agregar').innerHTML = 'Agregar';
 }
 
 function reduceItemsCount() {
-    //unify same products
+  //unify same products
 
-    let productos = JSON.parse(sessionStorage.getItem('productos'));
+  let productos = JSON.parse(sessionStorage.getItem('productos'));
 
-    for (var i = 0; i < productos.length; i++) {
-        for (var x = i + 1; x < productos.length; x++) {
-            //Si hay dos elementos idénticos, unificar sus cantidades, y borrar el segundo elemento
-            if (productos[i].nombre == productos[x].nombre) {
-                productos[i].cantidad += productos[x].cantidad;
-                productos.splice(x);
-            }
-        }
+  for (var i = 0; i < productos.length; i++) {
+    for (var x = i + 1; x < productos.length; x++) {
+      //Si hay dos elementos idénticos, unificar sus cantidades, y borrar el segundo elemento
+      if (productos[i].nombre == productos[x].nombre) {
+        productos[i].cantidad += productos[x].cantidad;
+        productos.splice(x);
+      }
     }
-    sessionStorage.setItem('productos', JSON.stringify(productos));
-    countItems();
+  }
+  sessionStorage.setItem('productos', JSON.stringify(productos));
+  countItems();
 }
 
 cards.forEach((element) => {
-    element.addEventListener('click', () => {
+  element.addEventListener('click', () => {
 
-        producto = {
-            nombre: element.querySelector('.product-name').innerHTML,
-            precio: element.querySelector('.product-price').innerHTML,
-            img: element.querySelector('.product-thumb').src
-        }
+    producto = {
+      nombre: element.querySelector('.product-name').innerHTML,
+      descripcion: element.querySelector('.product-description').innerHTML,
+      precio: element.querySelector('.product-price').innerHTML,
+      img: element.querySelector('.product-thumb').src
+    }
 
-        openProduct(producto);
-    });
+    openProduct(producto);
+  });
 });
 
 plusIcon.addEventListener('click', () => quantityElement.value = parseInt(quantityElement.value) + 1);
 
 minusIcon.addEventListener('click', () => {
-    if (parseInt(quantityElement.value) > 1) {
-        quantityElement.value = parseInt(quantityElement.value) - 1;
-    }
+  if (parseInt(quantityElement.value) > 1) {
+    quantityElement.value = parseInt(quantityElement.value) - 1;
+  }
 });
 
 closeIcon.addEventListener('click', () => hideTopElements());
 
 btnAddProduct.addEventListener('click', () => {
-    let productos = [];
-    let producto = {
-        nombre: document.querySelector('.product-info h1').innerHTML,
-        cantidad: parseInt(document.querySelector('#cantidad').value),
-        precio: parseInt(document.querySelector('.price').innerHTML.substr(2)),
-        img: document.querySelector('.modal img:first-child').src
-    }
+  let productos = [];
+  let producto = {
+    nombre: document.querySelector('.product-info h1').innerHTML,
+    cantidad: parseInt(document.querySelector('#cantidad').value),
+    precio: parseInt(document.querySelector('.price').innerHTML.substr(2)),
+    img: document.querySelector('.modal img:first-child').src
+  }
 
-    producto.img = producto.img.substr(producto.img.lastIndexOf('/') + 1, 10);
+  producto.img = producto.img.substr(producto.img.lastIndexOf('/') + 1, 10);
 
-    if (sessionStorage.getItem('productos')) {
-        productos = JSON.parse(sessionStorage.getItem('productos'));
-    }
+  if (sessionStorage.getItem('productos')) {
+    productos = JSON.parse(sessionStorage.getItem('productos'));
+  }
 
-    productos.push(producto);
-    sessionStorage.setItem('productos', JSON.stringify(productos));
+  productos.push(producto);
+  sessionStorage.setItem('productos', JSON.stringify(productos));
 
-    hideTopElements();
-    reduceItemsCount();
+  hideTopElements();
+  reduceItemsCount();
 
-    // Show 'product added message'
+  // Show 'product added message'
+  msg.classList.toggle('visible');
+  document.getElementById('product-name').innerHTML = producto.nombre;
+  document.getElementById('product-thumb').src = '/data/thumbs/' + producto.img;
+
+  window.setTimeout(() => {
     msg.classList.toggle('visible');
-    document.getElementById('product-name').innerHTML = producto.nombre;
-    document.getElementById('product-thumb').src = '/data/thumbs/'+ producto.img;
-
-    window.setTimeout(() => {
-        msg.classList.toggle('visible');
-    }, 5000);
+  }, 5000);
 });
 
 function countItems() {
-    var productos = JSON.parse(sessionStorage.getItem('productos'));
-    var total = 0;
+  var productos = JSON.parse(sessionStorage.getItem('productos'));
+  var total = 0;
 
-    if (productos) {
-        for (var i = 0; i < productos.length; i++) {
-            total += parseInt(productos[i].cantidad);
-        }
+  if (productos) {
+    for (var i = 0; i < productos.length; i++) {
+      total += parseInt(productos[i].cantidad);
     }
+  }
 
-    itemsCounterElement.innerHTML = total;
+  itemsCounterElement.innerHTML = total;
 }
 
 async function loadSuggestions() {
-    // load suggestions.json file
-    const response = await fetch('/data/suggestions.json');
-    const data = await response.json();
-    return data;
+  // load suggestions.json file
+  const response = await fetch('/data/suggestions.json');
+  const data = await response.json();
+  return data;
 }
 
 function searchSuggestions(input) {
 
-    let data = [];
+  let data = [];
 
-    suggestions.forEach((element) => {
+  suggestions.forEach((element) => {
 
-        if(data.length < 6) {
-            if (element.name.toLowerCase().includes(input.toLowerCase())) {
-                data.push(element.name);
-            }
-        }
-    });
-    return data;
+    if (data.length < 6) {
+      if (element.name.toLowerCase().includes(input.toLowerCase())) {
+        data.push(element.name);
+      }
+    }
+  });
+  return data;
 }
 
 function hideTopElements() {
-    let topElements = document.getElementsByClassName('top');
-    
-    Array.from(topElements).forEach(element => {
-        element.classList.remove('visible');
-        element.classList.remove('flex');
-    });
+  let topElements = document.getElementsByClassName('top');
 
-    body.classList.remove('block-scroll');
-    mask.classList.remove('visible');
+  Array.from(topElements).forEach(element => {
+    element.classList.remove('visible');
+    element.classList.remove('flex');
+  });
+
+  body.classList.remove('block-scroll');
+  mask.classList.remove('visible');
 }
