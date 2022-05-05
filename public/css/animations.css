@@ -1,3 +1,6 @@
+/*----------------------------------------*\
+  Animations
+\*----------------------------------------*/
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -54,25 +57,10 @@
   }
 }
 
-@keyframes menu {
-  0% {margin-left: -10%;}
-  100% {margin-left: 0;}
-}
-
 @keyframes msg {
   0% { opacity: 0; margin-top: -50px;}
   10% { margin-top: 0; }
   25% { opacity: 1; }
   80% { opacity: 1; }
   100% { opacity: 1; }
-}
-
-@keyframes menu-slide-down {
-  0% { margin-top: -30px; opacity: 0;}
-  100% { margin-top: 0; opacity: 1;}
-}
-
-@keyframes banner-slide {
-  0% { margin-right: 100%; }
-  100% { margin-right:  0; }
 }

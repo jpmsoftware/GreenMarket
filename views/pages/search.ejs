@@ -7,60 +7,53 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/animations.css">
   <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="icon" href="/img/favicon.svg">
-  <title>Green Market Uruguay</title>
+  <link rel="icon" href="/img/favicon.png">
+  <title>Green Market - Resultados de búsqueda</title>
 </head>
 
 <body>
+
+  <%- include('../partials/loading') %>
+
   <%- include('../partials/header') %>
 
     <!-- ARRAY OF PRODUCTS RETURNED BY APP.JS -->
-    <section class="categoria">
-      <h2>
-        <%= productos[0].categoria %>
-      </h2>
+    <section class="busqueda">
+      <h2>Resultados de búsqueda</h2>
 
       <p class="message" id="message"></p>
       <div class="card-collection" style="text-align: center;">
-
-        <% productos.map((producto)=> { %>
+        <% for (var i=0; i < productos.length; i++) { %>
           <div class="card visible">
-
-            <img src="/data/thumbs/<%= producto.imagen %>" alt="thumb" class="product-thumb">
-
+            <img src="/data/thumbs/<%= productos[i].imagen %>" alt="thumb" class="product-thumb">
             <div class="container">
-              <h4 class="product-name"><%= producto.nombre %></h4>
-              <p class="product-description"><%= producto.descripcion %></p>
-              <p class="product-price">$ <%= producto.precio %>
+              <h4 class="product-name"><%= productos[i].nombre %></h4>
+              <p class="product-description"><%= productos[i].descripcion %></p>
+              <p class="product-price">$ <%= productos[i].precio %>
               </p>
             </div>
-
           </div>
-          <% }) %>
-
+          <% } %>
       </div>
     </section>
 
     <%- include('../partials/product') %>
 
-      <%- include('../partials/footer') %>
+      <%- include('../partials/login') %>
 
-        <%- include('../partials/login') %>
-
-          <%- include('../partials/loading') %>
+        <%- include('../partials/footer') %>
 
             <%- include ('../partials/msg') %>
 
               <div class="mask" id="mask"></div>
 
               <script src="/js/main.js"></script>
-
               <script>
                 let message = document.getElementById('message');
                 let cardCount = document.querySelectorAll('.card').length;
 
                 cardCount < 1
-                  ? message.innerHTML = `No se encontraron productos`
+                  ? message.innerHTML = `Su búsqueda <b><%= search %></b> no arrojó resultados`
                   : message.innerHTML = `Se encontraron <b>${cardCount} productos</b>`;
 
                 message.classList.toggle('visible');

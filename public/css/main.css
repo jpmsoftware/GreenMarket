@@ -3,6 +3,8 @@
 
 :root {
   --green: #03bb85;
+  --blue: #4C4FC7;
+  --border-color: #e2e1e1;
 }
 
 ::placeholder {
@@ -174,7 +176,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .search-suggestions a {
   display: block;
   line-height: 100%;
-  padding: .9em 1.2em;
+  padding: 1em 1.2em;
   font-size: .9rem;
 }
 
@@ -196,17 +198,15 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .user-panel a {
-  margin-top: 1em;
   position: relative;
-  display: block;
-  height: 20px;
 }
 
-.user-panel a:first-child {
+.user-panel i:first-child {
   display: none;
 }
 
 .user-panel img {
+  margin-top: 1em;
   width: 1.6em;
   height: 1.6em;
 }
@@ -230,6 +230,7 @@ input[type="search"]::-webkit-search-results-decoration {
   top: 0;
   left: 0;
   width: 100%;
+  border-bottom: 1px solid lightgray;
   animation: header-sticky .4s 1;
 }
 
@@ -258,12 +259,12 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .items-counter {
   position: absolute;
-  top: -100%;
+  top: 0%;
   left: 25%;
   padding: .2em;
   color: #000;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .login-window {
@@ -320,6 +321,10 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-right: .75em;
   width: 1.5em;
   height: 1.5em;
+}
+
+.remember-user-data {
+  cursor: pointer;
 }
 
 .btn-login {
@@ -381,7 +386,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 0 .75em;
   width: 1em;
   height: 1em;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   border-radius: 50%;
 }
 
@@ -422,7 +427,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .msg a {
   margin-top: 3em;
-  background: #4C4FC7;
+  background: var(--blue);
   width: 100%;
   text-align: center;
   border-radius: 5px;
@@ -600,9 +605,15 @@ h3 {
   width: 11vw;
   background-color: #fff;
   border: 1px solid transparent;
+  border-radius: 5px;
   min-height: 16em;
   animation: FadeIn 1s 1;
   cursor: pointer;
+}
+
+.card:hover { 
+  transition: all .3s;
+  border: 1px solid var(--green);
 }
 
 .horizontal {
@@ -612,11 +623,6 @@ h3 {
 .vertical img {
   width: 100%;
   height: 325px;
-}
-
-.card:hover { 
-  transition: all .4s;
-  border: 1px solid #000;
 }
 
 .populares .card {
@@ -645,7 +651,7 @@ h3 {
 }
 
 .product-name {
-  height: 5em;
+  height: 4em;
   font-weight: 500;
   font-size: .9rem;
 }
@@ -666,6 +672,7 @@ h3 {
   height: 55%;
   padding: 2.5vw;
   background-color: #fff;
+  border-radius: 5px;
   display: none;
   z-index: 2;
   animation: fade-in .4s 1, move-down .4s 1;
@@ -676,6 +683,7 @@ h3 {
 }
 
 .thumb-container {
+  margin-top: .5em;
   position: relative;
   text-align: center;
 }
@@ -930,7 +938,7 @@ footer li:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, .8);
   z-index: 1;
   transition: all .5s;
 }
@@ -946,7 +954,7 @@ footer li:hover {
   height: 100%;
   background: #fff;
   flex-direction: column;
-  z-index: 1;
+  z-index: 2;
 }
 
 .lds-roller {
@@ -1046,11 +1054,16 @@ footer li:hover {
   grid-column-gap: 1em;
 }
 
-.products-table {
+.cart-content-container {
+  display: flex;
+}
+
+.left-side {
   position: relative;
   width: 60%;
-  padding: 2em;
-  border: 1px solid lightgray;
+  padding: 2em 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
 }
 
 .table {
@@ -1068,22 +1081,19 @@ footer li:hover {
   width: 100%;
 }
 
-.border-bottom {
-  border-bottom: 1px solid lightgray;
-}
-
 .table th {
-  color: rgba(0, 0, 0, .7);
+  opacity: .5;
   font-weight: 600;
   font-size: 1rem;
+  text-align: left;
   padding: 1.75em 0;
 }
 
 .table td {
   padding: 1em 0;
   color: rgb(99, 99, 99);
-  font-size: 1rem;
-  cursor: default;
+  font-size: .9rem;
+  vertical-align: middle;
 }
 
 .table td:first-child {
@@ -1103,6 +1113,7 @@ footer li:hover {
 
 .table tbody tr:hover {
   background: #f4f4f4;
+  cursor: pointer;
 }
 
 .separator {
@@ -1126,6 +1137,7 @@ footer li:hover {
 }
 
 .btn-delete-product img {
+  margin-top: 1.5em;
   width: .9em;
   cursor: pointer;
 }
@@ -1138,19 +1150,18 @@ footer li:hover {
   margin: 1em 0;
 }
 
-.button-carrito {
+.btn-buy {
   display: none;
-  padding: 1.5vw 2vw;
+  padding: 2.5em;
   color: #fff;
-  cursor: pointer;
-  border-radius: 3px;
+  border-radius: 5px;
   background: var(--green);
-  float: right;
+  cursor: pointer;
 }
 
-.button-carrito:hover {
+.btn-buy:hover {
   transition: all .3s;
-  background: darkgoldenrod;
+  background: var(--blue);
 }
 
 .loader,
@@ -1219,27 +1230,36 @@ footer li:hover {
   border-radius: 1em;
 }
 
-.payment-method {
+.right-side {
   margin-left: 2em;
   padding: 2em;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  height: 55%;
+  border-radius: 10px;
 }
 
-.payment-method p {
+.sight-side p {
   margin-left: 1em;
 }
 
-/* font for numbers */ 
-.items-counter, .product-price, .price, .items-cantidad, 
-.products-table td:nth-child(3), 
-.products-table td:nth-child(4),
-.products-table td:nth-child(5),
-.total {
-  font-family: 'Source Code Pro', monospace;
+.payment-options div {
+  margin: .5em 0;
 }
 
-.button-carrito {
+.payment-options * {
+  cursor: pointer;
+}
+
+/* font for numbers only */ 
+.items-counter, .product-price, .price, .items-cantidad, 
+.left-side td:nth-child(3), 
+.left-side td:nth-child(4),
+.left-side td:nth-child(5),
+.total {
+  font-family: 'Arial-Narrow', sans-serif;
+}
+
+.btn-buy {
   margin-bottom: 5em;
   float: left;
 }
@@ -1248,6 +1268,9 @@ footer li:hover {
   margin-bottom: 2em;
   color: #000;
 }
+.left-side h3 {
+  margin-left: 2em;
+}
 
 .carrito {
   min-height: 1000px;
@@ -1255,5 +1278,5 @@ footer li:hover {
 
 .table tbody {
   height: 50vh;
-  overflow-y: scroll;
+  overflow-y:auto;
 }

@@ -2,62 +2,65 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/animations.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="icon" href="/img/favicon.png">
-    <title>Green Market Uruguay</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="icon" href="/img/favicon.png">
+  <title>Green Market</title>
 </head>
 
 <body>
+  <%- include('../partials/loading') %>
+
     <%- include('../partials/header') %>
 
-        <div class="slider-container">
-            <img src="/img/banner-beyond-meat.jpg" class="slider-item" alt="banner">
-            <img src="/img/banner-vegalatto.jpg" class="slider-item" alt="banner">
-            <img src="/img/Cyber_monday_with_neon_light_shape_background_design.jpg" class="slider-item" alt="banner">
-            <div class="controls">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <script src="/js/slideshow.js"></script>
+      <div class="slider-container">
+        <img src="/img/banner-beyond-meat.jpg" class="slider-item" alt="banner">
+        <img src="/img/banner-vegalatto.jpg" class="slider-item" alt="banner">
+        <img src="/img/Cyber_monday_with_neon_light_shape_background_design.jpg" class="slider-item" alt="banner">
+        <div class="controls">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+        <script src="/js/slideshow.js"></script>
+      </div>
 
-        <%- include ('../partials/msg') %>
+      <%- include ('../partials/msg') %>
 
         <%- include('../partials/ofertas') %>
 
-        <div class="banner-container horizontal">
+          <div class="banner-container horizontal">
             <img src="/img/banner-comida-preparada.jpg" alt="banner">
             <img src="/img/banner-korean-vegan-book.jpg" alt="banner">
             <img src="/img/banner-mobile-app.jpg" alt="banner">
-        </div>
+          </div>
 
-        <%- include('../partials/populares') %>
+          <%- include('../partials/populares') %>
 
-        <div class="banner-container vertical">
-            <img src="/img/banner_picada_naturezas.jpg" alt="banner">
-            <img src="/img/banner-beyond-meat-burger.jpg" alt="banner">
-        </div>
+            <div class="banner-container vertical">
+              <img src="/img/banner_picada_naturezas.jpg" alt="banner">
+              <img src="/img/banner-beyond-meat-burger.jpg" alt="banner">
+            </div>
 
-        <div class="banner-container">
-                        
-        </div>
+            <div class="banner-container">
 
-        <%- include('../partials/product') %>
+            </div>
 
-        <%- include('../partials/login') %>
+            <%- include('../partials/product') %>
 
-        <%- include('../partials/footer') %>
+              <%- include('../partials/login') %>
 
-        <div class="mask" id="mask"></div>
+                <%- include('../partials/footer') %>
 
-        <%- include('../partials/loading') %>
+                  <div class="mask" id="mask"></div>
 
-        <script defer src="/js/main.js"></script>
-        <script defer src="/js/products.js"></script>
+
+
+                  <script defer src="/js/main.js"></script>
+                  <script defer src="/js/products.js"></script>
 </body>
+
 </html>

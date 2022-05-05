@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="icon" href="/img/favicon.png">
+  <title>Green Market - Carrito</title>
+</head>
+
+<body>
+  <%- include('../partials/loading') %>
+
+  <%- include('../partials/header') %>
+
+  <section class="carrito">
+    <h2>MI CARRITO</h2>
+
+    <p class="msg-carrito" id="msg-carrito">
+      No tiene productos en su carrito
+      <br><br><a href="./">
+        < Volver</a>
+    </p>
+
+    <div class="cart-content-container">
+      <div class="left-side">
+        <h3>Productos</h3>
+        <table class="table" id="table">
+          <thead>
+            <th></th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Ctd.</th>
+            <th>Sub-total</th>
+            <th></th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="right-side">
+        <h3>Medio de pago</h3>
+        <div class="payment-options">
+          <div>
+            <label for="credit-debit">
+              <input type="radio" name="payment" id="credit-debit" value="credit_debit" checked> Tarjeta de crédito
+              o débito
+            </label>
+          </div>
+
+          <div>
+            <label for="paypal">
+              <input type="radio" name="payment" id="paypal" value="paypal"> Pagar con PayPal
+            </label>
+          </div>
+
+          <div>
+            <label for="cash">
+              <input type="radio" name="payment" id="cash" value="cash"> Efectivo en la entrega
+            </label>
+          </div>
+        </div>
+
+        <p class="total" id="total"></p>
+        <a class="btn-buy" id="button-carrito">Finalizar compra</a>
+      </div>
+
+    </div>
+  </section>
+
+  <%- include('../partials/footer') %>
+
+  <%- include('../partials/login') %>
+
+  <div class="mask" id="mask"></div>
+
+  <script src="/js/main.js"></script>
+  <script defer src="/js/carrito.js"></script>
+</body>
+</html>

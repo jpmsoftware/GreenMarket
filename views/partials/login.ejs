@@ -1,17 +1,18 @@
 <form action="/login" method="POST" class="login-window top" id="login-window">
-    <h2>Iniciar sesión</h2>
-    <div class="content">
-        <label for="">E-Mail:</label>
-        <input type="email" name="email" required>
-        <label for="">Contraseña:</label>
-        <input type="password" name="password" required>
-        <div style="display: flex; align-items: center; margin-top: 2em;">
-            <input type="checkbox">
-            Recordarme
-        </div>
-        <input type="submit" class="btn-login" id="btn-login" value="INGRESAR">
-        <div style="margin-top: 1em; display: flex; flex-direction: column; text-align: center;">
-            <a href="/register">Registrarse</a>
-        </div>
+  <h2>Iniciar sesión</h2>
+  <div class="content">
+    <label for="">E-Mail:</label>
+    <input type="email" name="email" required>
+    <label for="">Contraseña:</label>
+    <input type="password" name="password" required>
+    <label for="remeber-user-data" class="remember-user-data">
+      <input type="checkbox" name="checkbox-remeber-user-data" id="remeber-user-data" >
+      Recordarme
+    </label>
+
+    <input type="submit" class="btn-login" id="btn-login" value="INGRESAR">
+    <div style="margin-top: 1em; display: flex; flex-direction: column; text-align: center;">
+      <a href="/signup">Registrarse</a>
     </div>
+  </div>
 </form>

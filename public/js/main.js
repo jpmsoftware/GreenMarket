@@ -1,33 +1,33 @@
-const loading = document.getElementById('loading');
-const header = document.getElementById('header');
-const body = document.querySelector('body');
-const mask = document.getElementById('mask');
-const dialog = document.querySelector('.modal');
-const burger = document.getElementById('burger');
-const mobileMenu = document.getElementById('header-bottom');
-const btnAddProduct = document.getElementById('agregar');
-const iconClose = document.getElementById('icon-close');
-const closeIcon = document.getElementById('icon-close-modal');
-const cards = document.querySelectorAll('.card');
-const btnSearch = document.getElementById('btn-search');
-const quantityElement = document.getElementById('cantidad');
-const iconSearch = document.getElementById('icon-search');
-const searchForm = document.getElementById('form-search');
-const plusIcon = document.getElementById('plus');
-const minusIcon = document.getElementById('minus');
-const menuElement = document.getElementById('categories-menu');
-const msg = document.getElementById('msg');
-const searchInput = document.getElementById('search-box');
-const searchSuggestionsElement = document.getElementById('search-suggestions');
-const itemsCounterElement = document.querySelector('.items-counter');
-const loginButton = document.getElementById('login-button');
-const loginWindow = document.getElementById('login-window');
 var suggestions = null;
-
-
+var loading = document.getElementById('loading');
+var header = document.getElementById('header');
+var body = document.querySelector('body');
+var mask = document.getElementById('mask');
+var dialog = document.querySelector('.modal');
+var burger = document.getElementById('burger');
+var mobileMenu = document.getElementById('header-bottom');
+var btnAddProduct = document.getElementById('agregar');
+var favourites = document.getElementById('favourites');
+var iconClose = document.getElementById('icon-close');
+var closeIcon = document.getElementById('icon-close-modal');
+var cards = document.querySelectorAll('.card');
+var btnSearch = document.getElementById('btn-search');
+var quantityElement = document.getElementById('cantidad');
+var iconSearch = document.getElementById('icon-search');
+var searchForm = document.getElementById('form-search');
+var plusIcon = document.getElementById('plus');
+var minusIcon = document.getElementById('minus');
+var menuElement = document.getElementById('categories-menu');
+var msg = document.getElementById('msg');
+var searchInput = document.getElementById('search-box');
+var searchSuggestionsElement = document.getElementById('search-suggestions');
+var itemsCounterElement = document.querySelector('.items-counter');
+var loginButton = document.getElementById('login');
+var loginWindow = document.getElementById('login-window');
 
 window.onload = async function () {
   suggestions = await loadSuggestions();
+
   countItems();
 
   loading.classList.remove('visible');
@@ -36,12 +36,14 @@ window.onload = async function () {
 window.onscroll = () => {
   if (window.scrollY >= 400) {
     header.classList.add('sticky');
-    header.classList.add('border-bottom');
   } else {
     header.classList.remove('sticky');
-    header.classList.remove('border-bottom');
   }
 }
+
+favourites.addEventListener('click', () => {
+  alert('Aún no ha agregado ningun producto a "favoritos"');
+});
 
 searchInput.addEventListener('keyup', (e) => {
   if (searchInput.value.length > 0) {
@@ -68,6 +70,8 @@ searchInput.addEventListener('keyup', (e) => {
   }
 });
 
+btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
+
 burger.addEventListener('click', () => {
   mobileMenu.classList.toggle('visible');
   body.classList.toggle('block-scroll');
@@ -76,8 +80,6 @@ burger.addEventListener('click', () => {
 iconClose.addEventListener('click', () => {
   mobileMenu.classList.remove('visible');
 });
-
-btnSearch.addEventListener('click', () => document.forms.namedItem('form-search').submit());
 
 iconSearch.addEventListener('click', () => {
   alert();
@@ -91,7 +93,7 @@ loginButton.addEventListener('click', () => {
 });
 
 mask.addEventListener('click', () => {
-  hideTopElements();
+  closeTopElements();
 });
 
 function openProduct(product) {
@@ -149,7 +151,7 @@ minusIcon.addEventListener('click', () => {
   }
 });
 
-closeIcon.addEventListener('click', () => hideTopElements());
+closeIcon.addEventListener('click', () => closeTopElements());
 
 btnAddProduct.addEventListener('click', () => {
   let productos = [];
@@ -169,7 +171,7 @@ btnAddProduct.addEventListener('click', () => {
   productos.push(producto);
   sessionStorage.setItem('productos', JSON.stringify(productos));
 
-  hideTopElements();
+  closeTopElements();
   reduceItemsCount();
 
   // Show 'product added message'
@@ -197,8 +199,10 @@ function countItems() {
 
 async function loadSuggestions() {
   // load suggestions.json file
-  const response = await fetch('/data/suggestions.json');
-  const data = await response.json();
+  let file = await fetch('/data/suggestions.json');
+
+  let data = await file.json();
+
   return data;
 }
 
@@ -217,7 +221,7 @@ function searchSuggestions(input) {
   return data;
 }
 
-function hideTopElements() {
+function closeTopElements() {
   let topElements = document.getElementsByClassName('top');
 
   Array.from(topElements).forEach(element => {
